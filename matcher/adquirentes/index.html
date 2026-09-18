@@ -1,0 +1,507 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Conciliação de adquirentes em escala | Lerian Matcher</title>
+<meta name="description" content="Conciliação de adquirentes em escala, para adquirentes, subadquirentes, PSPs e bancos liquidantes. Matching N-way entre vendas, autorizações, liquidações e taxas, com auditoria de MDR e trilha de auditoria em cada match." />
+<link rel="canonical" href="https://matcher.lerian.studio/adquirentes" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Lerian Matcher" />
+<meta property="og:locale" content="pt_BR" />
+<meta property="og:url" content="https://matcher.lerian.studio/adquirentes" />
+<meta property="og:title" content="Conciliação de adquirentes em escala | Lerian Matcher" />
+<meta property="og:description" content="Conciliação de adquirentes em escala, para adquirentes, subadquirentes, PSPs e bancos liquidantes. Matching N-way entre vendas, autorizações, liquidações e taxas, com auditoria de MDR e trilha de auditoria em cada match." />
+<meta property="og:image" content="https://matcher.lerian.studio/og-matcher.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Conciliação de adquirentes em escala | Lerian Matcher" />
+<meta name="twitter:description" content="Conciliação de adquirentes em escala, para adquirentes, subadquirentes, PSPs e bancos liquidantes. Matching N-way entre vendas, autorizações, liquidações e taxas, com auditoria de MDR e trilha de auditoria em cada match." />
+<meta name="twitter:image" content="https://matcher.lerian.studio/og-matcher.png" />
+<!-- Fontes self-hosted. Os @font-face vivem no proprio styles-ink.css, entao nao existe
+     CSS de terceiro render-blocking nem a cadeia critica via Google Fonts.
+     Esta pagina usa o design system institucional (IBM Plex Serif/Sans/Mono) e NAO o
+     styles.css das demais paginas, que segue na fonte antiga e nao e tocado aqui.
+     O preload e do Serif 300 (peso do H1, elemento de LCP) e do Sans 400 (corpo). -->
+<link rel="preload" href="../fonts/ibm-plex-serif-300-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="../fonts/ibm-plex-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="stylesheet" href="../styles-ink.css?v=1" />
+    <!-- ===== Tracking (portado do site antigo matcher.lerian.studio, 2026-07-16) ===== -->
+    <!-- Google Analytics 4 + Google Ads -->
+    
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-GVRJFDH02S');
+      gtag('config', 'AW-18090346848');
+    </script>
+    <meta name="facebook-domain-verification" content="tret8vslnn68ul6wt0i8otcamyrc42" />
+    <!-- RD Station Tracking Script (Lead Tracking + Form Origin) -->
+    <!-- NAO ADIAR ESTE. O handler do form le os cookies `rdtrk` e `__trf.src`, que sao
+         setados por este loader, e os manda como client_tracking_id / traffic_source.
+         Se vierem vazios o lead entra ORFAO no RD, sem origem "Busca Paga" e sem gclid.
+         Quem envia o form rapido e justamente o caso que ja quebrou 4 vezes (PRs #38 a #41). -->
+    
+    <!-- Tracking nao critico, adiado para depois do `load` (P3 do pagespeed_report_2026-07-20).
+         Facebook Pixel (175KB + 108KB) e Albacross saiam do caminho do first paint: eram
+         eles que puxavam o TBT para 370-890ms. Continuam disparando PageView, so que depois.
+         DELIBERADAMENTE FORA DAQUI, porque sao criticos para atribuicao e para o lead:
+         GA4, a tag do Google Ads, a captura de gclid e o loader do RD acima. -->
+    
+    <!-- ===== /Tracking ===== -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Conciliação de adquirentes em escala | Lerian Matcher",
+  "serviceType": "Conciliação financeira automatizada",
+  "description": "Conciliação de adquirentes em escala, para adquirentes, subadquirentes, PSPs e bancos liquidantes. Matching N-way entre vendas, autorizações, liquidações e taxas, com auditoria de MDR e trilha de auditoria em cada match.",
+  "url": "https://matcher.lerian.studio/adquirentes",
+  "provider": { "@type": "Organization", "name": "Lerian", "url": "https://lerian.studio" },
+  "brand": { "@type": "Brand", "name": "Lerian Matcher" },
+  "areaServed": { "@type": "Country", "name": "Brasil" }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Matcher", "item": "https://matcher.lerian.studio/" },
+    { "@type": "ListItem", "position": 2, "name": "Adquirentes", "item": "https://matcher.lerian.studio/adquirentes" }
+  ]
+}
+</script>
+  </head>
+<body style="padding-top:36px"><div style="position:fixed;top:0;left:0;right:0;z-index:9999;background:#FEED02;color:#191A1B;font:600 13px/1.4 IBM Plex Sans,system-ui,sans-serif;padding:8px 16px;text-align:center">PRÉVIA · LP do Matcher no registro tinta · PR 54 (feat/matcher-lp-ads-revamp) · 18/set/2026 · formulário desativado · destino: matcher.lerian.studio/adquirentes/</div>
+  <!-- Meta Pixel Code (noscript) -->
+  
+
+
+<header class="nav" id="nav"><div class="container nav-in">
+  <a href="#" class="logo">lerian<span class="dim">.matcher</span></a>
+  <nav class="nav-links">
+    <a href="#como">Como funciona</a>
+    <a href="#">Recursos</a>
+    <div class="navdrop"><button class="navdrop-t" aria-haspopup="true">Segmentos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button><div class="navdrop-menu"><a href="../adquirentes/" style="background:#FEED02;color:#191A1B"><span class="di"></span>Adquirentes</a><a href="../fintechs/"><span class="di"></span>Fintechs e PSPs</a></div></div>
+    <a href="#demo">Diagnóstico</a>
+  </nav>
+  <a href="#demo" class="btn btn-primary">Solicitar demo</a><button class="navtoggle" id="navToggle" aria-label="menu" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+</div></header>
+
+
+<!-- ===================== HERO ===================== -->
+<section class="snap hero"><div class="container hero-grid">
+  <div>
+    <span class="badge"><b>Adquirentes</b> · Subadquirentes e PSPs</span>
+    <h1 class="h1 h1--long">Conciliação de adquirentes em <span class="u">escala</span>, para adquirentes, subadquirentes e PSPs.</h1>
+    <p class="sub">Feito para adquirente, subadquirente, PSP e banco liquidante: o Matcher cruza vendas, autorizações, liquidações e taxas entre bandeiras e antecipações, aponta cada divergência de MDR e reduz em até 90% o trabalho manual. Escala pra milhões de transações por dia.</p>
+    <div class="hero-cta">
+      <a href="#demo" class="btn btn-primary btn-lg">Veja no seu cenário <span class="arrow">→</span></a>
+      <a href="#como" class="btn btn-ghost btn-lg">Ver o Matcher rodar</a>
+    </div>
+    <div class="trust">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Matching N-way em escala</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Gestão de exceções com SLA</span>
+    </div>
+  </div>
+
+  <div class="term" id="term">
+    <div class="tbar">
+      
+      <span class="path">matcher · run/conciliacao-adquirente</span>
+      
+    </div>
+    <div class="tbody" id="trows"></div>
+    <div class="tcallout" id="tCallout">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+      <span class="t">MDR divergente: cobrado <b>R$ 2,45</b> · contratado <b>R$ 2,10</b></span>
+    </div>
+    <div class="tfoot">
+      <div><div class="fn g" id="fOk">0</div><div class="fl">Conciliados</div></div>
+      <div><div class="fn r" id="fBad">0</div><div class="fl">Exceções</div></div>
+      <button class="rodar" id="tReplay"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Rodar</button>
+      <div class="tbarprog"><i id="fProg"></i></div>
+    </div>
+  </div>
+</div>
+  <div class="cred"><div class="cred-in">
+    <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg> Construído sobre a plataforma Lerian</span>
+    <span class="sep"></span>
+    <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> Verificação automática de taxas</span>
+    <span class="sep"></span>
+    <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M18 9l-5 5-3-3-4 4"/></svg> Milhões de transações por dia</span>
+  </div></div>
+</section>
+
+
+<!-- ===================== DESAFIO / SOLUÇÃO ===================== -->
+<section class="snap brazil"><div class="container">
+  <div class="sec-head"><span class="eyebrow" style="justify-content:center">A camada de infraestrutura</span><h2>Milhões de transações entre bandeiras, bancos e antecipações</h2><p class="lead">Split de pagamentos torna tudo mais complexo, e as ferramentas atuais não acompanham a escala.</p></div>
+  <div class="br-grid">
+    <div class="br rv"><span class="flag">O desafio</span><h3>Autorização, liquidação, taxa e repasse</h3><p>Conciliar vendas contra autorizações, liquidações, taxas de bandeira, antecipações e o repasse ao merchant, em milhões de transações por dia. Erro de repasse gera disputa e churn.</p></div>
+    <div class="br rv"><span class="flag">Com o Matcher</span><h3>Matching N-way, taxa por taxa, em escala</h3><p>Cruzamento automatizado de vendas vs autorizações vs liquidações vs taxas. Verificação automática de MDR e antecipação, com gestão de exceções por prioridade e SLA, escalando pra milhões.</p><ul><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Matching N-way entre múltiplas fontes</li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Verificação automática de taxas e repasses</li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Exceções com routing e SLA</li></ul></div>
+  </div>
+</div></section>
+
+
+<!-- ===================== COMO FUNCIONA (scroll-driven) ===================== -->
+<section class="flow" id="como"><div class="container">
+  <div class="flow-head">
+    <span class="eyebrow" style="justify-content:center">Veja o Matcher trabalhar</span>
+    <h2 class="balance">Da autorização ao repasse, num lugar só</h2>
+    <p class="lead">Role para acompanhar a conciliação N-way dentro do produto, da ingestão dos arquivos ao fechamento.</p>
+  </div>
+  <div class="flow-grid">
+    <div class="flow-stages" id="stages">
+      <p class="flow-hint">Toque em cada etapa para ver a tela no produto</p>
+      <div class="stage" data-i="0" data-on="1"><div class="st-top"><span class="snum">01</span><h3>Ingestão</h3></div><p>Arquivos de bandeira, banco liquidante, autorizações e antecipações entram por API ou upload, em qualquer formato. Limpeza e deduplicação automáticas.</p></div>
+      <div class="stage" data-i="1"><div class="st-top"><span class="snum">02</span><h3>Conciliação N-way</h3></div><p>Cruza vendas vs autorizações vs liquidações vs taxas em segundos. Matching exato, com tolerância ou N-way, entendendo split e prazo.</p></div>
+      <div class="stage" data-i="2"><div class="st-top"><span class="snum">03</span><h3>Conciliação de recebíveis, taxas e repasse</h3></div><p>Confere MDR, antecipação e repasse ao merchant contra o contratado. Divergência vira exceção priorizada, com SLA e responsável.</p></div>
+      <div class="stage" data-i="3"><div class="st-top"><span class="snum">04</span><h3>Contábil</h3></div><p>Gera o lançamento contábil e sincroniza com o ERP, com trilha de auditoria imutável e exportável.</p></div>
+    </div>
+    <div class="flow-sticky">
+      <div class="console" id="console">
+        <div class="tbar"><span class="path" id="cPath">matcher · ingestao</span></div>
+        <div class="dash">
+          <aside class="dnav">
+            <div class="brand"><i><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="7" cy="12" r="3"/><circle cx="17" cy="12" r="3"/><path d="M10 12h4"/></svg></i> Matcher</div>
+            <div class="grp">Configurar</div>
+            <a data-nav="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M8 11l4 4 4-4M4 21h16"/></svg> Importar arquivo</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Contextos</a>
+            <div class="grp">Operar</div>
+            <a data-nav="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3v18M7 3v18M3 7h4M17 7h4M3 17h4M17 17h4"/></svg> Conciliações</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> Sugestões de regra</a>
+            <div class="grp">Resolver</div>
+            <a data-nav="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> Não conciliados</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg> Exceções</a>
+            <div class="grp">Relatórios</div>
+            <a data-nav="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M18 9l-5 5-3-3-4 4"/></svg> Portfólio</a>
+          </aside>
+          <div class="dmain">
+            <div class="cscreen on" data-i="0">
+              <div class="dh"><div><h4>Importar fontes</h4><div class="subt">Bandeira, banco liquidante e antecipações.</div></div><span class="ctxpill"><b>[demo]</b> · adquirente</span></div>
+              <div class="drow"><span class="fi">CSV</span><div><div class="fn">bandeira_liquidacao.csv</div><div class="fm">4.812.004 transações · 6 colunas mapeadas</div></div><span class="fs">limpo</span></div>
+              <div class="drow"><span class="fi">EDI</span><div><div class="fn">banco_liquidante.edi</div><div class="fm">3.204.118 registros</div></div><span class="fs">limpo</span></div>
+              <div class="drow"><span class="fi">CSV</span><div><div class="fn">antecipacoes.csv</div><div class="fm">210.774 lotes · 512 duplicados removidos</div></div><span class="fs">limpo</span></div>
+              <div class="drow"><span class="fi">JSON</span><div><div class="fn">autorizacoes.json</div><div class="fm">5.108.940 registros</div></div><span class="fs">limpo</span></div>
+            </div>
+            <div class="cscreen" data-i="1">
+              <div class="dh"><div><h4>Painel de conciliação</h4><div class="subt">Vendas vs autorização vs liquidação vs taxa.</div></div><span class="ctxpill"><b>[demo]</b> · N-way</span></div>
+              <div class="dcard">
+                <div class="ck"><span>Taxa de conciliação</span><span>por contagem</span></div>
+                <div class="mrate-big"><span id="rateNum">96,8</span>%</div>
+                <div class="mbar"><i id="rateBar"></i></div>
+                <div class="mscale"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
+                <div class="mstats">
+                  <div><span class="lab"><i style="background:#50F769"></i>Conciliados</span><div class="big g2">9,84 M</div><div class="amt">R$ 1,2 bi</div></div>
+                  <div><span class="lab" style="justify-content:flex-end"><i style="background:#FF6760"></i>Não conciliados</span><div class="big r2">312 k</div><div class="amt">R$ 38,4 M</div></div>
+                </div>
+              </div>
+            </div>
+            <div class="cscreen" data-i="2">
+              <div class="dh"><div><h4>Exceções</h4><div class="subt">Só o que precisa de um humano, já classificado.</div></div><span class="ctxpill"><b>312k</b> abertas</span></div>
+              <div class="exc"><span class="ei r"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span><div><div class="etitle">MDR acima do contratado</div><div class="emeta">MDR-9014 · Visa crédito → contratado</div></div><div style="text-align:right"><div class="eamt">R$ 0,35</div><span class="etag">taxa</span></div></div>
+              <div class="exc"><span class="ei y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><div><div class="etitle">Autorização sem liquidação</div><div class="emeta">AUT-88110 · banco liquidante A</div></div><div style="text-align:right"><div class="eamt">R$ 1.240,00</div><span class="etag">liquidação</span></div></div>
+              <div class="exc"><span class="ei y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></span><div><div class="etitle">Antecipação divergente</div><div class="emeta">LOTE-2291 · Mastercard → repasse</div></div><div style="text-align:right"><div class="eamt">R$ 8.410,00</div><span class="etag">antecipação</span></div></div>
+              <div class="exc"><span class="ei y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><div class="etitle">Repasse ao merchant atrasado</div><div class="emeta">RPS-4471 · merchant 8842</div></div><div style="text-align:right"><div class="eamt">R$ 2.310,00</div><span class="etag">timing</span></div></div>
+            </div>
+            <div class="cscreen" data-i="3">
+              <div class="dh"><div><h4>Fechamento</h4><div class="subt">Lançamento gerado e sincronizado com o ERP.</div></div><span class="ctxpill"><b>[demo]</b> · D0</span></div>
+              <div class="rep-grid">
+                <div class="rep"><div class="k">Conciliado</div><div class="v g2">9,84 M</div><div class="a">R$ 1,2 bi</div></div>
+                <div class="rep"><div class="k">Exceções resolvidas</div><div class="v">96%</div><div class="a">no mesmo dia</div></div>
+                <div class="rep full"><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><div class="txt">Repasse e lançamento contábil sincronizados<small>trilha de auditoria imutável · exportável PDF/CSV</small></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ===================== PROVA ===================== -->
+<section class="prova"><div class="container">
+  <div class="prova-stat rv"><span class="pn">3% a 5%</span><p class="pc">da receita some em revenue leakage: conciliação que não fecha, taxa mal aplicada e cobrança que ninguém confere. A maioria das empresas nem enxerga o rombo.</p></div>
+  <cite>MGI Research, 2024</cite>
+</div></section>
+
+
+<!-- ===================== FORM ===================== -->
+<section class="snap formsec" id="demo"><div class="container fg">
+  <div>
+    <span class="eyebrow">Solicite uma demo</span>
+    <h2>Veja o Matcher na sua operação de adquirência</h2>
+    <p class="lead" style="margin-top:16px">Conte seu volume e suas fontes de liquidação. Mostramos como a conciliação N-way roda no seu cenário.</p>
+    <ul class="ul">
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Matching N-way entre bandeiras, bancos e taxas</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Verificação automática de MDR e repasse</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Gestão de exceções com routing e SLA</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Escala pra milhões de transações por dia</li>
+    </ul>
+  </div>
+  <div class="fcard">
+    <h3>Fale com o time</h3>
+    <p class="fh">Preencha e retornamos com um cenário sob medida.</p>
+    <form class="lform" id="lform" novalidate onsubmit="return false" data-preview="1">
+      <div class="lf"><label for="c_name">Nome</label><input id="c_name" name="c_name" placeholder="Seu nome" required></div>
+      <div class="lf"><label for="c_email">Email corporativo</label><input id="c_email" name="c_email" type="email" placeholder="voce@empresa.com" required></div>
+      <div class="lf-row2"><div class="lf"><label for="c_company">Empresa</label><input id="c_company" name="c_company" placeholder="Sua empresa" required></div><div class="lf"><label for="c_job">Cargo</label><input id="c_job" name="c_job" placeholder="Seu cargo" required></div></div>
+      <div class="lf"><label for="c_segment">Segmento</label><select id="c_segment" name="c_segment" required><option value="">Selecione o segmento</option><option>Adquirente ou subadquirente</option><option>PSP, gateway ou marketplace</option><option>Banco ou instituição de pagamento</option><option>Fintech</option><option>BPO financeiro</option><option>Outro</option></select></div>
+      <div class="lf"><label for="c_phone">Telefone</label><input id="c_phone" name="c_phone" type="tel" placeholder="(11) 90000-0000"></div>
+      <div class="lf"><label for="c_how">Como soube do Matcher?</label><input id="c_how" name="c_how" placeholder="Opcional"></div>
+      <label class="lf-check"><input type="checkbox" name="c_consent"> Quero receber novidades de produto e conteúdo da Lerian.</label>
+      <!-- opt-out da captura automatica do RD. O rd-js-integration faz:
+                 document.querySelectorAll("form").forEach(f => {
+                   if (!f.querySelector('input[name="internal_source"], input[name="_is"]')) { ...engancha click em capture nos buttons... }
+                 })
+                 Com este input o form e pulado, entao ele nao cria a 2a conversao com Identificador `lform`.
+                 Comprovado em 28/jul: sem isto, 1 envio virava 2 eventos no RD. -->
+      <input type="hidden" name="_is" value="lerian-lp-matcher">
+      <div class="lf-hp" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input id="c_website" name="c_website" tabindex="-1" autocomplete="off"></div>
+      <button type="button" class="btn btn-primary lf-submit">Solicitar demo <span class="arrow">→</span></button>
+      <p class="lf-fine">Ao enviar, você concorda com a Política de Privacidade da Lerian.</p>
+    </form>
+    <div class="rd-fb" id="rdFb" style="display:none"></div>
+  </div>
+</div></section>
+
+
+<!-- ===================== FINAL ===================== -->
+<section class="snap final"><div class="container">
+  <span class="eyebrow" style="justify-content:center">Pronto pra começar?</span>
+  <h2 class="balance">Concilie a sua escala com auditoria em cada match.</h2>
+  <p class="lead">Matching N-way, verificação de taxas e exceções com SLA, na velocidade da sua operação.</p>
+  <a href="#demo" class="btn btn-primary btn-lg" style="margin-top:8px">Avaliar minha operação <span class="arrow">→</span></a>
+</div></section>
+
+
+<!-- ===================== FOOTER ===================== -->
+<footer><div class="container">
+  <div class="foot-grid">
+    <div>
+      <a href="#" class="logo" style="font-size:20px">lerian<span class="dim">.matcher</span></a>
+      <p class="foot-desc">Motor de conciliação financeira automatizada, com trilha de auditoria em cada match.</p>
+    </div>
+    <div class="foot"><h5>Segmentos</h5><ul><li><a href="../adquirentes/">Adquirentes</a></li><li><a href="../fintechs/">Fintechs e PSPs</a></li></ul></div>
+    <div class="foot"><h5>Empresa</h5><ul><li><a href="#">Home</a></li><li><a href="https://lerian.studio" target="_blank" rel="noopener">Lerian</a></li></ul></div>
+  </div>
+  <div class="foot-b"><span>© 2026 Lerian. Todos os direitos reservados.</span><span>contato@lerian.studio</span></div>
+</div></footer>
+
+<script>
+const reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+function whenSeen(el,cb){if(!el)return;const r=el.getBoundingClientRect();if(r.top<(window.innerHeight||0)&&r.bottom>0){cb();return}const o=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){cb();o.disconnect()}}),{threshold:.3});o.observe(el)}
+function countTo(el,to,dec){if(!el)return;if(reduce){el.textContent=dec?to.toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec}):to.toLocaleString('pt-BR');return}let c=0;const inc=to/28;const t=setInterval(()=>{c+=inc;if(c>=to){c=to;clearInterval(t)}el.textContent=dec?c.toLocaleString('pt-BR',{minimumFractionDigits:dec,maximumFractionDigits:dec}):Math.round(c).toLocaleString('pt-BR')},26)}
+
+const nav=document.getElementById('nav');
+addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passive:true});const navT=document.getElementById('navToggle');if(navT){navT.addEventListener('click',function(){const o=nav.classList.toggle('open');navT.setAttribute('aria-expanded',o)});nav.querySelectorAll('.nav-links a').forEach(function(a){a.addEventListener('click',function(){nav.classList.remove('open')})})}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
+document.querySelectorAll('.rv').forEach(el=>io.observe(el));
+
+/* HERO terminal */
+(function(){
+  const wrap=document.getElementById('trows'),callout=document.getElementById('tCallout'),ok=document.getElementById('fOk'),bad=document.getElementById('fBad'),prog=document.getElementById('fProg'),replay=document.getElementById('tReplay');
+  const data=[
+    {id:'AUT-9012',meta:'autorização → liquidação',v:'R$ 1.240,00',ok:true},
+    {id:'LIQ-9013',meta:'banco liquidante → extrato',v:'R$ 890,50',ok:true},
+    {id:'MDR-9014',meta:'taxa bandeira → contratado',v:'R$ 100,00',ok:false},
+    {id:'ANT-9015',meta:'antecipação → repasse',v:'R$ 2.310,00',ok:true}
+  ];
+  let timers=[];
+  function run(){
+    timers.forEach(clearTimeout);timers=[];callout.classList.remove('show');ok.textContent='0';bad.textContent='0';prog.style.width='0';
+    wrap.innerHTML=data.map((d,i)=>`<div class="trow" id="tr${i}"><div><div class="id">${d.id}</div><div class="meta">${d.meta}</div></div><div><div class="val">${d.v}</div><div style="text-align:right"><span class="tst wait" id="ts${i}"><i></i>conferindo</span></div></div></div>`).join('');
+    data.forEach((d,i)=>{
+      timers.push(setTimeout(()=>document.getElementById('tr'+i).classList.add('show'),150+i*370));
+      timers.push(setTimeout(()=>{const ts=document.getElementById('ts'+i),tr=document.getElementById('tr'+i);if(d.ok){ts.className='tst okk';ts.textContent='conciliado';tr.classList.add('ok')}else{ts.className='tst badd';ts.textContent='divergência';tr.classList.add('bad');callout.classList.add('show')}},150+i*370+820));
+    });
+    timers.push(setTimeout(()=>{countTo(ok,1247);bad.textContent='3';prog.style.width='99.8%'},150+data.length*370+900));
+  }
+  replay.addEventListener('click',run);
+  addEventListener('load',()=>setTimeout(()=>whenSeen(document.getElementById('term'),run),260));
+})();
+
+/* COMO FUNCIONA: scroll-driven console */
+(function(){
+  const stages=[...document.querySelectorAll('#stages .stage')],screens=[...document.querySelectorAll('#console .cscreen')],navs=[...document.querySelectorAll('#console .dnav a[data-nav]')],pathEl=document.getElementById('cPath');
+  const paths=['matcher · ingestao','matcher · nway','matcher · taxas','matcher · contabil'];
+  let cur=-1,rateDone=false;
+  function set(i){
+    if(i===cur)return;cur=i;
+    stages.forEach(s=>s.dataset.on=(+s.dataset.i===i)?'1':'0');
+    screens.forEach(s=>s.classList.toggle('on',+s.dataset.i===i));
+    navs.forEach(a=>a.classList.toggle('on',+a.dataset.nav===i));
+    pathEl.textContent=paths[i]||paths[0];
+    if(i===1&&!rateDone){rateDone=true;countTo(document.getElementById('rateNum'),96.8,1);const b=document.getElementById('rateBar');if(b){b.style.width='0';setTimeout(()=>b.style.width='96.8%',60)}}
+  }
+  set(0);
+  stages.forEach(function(s){s.addEventListener('click',function(){if(innerWidth<=960)set(+s.dataset.i)})});
+  /* P4 do pagespeed_report_2026-07-20: este handler era a fonte do forced reflow de 144ms.
+     Ele lia getBoundingClientRect() do #console e de CADA stage a cada evento de scroll,
+     que e layout thrashing. Duas correcoes:
+     1) as leituras de geometria passam a acontecer no maximo uma vez por frame (rAF);
+     2) o listener so fica ligado enquanto o #console esta no viewport (IntersectionObserver),
+        entao rolar o resto da pagina nao custa nada. */
+  const consoleEl=document.getElementById('console');
+  let ticking=false;
+  function medirEAplicar(){ticking=false;if(innerWidth<=960)return;const ref=consoleEl.getBoundingClientRect().top+40;let best=0;stages.forEach(s=>{if(s.getBoundingClientRect().top<=ref)best=+s.dataset.i});set(best)}
+  function onScroll(){if(ticking)return;ticking=true;requestAnimationFrame(medirEAplicar)}
+  if(consoleEl&&'IntersectionObserver'in window){
+    let ligado=false;
+    new IntersectionObserver(function(es){es.forEach(function(e){
+      if(e.isIntersecting&&!ligado){ligado=true;addEventListener('scroll',onScroll,{passive:true});onScroll()}
+      else if(!e.isIntersecting&&ligado){ligado=false;removeEventListener('scroll',onScroll)}
+    })},{rootMargin:'200px 0px'}).observe(consoleEl);
+  }else{
+    addEventListener('scroll',onScroll,{passive:true});onScroll();
+  }
+})();
+
+/* Matcher LP: form -> API de conversoes do RD -> conversao do Google Ads NO 200.
+   Substitui o embed escondido + espelhamento de campos + clique sintetico + o
+   interceptador de XHR/fetch. Antes a conversao disparava na TENTATIVA de envio
+   (subcontava quando o embed nao renderizava, supercontava quando o RD rejeitava).
+   Agora existe resposta na mao: dispara so quando o lead esta confirmado.
+   Ver ~/Lerian Ads/Google Ads/recursos/proposta_form_api_rd_2026-07-28.md */
+(function(){
+  var RD_KEY  = '3d9b260782c2475fe858bb11775e750f';   /* token PUBLICO, feito pra ficar no front */
+  var RD_URL  = 'https://api.rd.services/platform/conversions?api_key=' + RD_KEY;
+  var CONV_ID = 'formulario-lp-matcher';
+  var AW      = 'AW-18090346848/lO9wCKjoxawcEOCSk7JD';
+
+  var lf = document.getElementById('lform'); if(!lf) return;
+
+  function cookie(n){
+    var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)');
+    return m ? decodeURIComponent(m[2]) : '';
+  }
+
+  /* gclid capturado em QUALQUER pageview e persistido: o usuario pode entrar por
+     /adquirentes com ?gclid e enviar o form em outra pagina. 90d = janela de import. */
+  function gclid(){
+    try{
+      var u = new URLSearchParams(location.search).get('gclid');
+      if(u) localStorage.setItem('ler_gclid', JSON.stringify({v:u, t:Date.now()}));
+      var s = JSON.parse(localStorage.getItem('ler_gclid') || 'null');
+      if(s && Date.now() - s.t < 90*864e5) return s.v;
+      var c = cookie('_gcl_aw');                       /* fallback: GCL.<ts>.<gclid> */
+      return c ? c.split('.').slice(2).join('.') : '';
+    }catch(e){ return '' }
+  }
+  gclid();
+
+  function showOk(){
+    var card = lf.parentElement;
+    if(card.querySelector('.lf-ok')) return;
+    lf.style.display = 'none';
+    var o = document.createElement('div');
+    o.className = 'lf-ok';
+    o.innerHTML = '<div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>'
+                + '<h4>Recebemos seu contato</h4><p>Nosso time retorna com um cenário sob medida.</p>';
+    card.appendChild(o);
+  }
+
+  function showErr(sb, msg){
+    var e = lf.querySelector('.lf-err');
+    if(!e){
+      e = document.createElement('p');
+      e.className = 'lf-err';
+      e.style.cssText = 'color:#FF6760;font-size:13px;margin:8px 0 0';
+      sb.parentNode.insertBefore(e, sb);
+    }
+    e.textContent = msg;
+    sb.textContent = 'Solicitar demo';
+    sb.disabled = false;
+  }
+
+  function onSubmit(e){
+    e.preventDefault();
+    /* Corta a propagacao pro loader do RD, que captura <form> sozinho e criaria
+       uma SEGUNDA conversao (era ele que gerava o `Identificador: lform`). */
+    e.stopPropagation();
+    if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+
+    /* honeypot: bot preenche campo invisivel. Aceita calado e nao envia nada. */
+    if(lf.elements.c_website && lf.elements.c_website.value) { showOk(); return; }
+
+    var ok = true;
+    ['c_name','c_email','c_company','c_job','c_segment'].forEach(function(n){
+      var el = lf.elements[n];
+      if(!el.value.trim()){ el.classList.add('lf-error'); ok = false }
+      else el.classList.remove('lf-error');
+    });
+    if(!ok) return;
+
+    var sb = lf.querySelector('.lf-submit');
+    sb.textContent = 'Enviando...'; sb.disabled = true;
+    var old = lf.querySelector('.lf-err'); if(old) old.remove();
+
+    var body = { event_type:'CONVERSION', event_family:'CDP', payload:{
+      conversion_identifier: CONV_ID,
+      email:          lf.elements.c_email.value.trim(),
+      name:           lf.elements.c_name.value.trim(),
+      company_name:   lf.elements.c_company.value.trim(),
+      job_title:      lf.elements.c_job.value.trim(),
+      cf_segmento:    lf.elements.c_segment.value,
+      personal_phone: lf.elements.c_phone.value.trim(),
+      cf_como_voce_soube_do_matcher: lf.elements.c_how.value.trim(),
+      /* client_tracking_id e traffic_source vem do loader do RD. SAO ELES que
+         preservam a origem "Busca Paga" e o gclid dentro do traffic_source.
+         Se isso vier vazio, o lead entra orfao. Nao remover. */
+      client_tracking_id: cookie('rdtrk'),
+      traffic_source:     cookie('__trf.src'),
+      available_for_mailing: !!lf.elements.c_consent.checked
+    }};
+    if(gclid()) body.payload.cf_gclid = gclid();
+
+    fetch(RD_URL, {
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body: JSON.stringify(body)
+    })
+    .then(function(r){
+      if(!r.ok) throw new Error('RD ' + r.status);
+      /* SO AQUI. Lead confirmado pelo RD. */
+      if(typeof window.gtag === 'function'){
+        /* enhanced conversions for leads: o Google casa o lead pelo e-mail (e pelo
+           telefone quando existe) na hora do import. So no caminho de sucesso. */
+        var ud = { email: lf.elements.c_email.value.trim() };
+        var tel = (lf.elements.c_phone.value || '').replace(/\D/g,'');
+        if(tel){
+          if(tel.length > 11 && tel.indexOf('55') === 0) ud.phone_number = '+' + tel;
+          else if(tel.length >= 10) ud.phone_number = '+55' + tel;
+        }
+        window.gtag('set','user_data', ud);
+        window.gtag('event','conversion', { send_to: AW });
+      }
+      showOk();
+    })
+    .catch(function(){
+      showErr(sb, 'Não conseguimos enviar agora. Tente novamente em instantes.');
+    });
+  }
+
+  /* NAO usar o evento `submit`. O loader do RD escuta submit ANTES de nos (capture
+     no document) e cria uma SEGUNDA conversao com `Identificador: lform`. Provado em
+     28/jul com lead de teste: 2 eventos no RD, um `lform` e um nosso.
+     stopPropagation NAO resolve, porque o listener dele roda primeiro.
+     Sem evento de submit nao existe o que capturar. O <form> continua ali pela
+     semantica e acessibilidade; so o disparo mudou. */
+  lf.querySelector('.lf-submit').addEventListener('click', onSubmit);
+  lf.addEventListener('keydown', function(e){
+    if(e.key === 'Enter' && e.target.tagName === 'INPUT' && e.target.type !== 'checkbox'){
+      e.preventDefault();
+      onSubmit(e);
+    }
+  });
+  lf.addEventListener('submit', function(e){ e.preventDefault(); });
+})();
+</script>
+
+</body>
+</html>
