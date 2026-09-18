@@ -805,8 +805,18 @@ h2 { font-size: 1.875rem; }
 .stage p { margin: 0.5rem 0 0; color: var(--muted); max-width: 60ch; }
 .stage[data-on="1"] p { color: var(--cinza-claro); }
 
+/* Scroll-driven: as etapas ficam espaçadas para o console grudar e trocar de
+   tela conforme cada etapa passa (o JS mede a etapa cujo topo cruzou o console).
+   Sem este espaçamento o sticky nunca ativa e as telas trocam num piscar. */
+.flow-stages { display: flex; flex-direction: column; }
+@media (min-width: 961px) { .flow-stages { gap: 12vh; padding: 4vh 0 34vh; } }
 .flow-sticky { position: sticky; top: calc(var(--nav-h) + 24px); }
-@media (max-width: 960px) { .flow-sticky { position: static; } }
+@media (max-width: 960px) {
+  .flow-sticky { position: static; order: 1; }
+  .flow-stages { order: 2; gap: 0; padding: 0; }
+  .flow-stages .stage p { display: none; }
+  .flow-stages .stage[data-on="1"] p { display: block; }
+}
 
 .console { background: var(--preto-fundo); border: 1px solid var(--rule); }
 .console .tbar { border-bottom: 1px solid var(--rule); }
