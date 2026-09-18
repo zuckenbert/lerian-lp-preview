@@ -4,20 +4,20 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Conciliação de pagamentos para PSPs, fintechs e marketplaces | Lerian Matcher</title>
-<meta name="description" content="Conciliação de pagamentos para PSP, fintech, instituição de pagamento e marketplace. Concilie Pix, cartão e boleto, split e repasse, com trilha de auditoria em cada match e integração por API ao seu ledger." />
+<meta name="description" content="Conciliação de pagamentos para PSPs, fintechs, marketplaces e instituições de pagamento: o Matcher concilia provedores, bancos e gateways, split, repasse, Pix, estorno e chargeback, com exceção com dono e SLA e trilha de auditoria em cada match." />
 <link rel="canonical" href="https://matcher.lerian.studio/fintechs" />
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Lerian Matcher" />
 <meta property="og:locale" content="pt_BR" />
 <meta property="og:url" content="https://matcher.lerian.studio/fintechs" />
 <meta property="og:title" content="Conciliação de pagamentos para PSPs, fintechs e marketplaces | Lerian Matcher" />
-<meta property="og:description" content="Conciliação de pagamentos para PSP, fintech, instituição de pagamento e marketplace. Concilie Pix, cartão e boleto, split e repasse, com trilha de auditoria em cada match e integração por API ao seu ledger." />
+<meta property="og:description" content="Conciliação de pagamentos para PSPs, fintechs, marketplaces e instituições de pagamento: o Matcher concilia provedores, bancos e gateways, split, repasse, Pix, estorno e chargeback, com exceção com dono e SLA e trilha de auditoria em cada match." />
 <meta property="og:image" content="https://matcher.lerian.studio/og-matcher.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Conciliação de pagamentos para PSPs, fintechs e marketplaces | Lerian Matcher" />
-<meta name="twitter:description" content="Conciliação de pagamentos para PSP, fintech, instituição de pagamento e marketplace. Concilie Pix, cartão e boleto, split e repasse, com trilha de auditoria em cada match e integração por API ao seu ledger." />
+<meta name="twitter:description" content="Conciliação de pagamentos para PSPs, fintechs, marketplaces e instituições de pagamento: o Matcher concilia provedores, bancos e gateways, split, repasse, Pix, estorno e chargeback, com exceção com dono e SLA e trilha de auditoria em cada match." />
 <meta name="twitter:image" content="https://matcher.lerian.studio/og-matcher.png" />
 <!-- Fontes self-hosted. Os @font-face vivem no proprio styles-ink.css, entao nao existe
      CSS de terceiro render-blocking nem a cadeia critica via Google Fonts.
@@ -26,7 +26,7 @@
      O preload e do Serif 300 (peso do H1, elemento de LCP) e do Sans 400 (corpo). -->
 <link rel="preload" href="../fonts/ibm-plex-serif-300-latin.woff2" as="font" type="font/woff2" crossorigin />
 <link rel="preload" href="../fonts/ibm-plex-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="stylesheet" href="../styles-ink.css?v=1" />
+<link rel="stylesheet" href="../styles-ink.css?v=3" />
     <!-- ===== Tracking (portado do site antigo matcher.lerian.studio, 2026-07-16) ===== -->
     <!-- Google Analytics 4 + Google Ads -->
     
@@ -57,11 +57,21 @@
   "@type": "Service",
   "name": "Conciliação de pagamentos para PSPs, fintechs e marketplaces | Lerian Matcher",
   "serviceType": "Conciliação financeira automatizada",
-  "description": "Conciliação de pagamentos para PSP, fintech, instituição de pagamento e marketplace. Concilie Pix, cartão e boleto, split e repasse, com trilha de auditoria em cada match e integração por API ao seu ledger.",
+  "description": "Conciliação de pagamentos para PSPs, fintechs, marketplaces e instituições de pagamento: o Matcher concilia provedores, bancos e gateways, split, repasse, Pix, estorno e chargeback, com exceção com dono e SLA e trilha de auditoria em cada match.",
   "url": "https://matcher.lerian.studio/fintechs",
-  "provider": { "@type": "Organization", "name": "Lerian", "url": "https://lerian.studio" },
-  "brand": { "@type": "Brand", "name": "Lerian Matcher" },
-  "areaServed": { "@type": "Country", "name": "Brasil" }
+  "provider": {
+    "@type": "Organization",
+    "name": "Lerian",
+    "url": "https://lerian.studio"
+  },
+  "brand": {
+    "@type": "Brand",
+    "name": "Lerian Matcher"
+  },
+  "areaServed": {
+    "@type": "Country",
+    "name": "Brasil"
+  }
 }
 </script>
 <script type="application/ld+json">
@@ -69,8 +79,18 @@
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Matcher", "item": "https://matcher.lerian.studio/" },
-    { "@type": "ListItem", "position": 2, "name": "Fintechs e PSPs", "item": "https://matcher.lerian.studio/fintechs" }
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Matcher",
+      "item": "https://matcher.lerian.studio/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Fintechs e PSPs",
+      "item": "https://matcher.lerian.studio/fintechs"
+    }
   ]
 }
 </script>
@@ -79,88 +99,119 @@
   <!-- Meta Pixel Code (noscript) -->
   
 
-
 <header class="nav" id="nav"><div class="container nav-in">
   <a href="#" class="logo">lerian<span class="dim">.matcher</span></a>
   <nav class="nav-links">
+    <a href="#problema">O problema</a>
     <a href="#como">Como funciona</a>
-    <a href="#">Recursos</a>
-    <div class="navdrop"><button class="navdrop-t" aria-haspopup="true">Segmentos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button><div class="navdrop-menu"><a href="../adquirentes/"><span class="di"></span>Adquirentes</a><a href="../fintechs/" style="background:#FEED02;color:#191A1B"><span class="di"></span>Fintechs e PSPs</a></div></div>
-    <a href="#demo">Diagnóstico</a>
+    <a href="#comparando">Comparando</a>
+    <div class="navdrop"><button class="navdrop-t" aria-haspopup="true">Segmentos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="m6 9 6 6 6-6"/></svg></button><div class="navdrop-menu"><a href="../adquirentes/"><span class="di"></span>Adquirentes e subadquirentes</a><a href="../fintechs/" style="background:#FEED02;color:#191A1B"><span class="di"></span>PSPs e fintechs</a></div></div>
   </nav>
-  <a href="#demo" class="btn btn-primary">Solicitar demo</a><button class="navtoggle" id="navToggle" aria-label="menu" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+  <a href="#demo" class="btn btn-primary">Veja no seu cenário</a><button class="navtoggle" id="navToggle" aria-label="menu" aria-expanded="false"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 7h16M4 12h16M4 17h16"/></svg></button>
 </div></header>
 
-
 <!-- ===================== HERO ===================== -->
-<section class="snap hero"><div class="container hero-grid">
-  <div>
-    <span class="badge"><b>PSPs e fintechs</b> · Marketplaces e instituições de pagamento</span>
-    <h1 class="h1">Conciliação de pagamentos para PSPs, fintechs e <span class="u">marketplaces</span>.</h1>
-    <p class="sub">Feito para PSP, fintech, instituição de pagamento e marketplace: o Matcher conecta todos os seus provedores, bancos e gateways, concilia split, repasse, Pix, estornos e antecipações automaticamente e reduz em até 90% o trabalho manual. API-first, multi-tenant e white-label.</p>
-    <div class="hero-cta">
-      <a href="#demo" class="btn btn-primary btn-lg">Veja no seu cenário <span class="arrow">→</span></a>
-      <a href="#como" class="btn btn-ghost btn-lg">Ver o Matcher rodar</a>
-    </div>
-    <div class="trust">
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> API-first e multi-tenant</span>
-      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Dashboard white-label pros merchants</span>
-    </div>
+<section class="hero"><div class="container">
+  <div class="hero-top">
+    <span class="badge"><b>Para PSPs e fintechs</b> · Para IPs, gateways e marketplaces</span>
+    <h1 class="h1">Conciliação de pagamentos para PSPs, fintechs e marketplaces.</h1>
   </div>
+  <div class="hero-split">
+    <div>
+      <p class="sub">Feito para PSP, fintech, marketplace e instituição de pagamento: o Matcher cruza os arquivos de cada provedor, banco e gateway contra o seu ledger, e entrega split, repasse, Pix, estorno e chargeback conciliados, com exceção roteada.</p>
+      <div class="hero-cta">
+        <a href="#demo" class="btn btn-primary btn-lg">Veja no seu cenário <span class="arrow">&rarr;</span></a>
+        <a href="#como" class="btn btn-ghost btn-lg">Ver o Matcher rodar</a>
+      </div>
 
-  <div class="term" id="term">
-    <div class="tbar">
-      
-      <span class="path">matcher · run/conciliacao-fintech</span>
-      
+      <!-- Formulario curto do hero. Usa a MESMA funcao de envio do formulario
+           completo (window.__matcherEnviar), manda `_is` e o honeypot, e pede
+           exatamente os campos que o RD exige hoje: nome, e-mail, empresa,
+           cargo e segmento. Reduzir abaixo disso quebra a validacao do RD. -->
+      <div class="hform">
+        <p class="hf-t">Veja no seu cenário, em 1 dia útil</p>
+        <form class="lform" id="hform" novalidate onsubmit="return false" data-preview="1">
+          <div class="lf-row2">
+            <div class="lf"><label for="h_name">Nome</label><input id="h_name" name="c_name" placeholder="Seu nome" required></div>
+            <div class="lf"><label for="h_email">E-mail corporativo</label><input id="h_email" name="c_email" type="email" placeholder="voce@empresa.com" required></div>
+          </div>
+          <div class="lf-row3">
+            <div class="lf"><label for="h_company">Empresa</label><input id="h_company" name="c_company" placeholder="Sua empresa" required></div>
+            <div class="lf"><label for="h_job">Cargo</label><input id="h_job" name="c_job" placeholder="Seu cargo" required></div>
+            <div class="lf"><label for="h_segment">Segmento</label><select id="h_segment" name="c_segment" required><option value="">Selecione</option><option>Adquirente ou subadquirente</option><option>PSP, gateway ou marketplace</option><option>Banco ou instituição de pagamento</option><option>Fintech</option><option>BPO financeiro</option><option>Outro</option></select></div>
+          </div>
+          <input type="hidden" name="_is" value="lerian-lp-matcher">
+          <div class="lf-hp" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input id="h_website" name="c_website" tabindex="-1" autocomplete="off"></div>
+          <button type="button" class="btn btn-primary lf-submit">Veja no seu cenário <span class="arrow">&rarr;</span></button>
+          <p class="lf-fine">Ao enviar, você concorda com a <a href="https://lerian.studio/privacidade/" target="_blank" rel="noopener">Política de Privacidade</a> da Lerian.</p>
+        </form>
+      </div>
     </div>
-    <div class="tbody" id="trows"></div>
-    <div class="tcallout" id="tCallout">
-      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
-      <span class="t">Chargeback não contestado: <b>R$ 100,00</b> · prazo em D-2</span>
-    </div>
-    <div class="tfoot">
-      <div><div class="fn g" id="fOk">0</div><div class="fl">Conciliados</div></div>
-      <div><div class="fn r" id="fBad">0</div><div class="fl">Exceções</div></div>
-      <button class="rodar" id="tReplay"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Rodar</button>
-      <div class="tbarprog"><i id="fProg"></i></div>
+
+    <div>
+      <div class="term" id="term">
+        <div class="tbar"><span class="path">matcher · conciliacao-de-pagamentos</span></div>
+        <div class="tbody" id="trows"></div>
+        <div class="tcallout" id="tCallout">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg>
+          <span class="t">Split divergente: repassado <b>R$ 940,00</b> · contratado <b>R$ 962,80</b> · exceção aberta com dono e SLA de 4h</span>
+        </div>
+        <div class="tfoot">
+          <div><div class="fn g" id="fOk">0</div><div class="fl">conciliados</div></div>
+          <div><div class="fn r" id="fBad">0</div><div class="fl">exceções abertas</div></div>
+          <button class="rodar" id="tReplay"><svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M23 4v6h-6M1 20v-6h6"/><path d="M3.51 9a9 9 0 0 1 14.85-3.36L23 10M1 14l4.64 4.36A9 9 0 0 0 20.49 15"/></svg> Rodar</button>
+          <div class="tbarprog"><i id="fProg"></i></div>
+        </div>
+      </div>
+      <span class="demo-nota eyebrow">dados ilustrativos de uma conciliação de plataforma de pagamentos</span>
+      <div class="trust">
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Conciliação para PSP, conciliação para fintech e conciliação marketplace</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Conciliação de split, conciliação de repasse e conciliação Pix no mesmo motor</span>
+      <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Exceções com fila, dono e SLA, com trilha de auditoria em cada match</span>
+      </div>
     </div>
   </div>
 </div>
   <div class="cred"><div class="cred-in">
-    <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg> Construído sobre a plataforma Lerian</span>
+    <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6v6H9z"/></svg> Construído sobre a plataforma <a href="https://lerian.studio" target="_blank" rel="noopener" style="color:inherit">Lerian</a></span>
     <span class="sep"></span>
-    <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> API-first e multi-tenant</span>
+    <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/></svg> <a href="https://docs.lerian.studio/en/products/matcher/what-is-matcher" target="_blank" rel="noopener" style="color:inherit">Documentação pública</a></span>
     <span class="sep"></span>
-    <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M18 9l-5 5-3-3-4 4"/></svg> Setup em dias</span>
+    <span class="k"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M18 9l-5 5-3-3-4 4"/></svg> Time de engenharia no Brasil</span>
   </div></div>
 </section>
 
-
-<!-- ===================== DESAFIO / SOLUÇÃO ===================== -->
-<section class="snap brazil"><div class="container">
-  <div class="sec-head"><span class="eyebrow" style="justify-content:center">Plataformas e provedores</span><h2>Vários provedores, cada um num formato diferente</h2><p class="lead">Conciliação em script frágil e processo manual, com merchants reclamando de divergência no repasse e o time financeiro sobrecarregado.</p></div>
-  <div class="br-grid">
-    <div class="br rv"><span class="flag">O desafio</span><h3>Gateways, bancos, splits e chargebacks</h3><p>Intermediar pagamentos de milhares de merchants significa lidar com splits, estornos, antecipações e chargebacks, cada um com lógica própria e formato distinto. O script interno quebra e o merchant reclama.</p></div>
-    <div class="br rv"><span class="flag">Com o Matcher</span><h3>Conciliação como camada da plataforma</h3><p>Conecta todas as fontes via API ou upload, com matching configurável e exceções gerenciadas por routing e SLA. API-first, multi-tenant e white-label: o merchant acessa um dashboard com a marca do PSP.</p><ul><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Conecte qualquer fonte via API ou upload</li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Multi-tenant e white-label pros merchants</li><li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Splits, estornos e chargebacks tratados</li></ul></div>
-  </div>
+<!-- ===================== O PROBLEMA ===================== -->
+<section class="brazil" id="problema"><div class="container">
+  <div class="sec-head"><span class="eyebrow">o dia da plataforma</span><h2>Conciliação de pagamentos, linha a linha do fechamento</h2><p class="lead">O que um head de operações de PSP, de fintech ou de marketplace fecha todo dia, e o que muda quando a conciliação roda por regra.</p></div>
+  <table class="tbl tbl--3">
+    <thead><tr><th scope="col">o que fecha</th><th scope="col">a rotina hoje</th><th scope="col">com o Matcher</th></tr></thead>
+    <tbody>
+    <tr><th scope="row">provedores</th><td class="col-hoje" data-l="a rotina hoje">Cada provedor, banco e gateway entrega um arquivo com layout próprio, e o script interno quebra a cada mudança de campo.</td><td data-l="com o Matcher">CSV, JSON, XML, ISO 20022 camt.053, CNAB e OFX entram por API ou upload, com mapeamento de campo, validação e detecção de duplicata.</td></tr>
+    <tr><th scope="row">conciliação de split</th><td class="col-hoje" data-l="a rotina hoje">O split do merchant é recalculado à mão sempre que o repasse não bate com o contratado.</td><td data-l="com o Matcher">A regra de split casa 1:N e N:M entre o pagamento e as partes, com tolerância em valor ou em percentual e janela de data para o descasamento de prazo.</td></tr>
+    <tr><th scope="row">repasse do merchant</th><td class="col-hoje" data-l="a rotina hoje">O merchant abre chamado antes de o time financeiro ver a divergência.</td><td data-l="com o Matcher">O repasse é conciliado contra o provedor e contra o ledger, e a divergência vira exceção com dono, prazo e valor antes de virar chamado.</td></tr>
+    <tr><th scope="row">conciliação Pix</th><td class="col-hoje" data-l="a rotina hoje">Pix recebido, devolução e extrato bancário são conferidos em lugares diferentes, em momentos diferentes.</td><td data-l="com o Matcher">Pix, TED e boleto entram como fontes do mesmo contexto e fecham contra o extrato, com agenda própria por contexto.</td></tr>
+    <tr><th scope="row">estorno e chargeback</th><td class="col-hoje" data-l="a rotina hoje">Estorno sem baixa e chargeback sem contestação só aparecem no fechamento do mês.</td><td data-l="com o Matcher">Viram exceção classificada, com SLA, escalada automática e rota para o Jira, o ServiceNow ou um webhook seu.</td></tr>
+    <tr><th scope="row">auditoria</th><td class="col-hoje" data-l="a rotina hoje">Provar um repasse ao merchant é refazer o caminho à mão, arquivo por arquivo.</td><td data-l="com o Matcher">Cada match guarda a regra aplicada, o score de confiança e o histórico de tratamento, em log imutável exportável em PDF e CSV.</td></tr>
+    </tbody>
+  </table>
+  <div class="tbl-cta"><a href="#demo" class="btn btn-primary btn-lg">Veja no seu cenário <span class="arrow">&rarr;</span></a></div>
 </div></section>
-
 
 <!-- ===================== COMO FUNCIONA (scroll-driven) ===================== -->
 <section class="flow" id="como"><div class="container">
   <div class="flow-head">
-    <span class="eyebrow" style="justify-content:center">Veja o Matcher trabalhar</span>
-    <h2 class="balance">Do provedor ao repasse do merchant, num lugar só</h2>
-    <p class="lead">Role para acompanhar a conciliação white-label dentro do produto, da ingestão dos arquivos ao fechamento.</p>
+    <span class="eyebrow">o Matcher rodando</span>
+    <h2 class="balance">Conciliação de pagamentos, do provedor ao repasse do merchant</h2>
+    <p class="lead">Role para acompanhar as quatro etapas dentro do produto, da ingestão dos arquivos à trilha de auditoria.</p>
   </div>
   <div class="flow-grid">
     <div class="flow-stages" id="stages">
       <p class="flow-hint">Toque em cada etapa para ver a tela no produto</p>
-      <div class="stage" data-i="0" data-on="1"><div class="st-top"><span class="snum">01</span><h3>Ingestão</h3></div><p>Provedores, bancos e gateways em qualquer formato entram por API ou upload. O Matcher limpa, organiza e remove duplicidade sozinho.</p></div>
-      <div class="stage" data-i="1"><div class="st-top"><span class="snum">02</span><h3>Conciliação</h3></div><p>Matching configurável (exato, com tolerância ou N-way) entre provedores, splits e repasses, entendendo prazo e taxa.</p></div>
-      <div class="stage" data-i="2"><div class="st-top"><span class="snum">03</span><h3>Estornos e chargebacks</h3></div><p>Splits, estornos e chargebacks viram exceção priorizada, com routing e SLA. Nada de chargeback não contestado passando batido.</p></div>
-      <div class="stage" data-i="3"><div class="st-top"><span class="snum">04</span><h3>White-label</h3></div><p>O merchant acessa o dashboard com a marca do PSP. Relatórios e trilha de auditoria exportáveis, tudo via API.</p></div>
+      <div class="stage" data-i="0" data-on="1"><div class="st-top"><span class="snum">01</span><h3>Ingestão</h3></div><p>Provedores, bancos e gateways entram por API ou upload, em CSV, JSON, XML, ISO 20022 camt.053, CNAB ou OFX. O Matcher valida, normaliza e remove duplicata, e a ingestão por webhook aproxima a conciliação em tempo real, com agenda própria por contexto.</p></div>
+      <div class="stage" data-i="1"><div class="st-top"><span class="snum">02</span><h3>Conciliação por regra</h3></div><p>Regra exata, por tolerância em valor ou percentual, ou por janela de data. Casa 1:N, N:1 e N:M entre pagamento, split e repasse, e devolve um score de confiança de 0 a 100 em cada match.</p></div>
+      <div class="stage" data-i="2"><div class="st-top"><span class="snum">03</span><h3>Exceções com dono e SLA</h3></div><p>Estorno sem baixa, chargeback sem contestação e split divergente saem classificados, com dono, prazo e valor, roteados para o Jira, o ServiceNow ou um webhook seu. SLA estourado escala sozinho.</p></div>
+      <div class="stage" data-i="3"><div class="st-top"><span class="snum">04</span><h3>Relatório e auditoria</h3></div><p>Cada match guarda a regra aplicada e o histórico em log imutável. Relatório e trilha saem por exportação, pela API e pelo servidor MCP, e a configuração multi-tenant isola um contexto por marca ou por cliente.</p></div>
     </div>
     <div class="flow-sticky">
       <div class="console" id="console">
@@ -168,104 +219,133 @@
         <div class="dash">
           <aside class="dnav">
             <div class="brand"><i><svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><circle cx="7" cy="12" r="3"/><circle cx="17" cy="12" r="3"/><path d="M10 12h4"/></svg></i> Matcher</div>
-            <div class="grp">Configurar</div>
-            <a data-nav="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M8 11l4 4 4-4M4 21h16"/></svg> Importar arquivo</a>
-            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> Contextos</a>
-            <div class="grp">Operar</div>
-            <a data-nav="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3v18M7 3v18M3 7h4M17 7h4M3 17h4M17 17h4"/></svg> Conciliações</a>
-            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> Sugestões de regra</a>
-            <div class="grp">Resolver</div>
-            <a data-nav="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> Não conciliados</a>
-            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg> Exceções</a>
-            <div class="grp">Relatórios</div>
-            <a data-nav="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M18 9l-5 5-3-3-4 4"/></svg> Portfólio</a>
+            <div class="grp">configurar</div>
+            <a data-nav="0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3v12M8 11l4 4 4-4M4 21h16"/></svg> fontes</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg> contextos</a>
+            <div class="grp">operar</div>
+            <a data-nav="1"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 3v18M7 3v18M3 7h4M17 7h4M3 17h4M17 17h4"/></svg> conciliações</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg> regras</a>
+            <div class="grp">resolver</div>
+            <a data-nav="2"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg> exceções</a>
+            <a><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg> disputas</a>
+            <div class="grp">provar</div>
+            <a data-nav="3"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18M18 9l-5 5-3-3-4 4"/></svg> auditoria</a>
           </aside>
           <div class="dmain">
+
             <div class="cscreen on" data-i="0">
-              <div class="dh"><div><h4>Importar fontes</h4><div class="subt">Provedores, bancos e gateways, deduplicados.</div></div><span class="ctxpill"><b>[demo]</b> · fintech</span></div>
-              <div class="drow"><span class="fi">API</span><div><div class="fn">gateway_a · webhook</div><div class="fm">1.204.310 eventos · em tempo real</div></div><span class="fs">limpo</span></div>
-              <div class="drow"><span class="fi">JSON</span><div><div class="fn">provedor_pix.json</div><div class="fm">842.110 registros · 214 duplicados removidos</div></div><span class="fs">limpo</span></div>
-              <div class="drow"><span class="fi">CSV</span><div><div class="fn">splits_merchants.csv</div><div class="fm">318.774 splits</div></div><span class="fs">limpo</span></div>
-              <div class="drow"><span class="fi">OFX</span><div><div class="fn">banco_parceiro.ofx</div><div class="fm">96.402 lançamentos</div></div><span class="fs">limpo</span></div>
+              <div class="dh"><div><h4>Fontes do dia</h4><div class="subt">Provedores, bancos, gateways e o seu ledger.</div></div><span class="ctxpill"><b>[demo]</b> · PSP</span></div>
+              <div class="drow"><span class="fi">API</span><div><div class="fn">gateway_a · webhook</div><div class="fm">1.204.310 eventos · D0</div></div><span class="fs">validado</span></div>
+              <div class="drow"><span class="fi">JSON</span><div><div class="fn">provedor_pix.json</div><div class="fm">842.110 registros · 214 duplicados removidos</div></div><span class="fs">validado</span></div>
+              <div class="drow"><span class="fi">CSV</span><div><div class="fn">splits_merchants.csv</div><div class="fm">318.774 splits · 5 campos mapeados</div></div><span class="fs">validado</span></div>
+              <div class="drow"><span class="fi">OFX</span><div><div class="fn">banco_parceiro.ofx</div><div class="fm">96.402 lançamentos</div></div><span class="fs">validado</span></div>
             </div>
+
             <div class="cscreen" data-i="1">
-              <div class="dh"><div><h4>Painel de conciliação</h4><div class="subt">Provedores, splits e repasses.</div></div><span class="ctxpill"><b>[demo]</b> · multi-tenant</span></div>
+              <div class="dh"><div><h4>Conciliação</h4><div class="subt">Provedor, split, repasse e extrato.</div></div><span class="ctxpill"><b>[demo]</b> · 1:N, N:1 e N:M</span></div>
               <div class="dcard">
-                <div class="ck"><span>Taxa de conciliação</span><span>por contagem</span></div>
+                <div class="ck"><span>casados automaticamente</span><span>por contagem</span></div>
                 <div class="mrate-big"><span id="rateNum">96,8</span>%</div>
                 <div class="mbar"><i id="rateBar"></i></div>
                 <div class="mscale"><span>0</span><span>25</span><span>50</span><span>75</span><span>100</span></div>
                 <div class="mstats">
-                  <div><span class="lab"><i style="background:#50F769"></i>Conciliados</span><div class="big g2">1.842</div><div class="amt">R$ 4.218.900,00</div></div>
-                  <div><span class="lab" style="justify-content:flex-end"><i style="background:#FF6760"></i>Não conciliados</span><div class="big r2">61</div><div class="amt">R$ 312.480,00</div></div>
+                  <div><span class="lab"><i style="background:#50F769"></i>conciliados</span><div class="big g2">2,41 M</div><div class="amt">R$ 318,7 M</div></div>
+                  <div><span class="lab" style="justify-content:flex-end"><i style="background:#FF6760"></i>em exceção</span><div class="big r2">77 k</div><div class="amt">R$ 9,8 M</div></div>
                 </div>
               </div>
             </div>
+
             <div class="cscreen" data-i="2">
-              <div class="dh"><div><h4>Exceções</h4><div class="subt">Só o que precisa de um humano, já classificado.</div></div><span class="ctxpill"><b>61</b> abertas</span></div>
-              <div class="exc"><span class="ei r"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span><div><div class="etitle">Chargeback não contestado</div><div class="emeta">CHG-7722 · merchant 8842 · prazo D-2</div></div><div style="text-align:right"><div class="eamt">R$ 0,35</div><span class="etag">chargeback</span></div></div>
-              <div class="exc"><span class="ei y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><div><div class="etitle">Split divergente</div><div class="emeta">SPL-7711 · merchant 1290 → repasse</div></div><div style="text-align:right"><div class="eamt">R$ 1.240,00</div><span class="etag">split</span></div></div>
-              <div class="exc"><span class="ei y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></span><div><div class="etitle">Estorno sem baixa</div><div class="emeta">EST-2291 · gateway A</div></div><div style="text-align:right"><div class="eamt">R$ 8.410,00</div><span class="etag">estorno</span></div></div>
-              <div class="exc"><span class="ei y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><div class="etitle">Repasse ao merchant atrasado</div><div class="emeta">RPS-4471 · merchant 8842</div></div><div style="text-align:right"><div class="eamt">R$ 2.310,00</div><span class="etag">timing</span></div></div>
+              <div class="dh"><div><h4>Fila de exceções</h4><div class="subt">Cada uma com dono, prazo e valor.</div></div><span class="ctxpill"><b>77 k</b> abertas</span></div>
+              <div class="exc"><span class="ei r"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4m0 4h.01M10.29 3.86 1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/></svg></span><div><div class="etitle">Chargeback sem contestação</div><div class="emeta">CHG-7722 · merchant 8842 · dono: disputas · SLA 2h</div></div><div style="text-align:right"><div class="eamt">R$ 96.480,00</div><span class="etag">chargeback</span></div></div>
+              <div class="exc"><span class="ei y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M8 6h13M8 12h13M8 18h13M3 6h.01M3 12h.01M3 18h.01"/></svg></span><div><div class="etitle">Split divergente</div><div class="emeta">SPL-7711 · merchant 1290 · dono: repasse · SLA 4h</div></div><div style="text-align:right"><div class="eamt">R$ 22,80</div><span class="etag">split</span></div></div>
+              <div class="exc"><span class="ei y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v20M2 12h20"/></svg></span><div><div class="etitle">Estorno sem baixa no extrato</div><div class="emeta">EST-2291 · provedor A · dono: financeiro · SLA 24h</div></div><div style="text-align:right"><div class="eamt">R$ 8.410,00</div><span class="etag">estorno</span></div></div>
+              <div class="exc"><span class="ei y"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><div><div class="etitle">Pix recebido sem pedido</div><div class="emeta">PIX-4471 · e2e 6f21 · dono: conciliação · SLA 8h</div></div><div style="text-align:right"><div class="eamt">R$ 2.310,00</div><span class="etag">pix</span></div></div>
             </div>
+
             <div class="cscreen" data-i="3">
-              <div class="dh"><div><h4>Portal do merchant</h4><div class="subt">Dashboard white-label com a marca do PSP.</div></div><span class="ctxpill"><b>[demo]</b> · white-label</span></div>
+              <div class="dh"><div><h4>Relatório e auditoria</h4><div class="subt">A regra aplicada e o histórico de cada match.</div></div><span class="ctxpill"><b>[demo]</b> · D0</span></div>
               <div class="rep-grid">
-                <div class="rep"><div class="k">Conciliado</div><div class="v g2">1.842</div><div class="a">R$ 4.218.900,00</div></div>
-                <div class="rep"><div class="k">Merchants ativos</div><div class="v">2.410</div><div class="a">com portal próprio</div></div>
-                <div class="rep full"><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></span><div class="txt">Conciliação entregue via API, com a sua marca<small>trilha de auditoria imutável · exportável PDF/CSV</small></div></div>
+                <div class="rep"><div class="k">log imutável</div><div class="v g2">2,41 M</div><div class="a">matches com regra e score</div></div>
+                <div class="rep"><div class="k">exceções fechadas no SLA</div><div class="v">96%</div><div class="a">com histórico de tratamento</div></div>
+                <div class="rep full"><span class="ok"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg></span><div class="txt">Trilha exportável em PDF e CSV, e a mesma leitura por API e pelo servidor MCP<small>dados ilustrativos · a documentação pública descreve o formato</small></div></div>
               </div>
             </div>
+
           </div>
         </div>
       </div>
+      <span class="demo-nota eyebrow">telas ilustrativas do produto</span>
     </div>
   </div>
 </section>
 
-
 <!-- ===================== PROVA ===================== -->
+<!-- Prova por categoria. As duas frases abaixo sao publicas da Lerian
+     (lerian.studio/sobre) e as tres celulas sao verificaveis hoje.
+     ONDE ENTRAM OS NUMEROS: quando o marketing tiver tres numeros com fonte
+     (volume conciliado, taxa de match automatico, tempo de fechamento), eles
+     substituem o conteudo das tres celulas de .prova-cells abaixo, no formato
+     <span class="pk">rotulo</span><p class="pv">numero e frase</p>, mais a
+     fonte em <cite>. Nenhum numero de cliente entra aqui antes disso. -->
 <section class="prova"><div class="container">
-  <div class="prova-stat rv"><span class="pn">40%</span><p class="pc">das fintechs e plataformas de alto volume perdem 8h ou mais por semana só em operações de pagamento e conciliação.</p></div>
-  <cite>Modern Treasury, State of Payment Operations 2025</cite>
+  <div class="sec-head"><span class="eyebrow">quem constrói</span><h2>Quem está por trás do Matcher</h2></div>
+  <div class="prova-say">
+    <div>
+      <span class="eyebrow">em produção</span>
+      <p>Em produção em instituições de pagamento, operações de crédito, gestão de fundos e plataformas de tecnologia financeira que movimentam bilhões.</p>
+      <cite>lerian.studio/sobre</cite>
+    </div>
+    <div>
+      <span class="eyebrow">quem construiu</span>
+      <p>Mais de 15 anos construindo infraestrutura financeira em escala continental, incluindo a arquitetura da maior plataforma de pagamentos da América Latina e o desenho do sistema de pagamentos instantâneos do Brasil.</p>
+      <cite>lerian.studio/sobre</cite>
+    </div>
+  </div>
+  <div class="prova-cells">
+    <div><span class="pk eyebrow">documentação</span><p class="pv">A documentação do Matcher é pública: regras de matching, tolerância, exceções, auditoria e formatos de importação. <a href="https://docs.lerian.studio/en/products/matcher/what-is-matcher" target="_blank" rel="noopener">docs.lerian.studio</a></p></div>
+    <div><span class="pk eyebrow">integração</span><p class="pv">Ingestão, consulta e callback de resolução por API, rota de exceção para Jira, ServiceNow ou webhook, e servidor MCP para leitura por assistente.</p></div>
+    <div><span class="pk eyebrow">plataforma</span><p class="pv">Construído sobre a plataforma Lerian, ao lado do ledger Midaz, com configuração multi-tenant e time de engenharia no Brasil.</p></div>
+  </div>
 </div></section>
-
 
 <!-- ===================== COMPARANDO (destino da campanha de conquest) ===================== -->
 <section class="comparando" id="comparando"><div class="container">
-  <div class="sec-head"><span class="eyebrow" style="justify-content:center">Em avaliação</span><h2>Comparando ferramentas de conciliação?</h2><p class="lead">O que o Matcher é, em cinco linhas.</p></div>
-  <table class="cmp"><tbody>
-    <tr><th scope="row">01</th><td>Matching N-way por regra, do provedor ao repasse.</td></tr>
-    <tr><th scope="row">02</th><td>Exceções roteadas com dono e SLA, nunca uma fila cega.</td></tr>
-    <tr><th scope="row">03</th><td>Trilha de auditoria em cada match, exportável.</td></tr>
-    <tr><th scope="row">04</th><td>Integração por API ao seu ledger e ao seu ERP.</td></tr>
-    <tr><th scope="row">05</th><td>Setup em semanas, não em meses.</td></tr>
+  <div class="sec-head"><span class="eyebrow">em avaliação</span><h2>Comparando ferramentas de conciliação?</h2><p class="lead">Conciliação para fintechs, PSPs e adquirentes. Quem digita o nome de uma ferramenta está trocando de conciliação ou escolhendo a primeira, e uma alternativa em conciliação se avalia critério a critério. O que segue é o Matcher, com conciliação sem lock-in e sem citar terceiros.</p></div>
+  <table class="tbl"><tbody>
+    <tr><th scope="row">matching</th><td>Regra exata, por tolerância ou por janela de data. Casa 1:N, N:1 e N:M, e devolve um score de confiança de 0 a 100 em cada match.</td></tr>
+    <tr><th scope="row">exceções</th><td>Cada exceção sai classificada, com dono, prazo e valor, roteada para o Jira, o ServiceNow ou um webhook seu, com escalada automática de SLA.</td></tr>
+    <tr><th scope="row">auditoria</th><td>Log imutável por match, com a regra aplicada e o histórico de tratamento. Relatório pronto para auditoria, exportável em PDF e CSV.</td></tr>
+    <tr><th scope="row">integração</th><td>API para ingestão, consulta e callback de resolução. Servidor MCP para leitura por assistente. O Matcher concilia contra o sistema que você já usa.</td></tr>
+    <tr><th scope="row">formatos</th><td>CSV, JSON, XML e ISO 20022 camt.053, além dos layouts regionais: CNAB, OFX e arquivo EDI de adquirência, com mapeamento de campo e detecção de duplicata.</td></tr>
+    <tr><th scope="row">multi-tenant</th><td>Configuração multi-tenant nativa: um contexto isolado por operação, por marca ou por cliente, com regra e agenda próprias.</td></tr>
+    <tr><th scope="row">setup e saída</th><td>Configuração de contexto, fonte e regra, com modo de simulação antes de valer. Setup em semanas, sem migração de sistema contábil e sem lock-in.</td></tr>
   </tbody></table>
-  <div class="cmp-cta"><a href="#demo" class="btn btn-primary btn-lg">Veja no seu cenário <span class="arrow">→</span></a></div>
+  <div class="tbl-cta"><a href="#demo" class="btn btn-primary btn-lg">Compare no seu cenário <span class="arrow">&rarr;</span></a></div>
 </div></section>
 
-
 <!-- ===================== FORM ===================== -->
-<section class="snap formsec" id="demo"><div class="container fg">
+<section class="formsec" id="demo"><div class="container fg">
   <div>
-    <span class="eyebrow">Solicite uma demo</span>
-    <h2>Veja o Matcher na sua plataforma</h2>
-    <p class="lead" style="margin-top:16px">Conte seus provedores e seu volume. Mostramos como a conciliação white-label roda no seu cenário.</p>
+    <span class="eyebrow">veja no seu cenário</span>
+    <h2>Veja a conciliação de pagamentos no seu cenário</h2>
+    <p class="lead" style="margin-top:16px">Conte os provedores, os bancos e o volume da sua plataforma. Engenharia mostra a conciliação rodando com dados do seu formato. Conciliação para instituição de pagamento e conciliação white label rodam no mesmo motor, com um contexto isolado por marca ou por cliente.</p>
     <ul class="ul">
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Conecte qualquer fonte via API ou upload</li>
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Matching configurável (exato, tolerância, N-way)</li>
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Multi-tenant e dashboard white-label</li>
-      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Setup em dias, não em meses</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Provedores, bancos e gateways em formatos distintos, num motor só</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Conciliação de split, de repasse e conciliação Pix por regra</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Exceções com dono, prazo e rota para o Jira ou o ServiceNow</li>
+      <li><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"><path d="M20 6 9 17l-5-5"/></svg> Multi-tenant nativo: um contexto isolado por marca ou por cliente</li>
     </ul>
   </div>
   <div class="fcard">
-    <h3>Fale com o time</h3>
-    <p class="fh">Preencha e retornamos com um cenário sob medida.</p>
+    <h3>Fale com engenharia</h3>
+    <p class="fh">Resposta em 1 dia útil, e a conversa é técnica, com quem construiu o motor.</p>
     <form class="lform" id="lform" novalidate onsubmit="return false" data-preview="1">
       <div class="lf"><label for="c_name">Nome</label><input id="c_name" name="c_name" placeholder="Seu nome" required></div>
-      <div class="lf"><label for="c_email">Email corporativo</label><input id="c_email" name="c_email" type="email" placeholder="voce@empresa.com" required></div>
+      <div class="lf"><label for="c_email">E-mail corporativo</label><input id="c_email" name="c_email" type="email" placeholder="voce@empresa.com" required></div>
       <div class="lf-row2"><div class="lf"><label for="c_company">Empresa</label><input id="c_company" name="c_company" placeholder="Sua empresa" required></div><div class="lf"><label for="c_job">Cargo</label><input id="c_job" name="c_job" placeholder="Seu cargo" required></div></div>
       <div class="lf"><label for="c_segment">Segmento</label><select id="c_segment" name="c_segment" required><option value="">Selecione o segmento</option><option>Adquirente ou subadquirente</option><option>PSP, gateway ou marketplace</option><option>Banco ou instituição de pagamento</option><option>Fintech</option><option>BPO financeiro</option><option>Outro</option></select></div>
+      <div class="lf"><label for="c_volume">Volume mensal aproximado de transações</label><select id="c_volume" name="c_volume"><option value="">Opcional</option><option>Até 1 milhão</option><option>1 a 10 milhões</option><option>10 a 100 milhões</option><option>Acima de 100 milhões</option></select></div>
       <div class="lf"><label for="c_phone">Telefone</label><input id="c_phone" name="c_phone" type="tel" placeholder="(11) 90000-0000"></div>
       <div class="lf"><label for="c_how">Como soube do Matcher?</label><input id="c_how" name="c_how" placeholder="Opcional"></div>
       <label class="lf-check"><input type="checkbox" name="c_consent"> Quero receber novidades de produto e conteúdo da Lerian.</label>
@@ -277,34 +357,35 @@
                  Comprovado em 28/jul: sem isto, 1 envio virava 2 eventos no RD. -->
       <input type="hidden" name="_is" value="lerian-lp-matcher">
       <div class="lf-hp" aria-hidden="true" style="position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden"><input id="c_website" name="c_website" tabindex="-1" autocomplete="off"></div>
-      <button type="button" class="btn btn-primary lf-submit">Solicitar demo <span class="arrow">→</span></button>
-      <p class="lf-fine">Ao enviar, você concorda com a Política de Privacidade da Lerian.</p>
+      <button type="button" class="btn btn-primary lf-submit">Veja no seu cenário <span class="arrow">&rarr;</span></button>
+      <p class="lf-fine">Ao enviar, você concorda com a <a href="https://lerian.studio/privacidade/" target="_blank" rel="noopener">Política de Privacidade</a> da Lerian.</p>
     </form>
-    <div class="rd-fb" id="rdFb" style="display:none"></div>
   </div>
 </div></section>
 
-
-<!-- ===================== FINAL ===================== -->
-<section class="snap final"><div class="container">
-  <span class="eyebrow" style="justify-content:center">Pronto pra começar?</span>
-  <h2 class="balance">Ofereça conciliação transparente com a sua marca.</h2>
-  <p class="lead">Conecte todos os provedores, resolva splits e chargebacks e reduza os tickets de suporte.</p>
-  <a href="#demo" class="btn btn-primary btn-lg" style="margin-top:8px">Avaliar minha operação <span class="arrow">→</span></a>
+<!-- ===================== FECHO (spark) ===================== -->
+<section class="final"><div class="container">
+  <span class="eyebrow">próximo passo</span>
+  <h2 class="balance">Feche o repasse do merchant com cada centavo provado.</h2>
+  <p class="lead">Conciliação de pagamentos por regra, exceções com dono e SLA e trilha de auditoria, no volume da sua plataforma.</p>
+  <a href="#demo" class="btn btn-primary btn-lg" style="margin-top:8px">Veja no seu cenário <span class="arrow">&rarr;</span></a>
 </div></section>
-
 
 <!-- ===================== FOOTER ===================== -->
 <footer><div class="container">
   <div class="foot-grid">
     <div>
       <a href="#" class="logo" style="font-size:20px">lerian<span class="dim">.matcher</span></a>
-      <p class="foot-desc">Motor de conciliação financeira automatizada, com trilha de auditoria em cada match.</p>
+      <p class="foot-desc">O Matcher é o motor de conciliação da Lerian. Concilia transações entre sistemas internos, bancos, adquirentes, gateways e ERPs, com trilha de auditoria em cada match.</p>
     </div>
-    <div class="foot"><h5>Segmentos</h5><ul><li><a href="../adquirentes/">Adquirentes</a></li><li><a href="../fintechs/">Fintechs e PSPs</a></li></ul></div>
-    <div class="foot"><h5>Empresa</h5><ul><li><a href="#">Home</a></li><li><a href="https://lerian.studio" target="_blank" rel="noopener">Lerian</a></li></ul></div>
+    <div class="foot"><h5>segmentos</h5><ul><li><a href="../adquirentes/">Adquirentes e subadquirentes</a></li><li><a href="../fintechs/">PSPs e fintechs</a></li></ul></div>
+    <div class="foot"><h5>produto</h5><ul><li><a href="https://docs.lerian.studio/en/products/matcher/what-is-matcher" target="_blank" rel="noopener">Documentação do Matcher</a></li><li><a href="https://lerian.studio/solucoes/conciliacao/" target="_blank" rel="noopener">Solução de conciliação</a></li></ul></div>
+    <div class="foot"><h5>empresa</h5><ul><li><a href="https://lerian.studio" target="_blank" rel="noopener">Lerian</a></li><li><a href="https://lerian.studio/sobre/" target="_blank" rel="noopener">Sobre a Lerian</a></li><li><a href="https://lerian.studio/contato/" target="_blank" rel="noopener">Contato</a></li></ul></div>
   </div>
-  <div class="foot-b"><span>© 2026 Lerian. Todos os direitos reservados.</span><span>contato@lerian.studio</span></div>
+  <div class="foot-b">
+    <span>© 2026 Lerian. Todos os direitos reservados.</span>
+    <span class="fb-links"><a href="mailto:contato@lerian.studio">contato@lerian.studio</a><a href="https://lerian.studio/privacidade/" target="_blank" rel="noopener">Política de Privacidade</a></span>
+  </div>
 </div></footer>
 
 <script>
@@ -317,14 +398,14 @@ addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>8),{passiv
 const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.14});
 document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 
-/* HERO terminal */
+/* HERO readout */
 (function(){
   const wrap=document.getElementById('trows'),callout=document.getElementById('tCallout'),ok=document.getElementById('fOk'),bad=document.getElementById('fBad'),prog=document.getElementById('fProg'),replay=document.getElementById('tReplay');
   const data=[
-    {id:'PSP-7720',meta:'gateway A → banco',v:'R$ 1.240,00',ok:true},
-    {id:'SPL-7721',meta:'split merchant → repasse',v:'R$ 640,00',ok:true},
-    {id:'CHG-7722',meta:'chargeback → contestação',v:'R$ 100,00',ok:false},
-    {id:'PIX-7723',meta:'provedor Pix → extrato',v:'R$ 2.310,00',ok:true}
+    {id:'PIX-4471',meta:'Pix recebido &rarr; pedido',v:'R$ 2.310,00',ok:true},
+    {id:'LIQ-40217',meta:'provedor &rarr; extrato bancário',v:'R$ 890,50',ok:true},
+    {id:'SPL-7711',meta:'split &rarr; repasse do merchant',v:'R$ 940,00',ok:false},
+    {id:'CHG-7722',meta:'chargeback &rarr; contestação',v:'R$ 1.240,00',ok:true}
   ];
   let timers=[];
   function run(){
@@ -334,7 +415,7 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
       timers.push(setTimeout(()=>document.getElementById('tr'+i).classList.add('show'),150+i*370));
       timers.push(setTimeout(()=>{const ts=document.getElementById('ts'+i),tr=document.getElementById('tr'+i);if(d.ok){ts.className='tst okk';ts.textContent='conciliado';tr.classList.add('ok')}else{ts.className='tst badd';ts.textContent='divergência';tr.classList.add('bad');callout.classList.add('show')}},150+i*370+820));
     });
-    timers.push(setTimeout(()=>{countTo(ok,1842);bad.textContent='61';prog.style.width='96.8%'},150+data.length*370+900));
+    timers.push(setTimeout(()=>{countTo(ok,1842);bad.textContent='4';prog.style.width='96.8%'},150+data.length*370+900));
   }
   replay.addEventListener('click',run);
   addEventListener('load',()=>setTimeout(()=>whenSeen(document.getElementById('term'),run),260));
@@ -343,7 +424,7 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
 /* COMO FUNCIONA: scroll-driven console */
 (function(){
   const stages=[...document.querySelectorAll('#stages .stage')],screens=[...document.querySelectorAll('#console .cscreen')],navs=[...document.querySelectorAll('#console .dnav a[data-nav]')],pathEl=document.getElementById('cPath');
-  const paths=['matcher · ingestao','matcher · conciliacao','matcher · disputas','matcher · white-label'];
+  const paths=['matcher · ingestao','matcher · conciliacao','matcher · excecoes','matcher · auditoria'];
   let cur=-1,rateDone=false;
   function set(i){
     if(i===cur)return;cur=i;
@@ -381,14 +462,17 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
    interceptador de XHR/fetch. Antes a conversao disparava na TENTATIVA de envio
    (subcontava quando o embed nao renderizava, supercontava quando o RD rejeitava).
    Agora existe resposta na mao: dispara so quando o lead esta confirmado.
-   Ver ~/Lerian Ads/Google Ads/recursos/proposta_form_api_rd_2026-07-28.md */
+   Ver ~/Lerian Ads/Google Ads/recursos/proposta_form_api_rd_2026-07-28.md
+
+   A pagina tem DOIS formularios (o curto do hero e o completo de #demo) e os dois
+   passam por `enviar`, com os MESMOS campos obrigatorios. O gtag dispara uma vez
+   por envio, no 200 do RD, seja qual for o formulario. */
 (function(){
   var RD_KEY  = '3d9b260782c2475fe858bb11775e750f';   /* token PUBLICO, feito pra ficar no front */
   var RD_URL  = 'https://api.rd.services/platform/conversions?api_key=' + RD_KEY;
   var CONV_ID = 'formulario-lp-matcher';
   var AW      = 'AW-18090346848/lO9wCKjoxawcEOCSk7JD';
-
-  var lf = document.getElementById('lform'); if(!lf) return;
+  var OBRIGATORIOS = ['c_name','c_email','c_company','c_job','c_segment'];
 
   function cookie(n){
     var m = document.cookie.match('(^|;)\\s*' + n + '\\s*=\\s*([^;]+)');
@@ -409,68 +493,74 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
   }
   gclid();
 
-  function showOk(){
-    var card = lf.parentElement;
+  function campo(f, n){ var el = f.elements[n]; return el ? (el.value || '') : ''; }
+
+  function showOk(f){
+    var card = f.parentElement;
     if(card.querySelector('.lf-ok')) return;
-    lf.style.display = 'none';
+    f.style.display = 'none';
     var o = document.createElement('div');
     o.className = 'lf-ok';
     o.innerHTML = '<div class="ic"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M20 6 9 17l-5-5"/></svg></div>'
-                + '<h4>Recebemos seu contato</h4><p>Nosso time retorna com um cenário sob medida.</p>';
+                + '<h4>Recebemos seu contato</h4><p>Engenharia retorna em 1 dia útil com um cenário no seu volume.</p>';
     card.appendChild(o);
   }
 
-  function showErr(sb, msg){
-    var e = lf.querySelector('.lf-err');
+  function showErr(f, sb, msg){
+    var e = f.querySelector('.lf-err');
     if(!e){
       e = document.createElement('p');
       e.className = 'lf-err';
-      e.style.cssText = 'color:#FF6760;font-size:13px;margin:8px 0 0';
       sb.parentNode.insertBefore(e, sb);
     }
     e.textContent = msg;
-    sb.textContent = 'Solicitar demo';
+    sb.innerHTML = 'Veja no seu cenário <span class="arrow">&rarr;</span>';
     sb.disabled = false;
   }
 
-  function onSubmit(e){
-    e.preventDefault();
-    /* Corta a propagacao pro loader do RD, que captura <form> sozinho e criaria
-       uma SEGUNDA conversao (era ele que gerava o `Identificador: lform`). */
-    e.stopPropagation();
-    if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+  function enviar(f, e){
+    if(e){
+      e.preventDefault();
+      /* Corta a propagacao pro loader do RD, que captura <form> sozinho e criaria
+         uma SEGUNDA conversao (era ele que gerava o `Identificador: lform`). */
+      e.stopPropagation();
+      if(e.stopImmediatePropagation) e.stopImmediatePropagation();
+    }
 
     /* honeypot: bot preenche campo invisivel. Aceita calado e nao envia nada. */
-    if(lf.elements.c_website && lf.elements.c_website.value) { showOk(); return; }
+    if(f.elements.c_website && f.elements.c_website.value) { showOk(f); return; }
 
     var ok = true;
-    ['c_name','c_email','c_company','c_job','c_segment'].forEach(function(n){
-      var el = lf.elements[n];
+    OBRIGATORIOS.forEach(function(n){
+      var el = f.elements[n];
+      if(!el) return;
       if(!el.value.trim()){ el.classList.add('lf-error'); ok = false }
       else el.classList.remove('lf-error');
     });
     if(!ok) return;
 
-    var sb = lf.querySelector('.lf-submit');
+    var sb = f.querySelector('.lf-submit');
     sb.textContent = 'Enviando...'; sb.disabled = true;
-    var old = lf.querySelector('.lf-err'); if(old) old.remove();
+    var old = f.querySelector('.lf-err'); if(old) old.remove();
 
     var body = { event_type:'CONVERSION', event_family:'CDP', payload:{
       conversion_identifier: CONV_ID,
-      email:          lf.elements.c_email.value.trim(),
-      name:           lf.elements.c_name.value.trim(),
-      company_name:   lf.elements.c_company.value.trim(),
-      job_title:      lf.elements.c_job.value.trim(),
-      cf_segmento:    lf.elements.c_segment.value,
-      personal_phone: lf.elements.c_phone.value.trim(),
-      cf_como_voce_soube_do_matcher: lf.elements.c_how.value.trim(),
+      email:          campo(f,'c_email').trim(),
+      name:           campo(f,'c_name').trim(),
+      company_name:   campo(f,'c_company').trim(),
+      job_title:      campo(f,'c_job').trim(),
+      cf_segmento:    campo(f,'c_segment'),
+      personal_phone: campo(f,'c_phone').trim(),
+      cf_como_voce_soube_do_matcher: campo(f,'c_how').trim(),
       /* client_tracking_id e traffic_source vem do loader do RD. SAO ELES que
          preservam a origem "Busca Paga" e o gclid dentro do traffic_source.
          Se isso vier vazio, o lead entra orfao. Nao remover. */
       client_tracking_id: cookie('rdtrk'),
       traffic_source:     cookie('__trf.src'),
-      available_for_mailing: !!lf.elements.c_consent.checked
+      available_for_mailing: !!(f.elements.c_consent && f.elements.c_consent.checked)
     }};
+    /* mesmo mecanismo do cf_segmento: campo customizado do RD no payload. */
+    if(campo(f,'c_volume')) body.payload.cf_volume = campo(f,'c_volume');
     if(gclid()) body.payload.cf_gclid = gclid();
 
     fetch(RD_URL, {
@@ -484,8 +574,8 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
       if(typeof window.gtag === 'function'){
         /* enhanced conversions for leads: o Google casa o lead pelo e-mail (e pelo
            telefone quando existe) na hora do import. So no caminho de sucesso. */
-        var ud = { email: lf.elements.c_email.value.trim() };
-        var tel = (lf.elements.c_phone.value || '').replace(/\D/g,'');
+        var ud = { email: campo(f,'c_email').trim() };
+        var tel = campo(f,'c_phone').replace(/\D/g,'');
         if(tel){
           if(tel.length > 11 && tel.indexOf('55') === 0) ud.phone_number = '+' + tel;
           else if(tel.length >= 10) ud.phone_number = '+55' + tel;
@@ -493,12 +583,13 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
         window.gtag('set','user_data', ud);
         window.gtag('event','conversion', { send_to: AW });
       }
-      showOk();
+      showOk(f);
     })
     .catch(function(){
-      showErr(sb, 'Não conseguimos enviar agora. Tente novamente em instantes.');
+      showErr(f, sb, 'Não conseguimos enviar agora. Tente novamente em instantes.');
     });
   }
+  window.__matcherEnviar = enviar;
 
   /* NAO usar o evento `submit`. O loader do RD escuta submit ANTES de nos (capture
      no document) e cria uma SEGUNDA conversao com `Identificador: lform`. Provado em
@@ -506,14 +597,18 @@ document.querySelectorAll('.rv').forEach(el=>io.observe(el));
      stopPropagation NAO resolve, porque o listener dele roda primeiro.
      Sem evento de submit nao existe o que capturar. O <form> continua ali pela
      semantica e acessibilidade; so o disparo mudou. */
-  lf.querySelector('.lf-submit').addEventListener('click', onSubmit);
-  lf.addEventListener('keydown', function(e){
-    if(e.key === 'Enter' && e.target.tagName === 'INPUT' && e.target.type !== 'checkbox'){
-      e.preventDefault();
-      onSubmit(e);
-    }
+  ['lform','hform'].forEach(function(id){
+    var f = document.getElementById(id);
+    if(!f) return;
+    f.querySelector('.lf-submit').addEventListener('click', function(ev){ enviar(f, ev) });
+    f.addEventListener('keydown', function(ev){
+      if(ev.key === 'Enter' && ev.target.tagName === 'INPUT' && ev.target.type !== 'checkbox'){
+        ev.preventDefault();
+        enviar(f, ev);
+      }
+    });
+    f.addEventListener('submit', function(ev){ ev.preventDefault(); });
   });
-  lf.addEventListener('submit', function(e){ e.preventDefault(); });
 })();
 </script>
 
