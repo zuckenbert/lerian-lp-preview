@@ -1,0 +1,238 @@
+/* Conciliação Lerian · direção "Livro-razão" (DESIGN_MATCHER.md, 18/set/2026).
+   Folha própria da oferta nova. Não substitui styles.css nem styles-ink.css.
+   Superficie plana, raio 2px, paleta fechada em 9 hex. */
+
+@font-face{font-family:"Plex Sans";src:url("fonts/ibm-plex-sans-400-latin.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex Sans";src:url("fonts/ibm-plex-sans-500-latin.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex Mono";src:url("fonts/ibm-plex-mono-400-latin.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex Mono";src:url("fonts/ibm-plex-mono-500-latin.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex Serif";src:url("fonts/ibm-plex-serif-400-latin.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
+@font-face{font-family:"Plex Serif";src:url("fonts/ibm-plex-serif-500-latin.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
+
+:root{
+--ink:#0C0D0E;--ink-2:#161718;--paper:#F2F2F2;--paper-2:#E6E4DE;
+--text:#F2F2F2;--text-dark:#111213;--muted:#8B877C;
+--volt:#FEED02;--exception:#C03833;--match:#2F8F5B;
+--rule:rgba(242,242,242,.13);--rule-2:rgba(242,242,242,.07);
+--soft:rgba(242,242,242,.78);--soft-dark:rgba(17,18,19,.72)}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:clamp(15px,1vw,16px);-webkit-text-size-adjust:100%}
+body{background:var(--ink);color:var(--text);font-family:"Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+img{max-width:100%}
+.wrap{max-width:1256px;margin:0 auto;padding:0 32px}
+h1,h2,h3,h4{font-family:"Plex Serif",Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
+h1{font-size:clamp(2.4rem,5vw,4.4rem)}
+h2{font-size:clamp(1.8rem,3vw,2.6rem)}
+h3{font-size:1.25rem}
+.mono{font-family:"Plex Mono",ui-monospace,monospace}
+.lbl{font-family:"Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.btn{display:inline-block;border-radius:2px;padding:14px 22px;font-weight:500;font-size:16px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;line-height:1.2}
+.btn-volt{background:var(--volt);color:#111213}
+.link-sec{font-size:16px;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(242,242,242,.26);padding-bottom:2px}
+.skip{position:absolute;left:-9999px}
+.skip:focus{left:16px;top:10px;background:var(--volt);color:#111213;padding:8px 12px;z-index:9}
+
+/* ---------- header ---------- */
+header{border-bottom:1px solid var(--rule);background:var(--ink)}
+.nav{display:flex;align-items:center;gap:28px;min-height:68px}
+.brand{font-family:"Plex Serif",Georgia,serif;font-weight:500;font-size:20px;text-decoration:none}
+.nav ul{list-style:none;display:flex;gap:22px;margin-left:auto}
+.nav a.nl{font-size:15px;font-weight:500;text-decoration:none;color:var(--soft)}
+.nav a.nl:hover,.nav a.nl:focus{color:var(--volt)}
+.nav .btn{padding:9px 16px;font-size:14px}
+
+/* ---------- herói e console ---------- */
+.hero{padding:64px 0 72px;border-bottom:1px solid var(--rule)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);column-gap:72px;row-gap:0;align-items:start}
+.hero-txt{grid-column:1;grid-row:1}
+.hero-grid>.console-frame{grid-column:2;grid-row:1/span 2}
+.hero-cta-wrap{grid-column:1;grid-row:2;align-self:start}
+.hero p.lead{font-size:19px;color:var(--soft);margin:22px 0 30px;max-width:30em}
+.hero-cta{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.hero-cta-wrap{margin-top:30px}
+.odo{margin-top:34px;display:flex;align-items:baseline;gap:12px;border-top:1px solid var(--rule);padding-top:16px}
+.odo .n{font-family:"Plex Mono",monospace;font-weight:500;font-size:34px;color:var(--volt);font-variant-numeric:tabular-nums;transition:opacity .24s ease-out}
+.odo .n.tick{opacity:.55}
+
+/* moldura própria do console: medianiz maior, régua de ciclo no topo */
+.console-frame{border:1px solid var(--rule);border-radius:2px;padding:14px;background:var(--ink)}
+.regua{display:flex;align-items:center;gap:10px;font-family:"Plex Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;padding-bottom:10px}
+.regua .barra{flex:1;height:7px;border-left:1px solid rgba(242,242,242,.26);border-right:1px solid rgba(242,242,242,.26);border-bottom:1px solid rgba(242,242,242,.26);position:relative}
+.regua .barra i{position:absolute;top:0;bottom:0;width:1px;background:rgba(242,242,242,.26)}
+.regua .barra i.a{left:25%}.regua .barra i.b{left:50%}.regua .barra i.c{left:75%}
+.regua .barra u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--volt);left:62%;text-decoration:none}
+.console{background:var(--ink-2);border:1px solid var(--rule);border-radius:2px}
+.console-top{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
+.tab{font-family:"Plex Mono",monospace;font-size:12px;padding:6px 10px;border:1px solid rgba(242,242,242,.26);border-radius:2px;background:transparent;color:var(--muted);cursor:pointer}
+.tab[aria-selected="true"]{color:#111213;background:var(--volt);border-color:var(--volt)}
+.console-top .right{margin-left:auto}
+.cols{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);align-content:start;min-height:446px}
+.col{background:var(--ink-2);padding:10px 0 4px;min-width:0}
+.col h4{font-family:"Plex Mono",monospace;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:0 12px 8px;min-height:2.4em}
+.row{display:grid;grid-template-columns:1fr auto;gap:8px;padding:6px 12px;font-family:"Plex Mono",monospace;font-size:12.5px;border-top:1px solid var(--rule-2);transition:opacity .24s ease-out,transform .24s ease-out}
+.row .k{color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.row .v{color:var(--text);font-variant-numeric:tabular-nums;text-align:right}
+.row .d{color:var(--muted);font-size:11px}
+.row.matched{border-left:2px solid var(--match);background:rgba(47,143,91,.12)}
+.row.gone{opacity:0;transform:translateY(4px)}
+.exc{border-top:1px solid var(--rule);padding:12px}
+.exc h4{font-family:"Plex Mono",monospace;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--exception);margin-bottom:8px}
+.exc-row{display:grid;grid-template-columns:1fr auto;gap:10px;font-family:"Plex Mono",monospace;font-size:12.5px;padding:7px 0 7px 10px;border-top:1px solid var(--rule-2);border-left:2px solid var(--exception);transition:opacity .32s ease-out,transform .32s ease-out}
+.exc-row .m{color:rgba(192,56,51,.95)}
+.exc-row .o{color:var(--muted);font-size:11px;text-align:right}
+.console-foot{display:flex;gap:16px;align-items:center;padding:9px 12px;border-top:1px solid var(--rule);font-family:"Plex Mono",monospace;font-size:11px;color:var(--muted)}
+.console-foot button{margin-left:auto}
+
+/* ---------- tira ---------- */
+.tira{background:var(--ink-2);border-bottom:1px solid var(--rule)}
+.tira .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;padding-top:16px;padding-bottom:16px;font-size:14px;color:var(--muted)}
+.tira a{color:var(--soft);text-decoration:none;border-bottom:1px solid rgba(242,242,242,.26)}
+.tira span.sep{color:rgba(242,242,242,.26)}
+
+/* ---------- seções ---------- */
+.sec{padding:76px 0}
+.sec-head{max-width:46em;margin-bottom:40px}
+.sec-head p{margin-top:14px;font-size:17px;color:var(--soft)}
+.paper{background:var(--paper);color:var(--text-dark)}
+.paper h2,.paper h3{color:var(--text-dark)}
+.paper .sec-head p{color:var(--soft-dark)}
+
+/* para quem: 3 colunas ruladas */
+.cols3{display:grid;grid-template-columns:repeat(3,1fr);gap:0;border-top:1px solid var(--paper-2)}
+.opcol{padding:26px 26px 26px 0;border-right:1px solid var(--paper-2)}
+.opcol:last-child{border-right:0;padding-right:0}
+.opcol:not(:first-child){padding-left:26px}
+.opcol h3{margin-bottom:14px}
+.opcol>p{font-size:15px;color:var(--soft-dark);margin-bottom:12px}
+.opl{list-style:none}
+.opl li{font-family:"Plex Mono",monospace;font-size:13px;padding:9px 0 9px 10px;border-top:1px solid var(--paper-2);border-left:2px solid transparent;color:var(--soft-dark);transition:border-color .16s ease-out}
+.opl li:hover{border-left-color:var(--volt)}
+.opcol a.more{display:inline-block;margin-top:16px;font-size:15px;font-weight:500;text-decoration:none;border-bottom:2px solid var(--volt);padding-bottom:2px}
+
+/* ---------- como funciona: diagrama estático ---------- */
+.fluxo{display:grid;grid-template-columns:repeat(5,1fr);gap:0;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.fluxo .no{padding:22px 20px 24px 14px;border-left:2px solid transparent;border-right:1px solid var(--rule);transition:border-color .16s ease-out}
+.fluxo .no:last-child{border-right:0}
+.fluxo .no:hover{border-left-color:var(--volt)}
+.fluxo .no .lbl{display:block;margin-bottom:8px}
+.fluxo .no h3{font-size:1.05rem;margin-bottom:8px}
+.fluxo .no p{font-size:14.5px;color:var(--soft)}
+.fluxo .no .fonte{display:block;margin-top:10px;font-family:"Plex Mono",monospace;font-size:11.5px;color:var(--muted)}
+.fluxo .no.exc-no h3{color:var(--exception)}
+.fluxo .no.match-no h3{color:var(--match)}
+.trilho{display:grid;grid-template-columns:repeat(5,1fr);align-items:center;margin-bottom:0}
+.trilho span{position:relative;height:18px;border-top:1px solid var(--rule)}
+.trilho span::after{content:"";position:absolute;right:-1px;top:-4px;width:7px;height:7px;border-top:1px solid rgba(242,242,242,.26);border-right:1px solid rgba(242,242,242,.26);transform:rotate(45deg)}
+.trilho span:last-child::after{display:none}
+/* rodapé técnico de fatos de produto (a antiga dobra de números) */
+.fatos{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:36px;border-top:1px solid var(--rule)}
+.fatos div{padding:18px 18px 18px 14px;border-left:2px solid transparent;border-right:1px solid var(--rule);border-bottom:1px solid var(--rule)}
+.fatos div:last-child{border-right:0}
+.fatos div:hover{border-left-color:var(--volt)}
+.fatos .n{display:block;font-family:"Plex Mono",monospace;font-weight:500;font-size:1.05rem;line-height:1.35;margin-bottom:6px}
+.fatos .n.volt{color:var(--volt);font-size:1.6rem}
+.fatos .t{font-size:14.5px;color:var(--soft)}
+
+/* ---------- oferta ---------- */
+.oferta-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:56px}
+.pass{list-style:none;margin-top:8px}
+.pass li{padding:16px 0;border-top:1px solid var(--paper-2);display:grid;grid-template-columns:auto 1fr;gap:16px;font-size:16px}
+.pass .num{font-family:"Plex Mono",monospace;font-weight:500;color:var(--soft-dark)}
+.oferta-grid>div>p.intro{margin:16px 0 8px;color:var(--soft-dark)}
+form.lf{display:grid;gap:14px;background:var(--paper);border:1px solid var(--paper-2);border-radius:2px;padding:24px}
+form.lf label{font-family:"Plex Mono",monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--soft-dark);display:block;margin-bottom:6px}
+form.lf input,form.lf select{width:100%;border:1px solid var(--paper-2);border-radius:2px;padding:11px 12px;font-family:inherit;font-size:16px;background:var(--paper);color:var(--text-dark)}
+form.lf input:focus,form.lf select:focus{outline:2px solid var(--volt);outline-offset:0}
+form.lf input.lf-error,form.lf select.lf-error{border-color:var(--exception)}
+form.lf .fine{font-size:13px;color:var(--soft-dark)}
+form.lf .fine a{color:var(--text-dark)}
+.lf-err{font-family:"Plex Mono",monospace;font-size:13px;color:var(--exception)}
+.lf-ok{border:1px solid var(--paper-2);border-radius:2px;padding:24px;background:var(--paper);color:var(--text-dark)}
+.lf-ok h4{font-size:1.2rem;margin-bottom:8px}
+.lf-ok p{font-size:16px;color:var(--soft-dark)}
+.hp{position:absolute;left:-9999px;top:-9999px;width:1px;height:1px;overflow:hidden}
+
+/* ---------- comparando ---------- */
+.cmp{width:100%;border-collapse:collapse;font-size:15px}
+.cmp th,.cmp td{text-align:left;padding:16px 12px;border-bottom:1px solid var(--rule);vertical-align:top}
+.cmp th{font-family:"Plex Mono",monospace;font-size:11px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);font-weight:500}
+.cmp td:first-child{font-weight:500;width:34%}
+.cmp td:last-child{color:var(--soft)}
+.cmp tr:hover td{background:rgba(242,242,242,.04)}
+
+/* ---------- técnica ---------- */
+.tec{background:var(--ink-2)}
+.tecgrid{display:grid;grid-template-columns:repeat(2,1fr);gap:0;border-top:1px solid var(--rule)}
+.tecgrid div{padding:20px 20px 20px 14px;border-bottom:1px solid var(--rule);border-left:2px solid transparent;transition:border-color .16s ease-out}
+.tecgrid div:hover{border-left-color:var(--volt)}
+.tecgrid h3{font-size:1rem;margin-bottom:6px}
+.tecgrid p{font-size:15px;color:var(--soft)}
+.tec .docs{margin-top:28px}
+
+/* ---------- rodapé ---------- */
+footer{border-top:1px solid var(--rule);padding:48px 0 60px;font-size:15px;color:var(--muted)}
+footer ul{list-style:none;display:flex;flex-wrap:wrap;gap:24px;margin-bottom:20px}
+footer a{color:var(--soft);text-decoration:none;border-bottom:1px solid rgba(242,242,242,.26)}
+footer p{margin-top:6px}
+
+/* ---------- responsivo ---------- */
+@media (max-width:1180px){
+ .hero-grid{gap:44px}
+ .fatos{grid-template-columns:repeat(2,1fr)}
+}
+@media (max-width:1024px){
+ .hero-grid{display:flex;flex-direction:column;gap:32px}
+ .hero-cta-wrap{margin-top:0}
+ .hero{padding:48px 0 56px}
+ .fluxo,.trilho{grid-template-columns:repeat(2,1fr)}
+ .fluxo .no{border-bottom:1px solid var(--rule)}
+ .trilho{display:none}
+ .nav{gap:16px}
+ .nav ul{gap:16px}
+ .nav a.nl{font-size:14px}
+}
+@media (max-width:900px){
+ .cols3{grid-template-columns:1fr}
+ .opcol{border-right:0;border-bottom:1px solid var(--paper-2);padding:22px 0}
+ .opcol:not(:first-child){padding-left:0}
+ .oferta-grid{grid-template-columns:1fr;gap:36px}
+ .sec{padding:56px 0}
+}
+@media (max-width:768px){
+ body{font-size:16px}
+ .wrap{padding:0 20px}
+ h1{font-size:2.3rem}
+ .nav ul{display:none}
+ .brand{font-size:17px;margin-right:auto}
+ .nav .btn{padding:8px 12px;font-size:13px;white-space:nowrap}
+ .tecgrid,.fatos{grid-template-columns:1fr}
+ .fluxo{grid-template-columns:1fr}
+ .fluxo .no{border-right:0}
+ .cols{grid-template-columns:1fr 1fr}
+ .console-rows{height:320px;min-height:0;overflow:hidden}
+ .row{font-size:11.5px;padding:6px 8px}
+ .row .k{font-size:11px}
+}
+@media (max-width:430px){
+ h1{font-size:2.05rem}
+ .row{grid-template-columns:1fr;gap:2px}
+ .row .v{text-align:left}
+ .row .k{white-space:normal}
+ .exc-row{grid-template-columns:1fr;gap:2px}
+ .exc-row .o{text-align:left}
+}
+@media (prefers-reduced-motion:reduce){
+ *{transition:none !important;animation:none !important}
+}
+
+/* ---------- variações por página (subidas das páginas de segmento) ---------- */
+.nav a.nl[aria-current="page"]{color:var(--volt);border-bottom:2px solid var(--volt);padding-bottom:2px}
+/* H1 mais longo que o da home: um degrau abaixo para caber em 3 a 4 linhas em 1440 */
+.hero--longo h1{font-size:clamp(2.2rem,3.9vw,3.5rem)}
+.hero--curto h1{font-size:clamp(2.2rem,3.6vw,3.2rem)}
+/* páginas com 3 fatos técnicos, não 4 */
+.fatos--3{grid-template-columns:repeat(3,1fr)}
+@media (max-width:1180px){.fatos--3{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:768px){.fatos--3{grid-template-columns:1fr}}
