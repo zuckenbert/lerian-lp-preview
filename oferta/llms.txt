@@ -1,0 +1,28 @@
+# Conciliação Lerian (motor: Matcher)
+
+> Conciliação de pagamentos para quem liquida, repassa e presta contas: adquirentes e subadquirentes, PSPs, gateways e marketplaces, instituições de pagamento e bancos com Pix. Bandeira, banco, extrato do SPI e ledger cruzados por regra. A tarifa (MDR e taxa de bandeira) é modelada antes da comparação, então a diferença esperada não vira exceção; a inesperada vira uma pendência com dono, severidade e prazo. Motor: Matcher, da Lerian. Roda na infraestrutura do cliente ou na Lerian Cloud.
+
+## O que o produto faz (fatos documentados)
+- Ingestão de CNAB 240 e 400, OFX, EDI de adquirente, camt.053, CSV, JSON, XML e layout posicional registrado pelo próprio cliente, por operador.
+- Tarifa modelada antes do casamento: tabelas e regras de tarifa (flat, percentual, escalonada, por expressão), MDR por MCC e tipo de cartão, caso "Interchange Plus" para adquirência.
+- Casamento 1:1, 1:N e N:M com tolerância, confiança de 0 a 100 e auto-confirmação acima de 90; o resto vai para revisão humana.
+- Exceção com dono, severidade, prazo e disputa com evidência (aberta, evidenciada, ganha ou perdida), roteada para Jira, ServiceNow ou webhook assinado em HMAC.
+- Simulação antes de aplicar (dry run de regra e de tabela de tarifa contra dados reais, sem gravar).
+- Conciliação Pix contra o extrato do SPI por endToEndId, cash-in e cash-out, transação a transação.
+- Trilha imutável com encadeamento de hashes e relatórios prontos para auditoria e regulador.
+- API idempotente, servidor MCP nativo, multi-tenant com banco por tenant, white-label; standalone ou junto do ledger Midaz.
+
+## A oferta
+- "Prova com os seus arquivos": o comprador envia um arquivo de liquidação (bandeira, adquirente, provedor ou extrato do SPI) e a extração do lado interno; a engenharia de soluções da Lerian modela a tarifa, simula e devolve, em dias úteis, o que bateu, o que não bateu e por quê. Arquivos sob confidencialidade; dado mascarado é aceito.
+
+## Páginas
+- [Home](https://matcher.lerian.studio/): conciliação de pagamentos, as três operações, como funciona, a prova, sete critérios de comparação.
+- [Adquirentes e subadquirentes](https://matcher.lerian.studio/adquirentes/): conciliação de adquirentes, de recebíveis, de liquidação e de repasse; venda x liquidação da bandeira, MDR e taxa de bandeira, chargeback e disputa.
+- [PSPs, gateways e marketplaces](https://matcher.lerian.studio/fintechs/): conciliação de pagamentos por provedor, split e repasse ao merchant, marca branca e multi-tenant. Seção "Comparando ferramentas de conciliação? Sete critérios" em /fintechs/#comparando.
+- [Conciliação Pix](https://matcher.lerian.studio/pix/): extrato do SPI contra o ledger por endToEndId, para instituições de pagamento e bancos com Pix direto ou indireto.
+- [Servidor MCP](https://matcher.lerian.studio/mcp/): operar a conciliação por assistente de IA com as permissões do token.
+- [Documentação](https://docs.lerian.studio/en/products/matcher/what-is-matcher)
+
+## Sobre
+- Empresa: Lerian (https://lerian.studio), infraestrutura financeira, time no Brasil. Contato: https://lerian.studio/contato/. Privacidade: https://lerian.studio/privacidade/.
+- Termos de categoria: conciliação de pagamentos, conciliação de adquirentes, conciliação de recebíveis, conciliação marketplace, conciliação PSP, conciliação Pix, sistema de conciliação, software de conciliação, payment reconciliation, settlement reconciliation, transaction matching.

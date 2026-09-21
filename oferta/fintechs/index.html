@@ -4,314 +4,220 @@
 <meta name="robots" content="noindex,nofollow">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Conciliação de pagamentos para PSPs e marketplaces · Lerian</title>
-<meta name="description" content="Conciliação de pagamentos para PSPs, gateways, marketplaces e fintechs de pagamento. Provedor, split e repasse por merchant fechando por regra, com a sua marca e dono para cada divergência.">
+<title>Conciliação de pagamentos para PSPs | Matcher, da Lerian</title>
+<meta name="description" content="Conciliação de pagamentos para PSPs e fintechs no Matcher, da Lerian: white-label, API-first e multi-tenant. Peça a prova com os seus arquivos.">
 <link rel="canonical" href="https://matcher.lerian.studio/fintechs/">
+<link rel="icon" type="image/svg+xml" href="../favicon-matcher.svg">
 <meta property="og:type" content="website">
-<meta property="og:site_name" content="Conciliação Lerian">
+<meta property="og:site_name" content="Matcher, da Lerian">
 <meta property="og:locale" content="pt_BR">
 <meta property="og:url" content="https://matcher.lerian.studio/fintechs/">
-<meta property="og:title" content="Conciliação de pagamentos para PSPs e marketplaces · Lerian">
-<meta property="og:description" content="Conciliação de pagamentos para PSPs, gateways, marketplaces e fintechs de pagamento. Provedor, split e repasse por merchant fechando por regra, com a sua marca.">
+<meta property="og:title" content="Conciliação de pagamentos para PSPs | Matcher, da Lerian">
+<meta property="og:description" content="Conciliação de pagamentos para PSPs e fintechs no Matcher, da Lerian: white-label, API-first e multi-tenant. Peça a prova com os seus arquivos.">
 <meta property="og:image" content="https://matcher.lerian.studio/og-conciliacao.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Conciliação de pagamentos para PSPs e marketplaces · Lerian">
-<meta name="twitter:description" content="Conciliação de pagamentos para PSPs, gateways, marketplaces e fintechs de pagamento. Provedor, split e repasse por merchant fechando por regra, com a sua marca.">
+<meta name="twitter:title" content="Conciliação de pagamentos para PSPs | Matcher, da Lerian">
+<meta name="twitter:description" content="Conciliação de pagamentos para PSPs e fintechs no Matcher, da Lerian: white-label, API-first e multi-tenant. Peça a prova com os seus arquivos.">
 <meta name="twitter:image" content="https://matcher.lerian.studio/og-conciliacao.png">
 <link rel="preload" href="../fonts/ibm-plex-serif-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/ibm-plex-sans-400-latin.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="../fonts/ibm-plex-mono-400-latin.woff2" as="font" type="font/woff2" crossorigin>
-<style>@font-face{font-family:"Plex Sans";src:url("../fonts/ibm-plex-sans-400-latin.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Plex Sans";src:url("../fonts/ibm-plex-sans-500-latin.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:"Plex Mono";src:url("../fonts/ibm-plex-mono-400-latin.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Plex Mono";src:url("../fonts/ibm-plex-mono-500-latin.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
-@font-face{font-family:"Plex Serif";src:url("../fonts/ibm-plex-serif-400-latin.woff2") format("woff2");font-weight:400;font-style:normal;font-display:swap}
-@font-face{font-family:"Plex Serif";src:url("../fonts/ibm-plex-serif-500-latin.woff2") format("woff2");font-weight:500;font-style:normal;font-display:swap}
-
-:root{
---ink:#0C0D0E;--ink-2:#161718;--paper:#F2F2F2;--paper-2:#E6E4DE;
---text:#F2F2F2;--text-dark:#111213;--muted:#8B877C;
---volt:#FEED02;--exception:#C03833;--match:#2F8F5B;
---rule:rgba(242,242,242,.13);--rule-2:rgba(242,242,242,.07);
---soft:rgba(242,242,242,.78);--soft-dark:rgba(17,18,19,.72)}
-
-*{box-sizing:border-box;margin:0;padding:0}
-html{font-size:clamp(15px,1vw,16px);-webkit-text-size-adjust:100%}
-body{background:var(--ink);color:var(--text);font-family:"Plex Sans",system-ui,sans-serif;font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
-a{color:inherit}
-img{max-width:100%}
-.wrap{max-width:1256px;margin:0 auto;padding:0 32px}
-h1,h2,h3,h4{font-family:"Plex Serif",Georgia,serif;font-weight:400;line-height:1.05;letter-spacing:-.01em}
-h1{font-size:clamp(2.4rem,5vw,4.4rem)}
-h2{font-size:clamp(1.8rem,3vw,2.6rem)}
-h3{font-size:1.25rem}
-.mono{font-family:"Plex Mono",ui-monospace,monospace}
-.lbl{font-family:"Plex Mono",ui-monospace,monospace;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
-.btn{display:inline-block;border-radius:2px;padding:14px 22px;font-weight:500;font-size:16px;text-decoration:none;border:1px solid transparent;cursor:pointer;font-family:inherit;line-height:1.2}
-.btn-volt{background:var(--volt);color:#111213}
-.link-sec{font-size:16px;color:var(--muted);text-decoration:none;border-bottom:1px solid rgba(242,242,242,.26);padding-bottom:2px}
-.skip{position:absolute;left:-9999px}
-.skip:focus{left:16px;top:10px;background:var(--volt);color:#111213;padding:8px 12px;z-index:9}
-
-/* ---------- header ---------- */
-header{border-bottom:1px solid var(--rule);background:var(--ink)}
-.nav{display:flex;align-items:center;gap:28px;min-height:68px}
-.brand{font-family:"Plex Serif",Georgia,serif;font-weight:500;font-size:20px;text-decoration:none}
-.nav ul{list-style:none;display:flex;gap:22px;margin-left:auto}
-.nav a.nl{font-size:15px;font-weight:500;text-decoration:none;color:var(--soft)}
-.nav a.nl:hover,.nav a.nl:focus{color:var(--volt)}
-.nav .btn{padding:9px 16px;font-size:14px}
-
-/* ---------- herói e console ---------- */
-.hero{padding:64px 0 72px;border-bottom:1px solid var(--rule)}
-.hero-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.06fr);column-gap:72px;row-gap:0;align-items:start}
-.hero-txt{grid-column:1;grid-row:1}
-.hero-grid>.console-frame{grid-column:2;grid-row:1/span 2}
-.hero-cta-wrap{grid-column:1;grid-row:2;align-self:start}
-.hero p.lead{font-size:19px;color:var(--soft);margin:22px 0 30px;max-width:30em}
-.hero-cta{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
-.hero-cta-wrap{margin-top:30px}
-.odo{margin-top:34px;display:flex;align-items:baseline;gap:12px;border-top:1px solid var(--rule);padding-top:16px}
-.odo .n{font-family:"Plex Mono",monospace;font-weight:500;font-size:34px;color:var(--volt);font-variant-numeric:tabular-nums;transition:opacity .24s ease-out}
-.odo .n.tick{opacity:.55}
-
-/* moldura própria do console: medianiz maior, régua de ciclo no topo */
-.console-frame{border:1px solid var(--rule);border-radius:2px;padding:14px;background:var(--ink)}
-.regua{display:flex;align-items:center;gap:10px;font-family:"Plex Mono",monospace;font-size:11px;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;padding-bottom:10px}
-.regua .barra{flex:1;height:7px;border-left:1px solid rgba(242,242,242,.26);border-right:1px solid rgba(242,242,242,.26);border-bottom:1px solid rgba(242,242,242,.26);position:relative}
-.regua .barra i{position:absolute;top:0;bottom:0;width:1px;background:rgba(242,242,242,.26)}
-.regua .barra i.a{left:25%}.regua .barra i.b{left:50%}.regua .barra i.c{left:75%}
-.regua .barra u{position:absolute;top:-3px;bottom:-3px;width:2px;background:var(--volt);left:62%;text-decoration:none}
-.console{background:var(--ink-2);border:1px solid var(--rule);border-radius:2px}
-.console-top{display:flex;align-items:center;gap:8px;padding:10px 12px;border-bottom:1px solid var(--rule);flex-wrap:wrap}
-.tab{font-family:"Plex Mono",monospace;font-size:12px;padding:6px 10px;border:1px solid rgba(242,242,242,.26);border-radius:2px;background:transparent;color:var(--muted);cursor:pointer}
-.tab[aria-selected="true"]{color:#111213;background:var(--volt);border-color:var(--volt)}
-.console-top .right{margin-left:auto}
-.cols{display:grid;grid-template-columns:1fr 1fr;gap:1px;background:var(--rule);align-content:start;min-height:446px}
-.col{background:var(--ink-2);padding:10px 0 4px;min-width:0}
-.col h4{font-family:"Plex Mono",monospace;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);padding:0 12px 8px;min-height:2.4em}
-.row{display:grid;grid-template-columns:1fr auto;gap:8px;padding:6px 12px;font-family:"Plex Mono",monospace;font-size:12.5px;border-top:1px solid var(--rule-2);transition:opacity .24s ease-out,transform .24s ease-out}
-.row .k{color:var(--soft);white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.row .v{color:var(--text);font-variant-numeric:tabular-nums;text-align:right}
-.row .d{color:var(--muted);font-size:11px}
-.row.matched{border-left:2px solid var(--match);background:rgba(47,143,91,.12)}
-.row.gone{opacity:0;transform:translateY(4px)}
-.exc{border-top:1px solid var(--rule);padding:12px}
-.exc h4{font-family:"Plex Mono",monospace;font-size:12px;font-weight:500;letter-spacing:.06em;text-transform:uppercase;color:var(--exception);margin-bottom:8px}
-.exc-row{display:grid;grid-template-columns:1fr auto;gap:10px;font-family:"Plex Mono",monospace;font-size:12.5px;padding:7px 0 7px 10px;border-top:1px solid var(--rule-2);border-left:2px solid var(--exception);transition:opacity .32s ease-out,transform .32s ease-out}
-.exc-row .m{color:rgba(192,56,51,.95)}
-.exc-row .o{color:var(--muted);font-size:11px;text-align:right}
-.console-foot{display:flex;gap:16px;align-items:center;padding:9px 12px;border-top:1px solid var(--rule);font-family:"Plex Mono",monospace;font-size:11px;color:var(--muted)}
-.console-foot button{margin-left:auto}
-
-/* ---------- tira ---------- */
-.tira{background:var(--ink-2);border-bottom:1px solid var(--rule)}
-.tira .wrap{display:flex;flex-wrap:wrap;gap:10px 24px;padding-top:16px;padding-bottom:16px;font-size:14px;color:var(--muted)}
-.tira a{color:var(--soft);text-decoration:none;border-bottom:1px solid rgba(242,242,242,.26)}
-.tira span.sep{color:rgba(242,242,242,.26)}</style>
-<link rel="stylesheet" href="../styles-oferta.css?v=2">
-<!-- Tracking. GA4 e Google Ads com defer; loader do RD com defer (o handler do
-     formulário lê os cookies rdtrk e __trf.src que ele grava). -->
+<style>:root{--paper:#FFFFFF;--paper-alt:#F2F2F2;--ink:#191A1B;--ink-deep:#111213;--spark:#FEED02;--gray-dark:#3E3C37;--gray-mid:#8B877C;--rule-p:#CECECE;--green:#50F769;--red:#FF6760;--blue:#2ED8FE;--rule:rgba(255,255,255,.14);--rule-2:rgba(255,255,255,.07);--soft:rgba(255,255,255,.78);--soft-dark:#3E3C37;--vidro:rgba(255,255,255,.03);--vidro-alto:rgba(255,255,255,.055);--vidro-linha:rgba(255,255,255,.08);--sans:"Plex Sans",Helvetica Neue,Arial,sans-serif;--mono:"Plex Mono",ui-monospace,monospace;--e:cubic-bezier(.2,.8,.2,1);--sh:0 1px 0 rgba(255,255,255,.05),0 2px 10px rgba(0,0,0,.4),0 28px 64px rgba(0,0,0,.55);--sh-alta:0 1px 0 rgba(255,255,255,.08),0 4px 14px rgba(0,0,0,.45),0 40px 88px rgba(0,0,0,.6);--sh-p:0 1px 0 rgba(255,255,255,.9),0 4px 14px rgba(17,18,19,.07),0 30px 70px rgba(17,18,19,.16);--sh-spark:0 12px 40px rgba(254,237,2,.25)}*{box-sizing:border-box;margin:0;padding:0}html{font-size:clamp(15px,1vw,16px);-webkit-text-size-adjust:100%;overflow-x:clip}body{position:relative;counter-reset:bloco;background:var(--ink);color:var(--paper);font-family:"Plex Serif",Georgia,serif;font-size:18px;line-height:1.55;-webkit-font-smoothing:antialiased;overflow-x:clip}a{color:inherit}img{max-width:100%}.wrap{max-width:1256px;margin:0 auto;padding:0 32px;position:relative}h1,h2,h3,h4{font-family:var(--sans);font-weight:600;line-height:1.03;letter-spacing:-.024em;text-wrap:balance;hyphens:none}h1{font-size:clamp(2.4rem,4.4vw,60px)}h2{font-size:clamp(2rem,3.5vw,48px)}h3{font-size:1.18rem;font-weight:500}p{max-width:60ch;text-wrap:pretty;hyphens:none}:focus-visible{outline:2px solid var(--spark);outline-offset:3px}.lbl{font-family:var(--mono);font-size:13px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-mid)}.btn{display:inline-flex;align-items:center;justify-content:center;border-radius:999px;padding:16px 32px;font-family:var(--sans);font-weight:500;font-size:16px;text-decoration:none;border:1px solid transparent;cursor:pointer;line-height:1.2;min-height:56px;transition:transform .24s var(--e),box-shadow .24s var(--e),border-color .24s var(--e),background-color .24s var(--e)}.btn:hover{transform:translateY(-2px)}.btn-spark{background:var(--spark);color:var(--ink-deep);box-shadow:var(--sh-spark)}.btn-spark:hover{box-shadow:0 18px 52px rgba(254,237,2,.34)}.btn-ghost{border-color:var(--vidro-linha);background:var(--vidro);color:var(--paper)}.btn-ghost:hover{border-color:var(--spark);background:var(--vidro-alto)}.btn-dark{border-color:rgba(25,26,27,.34);color:var(--ink-deep);background:transparent}.btn-dark:hover{border-color:var(--ink-deep);background:rgba(25,26,27,.04)}.skip{position:absolute;left:-9999px;display:inline-flex;align-items:center;min-height:44px}.skip:focus{left:16px;top:10px;display:inline-flex;align-items:center;min-height:44px;background:var(--spark);color:var(--ink-deep);padding:8px 16px;z-index:9}.ic{width:24px;height:24px;display:block;color:var(--spark)}header{border-bottom:1px solid var(--rule);background:rgba(17,18,19,.94);position:sticky;top:0;z-index:20}.nav{display:flex;align-items:center;gap:26px;min-height:74px}.brand{display:flex;align-items:center;gap:12px;min-height:44px;text-decoration:none}.brand .wm{height:17px;width:auto;display:block}.brand .sep{width:1px;height:20px;background:rgba(255,255,255,.26)}.brand .mi{height:20px;width:20px;color:var(--spark)}.brand .pn{font-family:var(--sans);font-weight:600;font-size:19px;letter-spacing:-.02em}.nav ul{list-style:none;display:flex;gap:10px;margin-left:auto}.nav a.nl{display:inline-flex;align-items:center;justify-content:center;min-height:44px;min-width:32px;padding:0 6px;font-family:var(--sans);font-size:15px;font-weight:500;text-decoration:none;color:var(--soft)}.nav a.nl:hover,.nav a.nl:focus{color:var(--paper)}.nav a.nl[aria-current="page"]{color:var(--paper);box-shadow:inset 0 -1px 0 var(--rule)}.nav ul li{display:flex;align-items:center}.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.nav .btn{padding:11px 20px;font-size:14px;min-height:44px;box-shadow:none}.hero{padding:64px 0 96px;border-bottom:1px solid var(--rule);background:var(--ink-deep);position:relative;overflow:hidden}.hero::before{content:"";position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.04) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.04) 1px,transparent 1px);background-size:58px 58px;pointer-events:none;z-index:0}.hero::after{content:"";position:absolute;left:50%;top:26%;width:1180px;height:1180px;max-width:120vw;margin-left:-590px;border-radius:50%;background:radial-gradient(closest-side,rgba(254,237,2,.13),rgba(254,237,2,.04) 52%,rgba(254,237,2,0) 76%);filter:blur(40px);pointer-events:none;z-index:0}.cursor{position:absolute;left:0;top:0;width:400px;height:400px;margin:-200px 0 0 -200px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,255,255,.06),rgba(255,255,255,0) 70%);opacity:0;transition:opacity .4s var(--e);pointer-events:none;z-index:1;will-change:transform}.hero.viva .cursor{opacity:1}.hero-txt{position:relative;z-index:3;display:grid;grid-template-columns:minmax(0,1.08fr) minmax(0,.92fr);column-gap:72px;align-items:start}.hero .eyebrow{display:block;grid-column:1/-1;margin-bottom:24px}.hero h1{grid-column:1;grid-row:2/4;clip-path:inset(0 0 -12% 0);font-size:clamp(2.3rem,3.8vw,52px);max-width:17ch;align-self:start}.hero p.lead{grid-column:2;grid-row:2;font-size:20px;color:var(--soft);margin:0 0 30px;max-width:44ch}.hero-cta{grid-column:2;grid-row:3;display:flex;align-items:center;gap:14px;flex-wrap:wrap;align-self:start}.liga{display:block;grid-column:2;grid-row:4;width:100%;max-width:360px;height:12px;margin-top:34px;color:var(--spark);overflow:visible}.liga path{stroke-dasharray:212;stroke-dashoffset:212;animation:liga 3.2s ease-in-out infinite}@keyframes liga{0%{stroke-dashoffset:212;stroke:var(--spark)}55%{stroke-dashoffset:0;stroke:var(--spark)}70%,100%{stroke-dashoffset:0;stroke:var(--green)}}.js .hero h1{animation:sobe-clip .85s var(--e) both}.js .hero .eyebrow{animation:sobe .6s var(--e) both}.js .hero p.lead{animation:sobe .7s var(--e) .08s both}.js .hero-cta{animation:sobe .7s var(--e) .16s both}.js .hero .liga{animation:sobe .7s var(--e) .24s both}.js .scene{animation:sobe-cena 1s var(--e) .12s both}@keyframes sobe-clip{from{clip-path:inset(0 0 100% 0);opacity:0;transform:translateY(14px)}to{clip-path:inset(0 0 -12% 0);opacity:1;transform:none}}@keyframes sobe{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}@keyframes sobe-cena{from{opacity:0;transform:translateY(26px) scale(.99)}to{opacity:1;transform:none}}.scene-wrap{margin-top:52px;z-index:2}.scene{position:relative;width:min(1120px,100%);margin:0 auto}.glow{position:absolute;left:50%;top:50%;width:126%;height:150%;transform:translate(-50%,-50%);pointer-events:none;opacity:.6}.app{position:relative;z-index:2;display:grid;grid-template-columns:172px minmax(0,1fr) 292px;height:640px;background:var(--paper);color:var(--ink);border-radius:12px;box-shadow:var(--sh-alta);overflow:hidden;will-change:transform}.side{background:var(--paper-alt);border-right:1px solid var(--rule-p);padding:20px 0;display:flex;flex-direction:column;gap:1px}.side .si{width:20px;height:20px;color:var(--ink);margin:2px 0 26px 20px}.sn{font-family:var(--sans);font-size:13px;line-height:1.2;color:var(--gray-dark);padding:10px 20px}.sn.on{color:var(--ink);font-weight:600;background:rgba(254,237,2,.2);box-shadow:inset 3px 0 0 var(--spark)}.main{display:flex;flex-direction:column;min-width:0}.top{display:flex;align-items:center;gap:12px;padding:17px 22px;border-bottom:1px solid var(--rule-p)}.top .tt{font-family:var(--sans);font-weight:600;font-size:16px;letter-spacing:-.012em;margin-right:auto;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.top .per{font-family:var(--mono);font-size:11px;color:var(--gray-dark);border:1px solid rgba(25,26,27,.18);border-radius:6px;padding:7px 11px;white-space:nowrap}.top .run{font-family:var(--sans);font-weight:500;font-size:13px;background:var(--ink);color:var(--paper);border-radius:6px;padding:9px 15px;white-space:nowrap}.kpi{display:flex;align-items:center;gap:32px;padding:18px 22px;border-bottom:1px solid var(--rule-p)}.kpi>div{padding-top:5px}.kpi>div:first-child{box-shadow:inset 0 3px 0 -1px var(--spark)}.kpi b{display:block;font-family:var(--mono);font-weight:500;font-size:25px;line-height:1;color:var(--ink);font-variant-numeric:tabular-nums}.kpi i{display:block;margin-top:8px;font-family:var(--mono);font-style:normal;font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--gray-mid)}.kpi .ilu{margin-left:auto;white-space:nowrap;font-family:var(--mono);font-size:10px;letter-spacing:.09em;text-transform:uppercase;color:var(--gray-mid)}.pz{font-family:var(--mono);font-size:11px;color:var(--gray-dark);background:transparent;border:1px solid rgba(25,26,27,.18);border-radius:6px;padding:7px 12px;cursor:pointer}.pz:hover{border-color:var(--ink);color:var(--ink)}.fio{position:absolute;left:max(14px,calc(50% - 622px));width:2px;background:rgba(139,135,124,.42);z-index:1;pointer-events:none;opacity:0;transition:opacity .5s var(--e)}.fio.pronto{opacity:1}.fio .enche{position:absolute;left:0;top:0;width:2px;height:var(--f,0);background:var(--spark)}.fio .no{position:absolute;left:-5px;width:12px;height:12px;border-radius:50%;background:var(--ink-deep);border:2px solid rgba(139,135,124,.5);transition:background-color .35s var(--e),border-color .35s var(--e),box-shadow .35s var(--e)}.fio .no.claro{background:var(--paper-alt)}.fio .no.aceso{background:var(--spark);border-color:var(--spark);box-shadow:0 0 0 6px rgba(254,237,2,.16),0 0 22px rgba(254,237,2,.5)}@media (max-width:1024px){.fio{left:9px}}@media (max-width:768px){.fio{left:8px;width:1px}.fio .enche{width:1px}.fio .no{left:-5px;width:11px;height:11px}}@media (max-width:1240px){.scene{width:100%}.conf{left:-14px}.regra{right:-14px}}@media (max-width:1024px){.hero{padding:56px 0 80px}.hero-txt{display:block}.hero h1{max-width:18ch}.hero p.lead{max-width:none;margin:26px 0 34px}.liga{display:none}.nav{gap:16px}.nav ul{gap:16px}.nav a.nl{font-size:14px}.scene-wrap{margin-top:46px}.app{grid-template-columns:150px minmax(0,1fr);height:540px}.drw,.regra{display:none}.conf{left:-10px;bottom:60px;width:160px}.conf .cn{font-size:34px}.promessas .wrap>div{padding:24px 22px 0}.promessas .n{max-width:none}}@media (max-width:768px){body{font-size:17px}.wrap{padding:0 20px}h1{font-size:2.3rem}h2{font-size:1.95rem}.nav ul{display:none}.brand{margin-right:auto}.brand .pn{font-size:17px}.brand .wm{height:15px}.nav .btn{padding:9px 16px;font-size:13px;white-space:nowrap}.hero{padding:52px 0 72px}.hero p.lead{font-size:19px}.hero-cta .btn{width:100%}.cursor,.glow,.hero::after{display:none}.scene-wrap{margin-top:36px}.scene{width:100%}.conf,.regra,.side{display:none}.app{grid-template-columns:1fr;height:auto;box-shadow:0 20px 44px rgba(0,0,0,.5)}.top{padding:15px 16px}.top .tt{font-size:14px;white-space:normal}.top .per{display:none}.kpi{flex-wrap:wrap;gap:16px 22px;padding:15px 16px}.pz{margin-left:auto}.kpi b{font-size:20px}.kpi .ilu{display:none}.tr{padding:0 16px;gap:8px;grid-template-columns:1.25fr .95fr .9fr}.th.c1,.td.c1,.th.c3,.td.c3,.th.c4,.td.c4,.th.c5,.td.c5{display:none}.tbl .tr:nth-child(n+6){display:none}.td{font-size:11.5px;padding:11px 0}.promessas .wrap{grid-template-columns:repeat(2,1fr);padding-bottom:34px}.promessas .wrap>div{padding:22px 18px 22px;border-left:0;border-top:1px solid rgba(25,26,27,.14)}.promessas .wrap>div:first-child,.promessas .wrap>div:nth-child(2){border-top-width:3px;border-top-style:solid}.promessas .wrap>div:nth-child(2){border-top-color:transparent}.promessas .wrap>div:nth-child(odd){padding-left:0}.promessas .wrap>div:nth-child(even){padding-right:0}.promessas .ic.ip{margin-bottom:14px}.promessas .n{font-size:clamp(18px,4.8vw,21px);padding-bottom:14px}.promessas .ad{font-size:13px}}@media (max-width:430px){h1{font-size:2rem}.promessas .wrap>div{padding-left:14px;padding-right:14px}.promessas .wrap>div:nth-child(odd){padding-left:0}.promessas .wrap>div:nth-child(even){padding-right:0}.promessas .n{font-size:17px}.promessas .ad{font-size:13px}}@media (prefers-reduced-motion:reduce){*{transition:none !important;animation:none !important}.js .rv,.js .stg,.js .stg .b{opacity:1;transform:none}.js .tr{opacity:1;transform:none}.passos .trilho::after{transform:scaleY(1)}.passos>div .mini{opacity:.95;transform:none}.cmp td:first-child::before{transform:rotate(-45deg) scale(1)}.barra,.conf .bar i{transform:scaleX(1)}.rolo{transform:none}.js .cena2 .par2{opacity:1;transform:none}.perg li h3{color:var(--paper)}.perg .duo p{color:var(--soft)}.perg .duo p.b{color:var(--paper);opacity:1}.perg .duo p.b::before{background:var(--spark)}.fio .enche{height:100%}.liga path{stroke-dashoffset:0;stroke:var(--green)}.cursor{display:none}.btn:hover,.lev:hover,.pq:hover,.aprovar:hover{transform:none}}</style>
+<link rel="stylesheet" href="../styles-oferta.css?v=4">
+<script type="application/ld+json">[{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Conciliação para PSP, conciliação para fintech e conciliação marketplace?", "acceptedAnswer": {"@type": "Answer", "text": "Mesmo motor. Conciliação de split, a divisão do valor entre as partes, e conciliação para instituição de pagamento mudam a regra, com conciliação white label, com a sua marca."}}, {"@type": "Question", "name": "Payment reconciliation e transaction matching, é isso?", "acceptedAnswer": {"@type": "Answer", "text": "É. Reconciliation software e settlement reconciliation nomeiam o mesmo trabalho."}}, {"@type": "Question", "name": "Procurando alternativa em conciliação para fintechs?", "acceptedAnswer": {"@type": "Answer", "text": "Conciliação sem lock-in, sem amarra para sair: a sua infra, API aberta e a prova rodada com dado seu."}}, {"@type": "Question", "name": "O Matcher roda com a marca do meu produto?", "acceptedAnswer": {"@type": "Answer", "text": "Roda, com a sua marca, e por API, com um ambiente separado por cliente."}}]}, {"@context": "https://schema.org", "@type": "Product", "name": "Matcher", "brand": {"@type": "Organization", "name": "Lerian", "url": "https://lerian.studio/", "email": "contato@lerian.studio", "address": {"@type": "PostalAddress", "addressCountry": "BR"}}, "category": "Software de conciliação de pagamentos", "url": "https://matcher.lerian.studio/fintechs/", "description": "Conciliação de pagamentos para PSPs e fintechs no Matcher, da Lerian: white-label, API-first e multi-tenant. Peça a prova com os seus arquivos."}]</script>
 </head>
 <body>
 
+<a class="skip" href="#live">Ir para o conteúdo</a>
 <header>
  <div class="wrap nav">
-  <a class="brand" href="../">Conciliação Lerian</a>
+  <a class="brand" href="../"><svg class="wm" viewBox="0 0 1090.88 280" role="img" aria-label="Lerian"><path fill="currentColor" d="M 619.42,29.69 C 619.42,45.12 608.55,57.62 591.49,57.62 C 574.43,57.62 563.56,45.11 563.56,29.69 C 563.56,14.27 574.42,1.76 591.48,1.76 C 608.54,1.76 619.41,14.27 619.41,29.69 L 619.41,29.69 L 619.42,29.69 M 158.64,242.4 L 158.64,275.94 L 12.13,275.94 L 12.13,242.39 L 60.49,242.39 C 63.65,242.39 66.22,239.82 66.22,236.66 L 66.22,87.77 C 66.22,84.61 63.65,82.04 60.49,82.04 L 7.85,82.04 L 7.85,47.73 L 106.18,47.73 L 106.18,236.67 C 106.18,239.83 108.75,242.40 111.91,242.40 L 158.65,242.40 L 158.64,242.4 M 168.85,179.86 L 168.85,179.86 C 168.86,122.05 205.62,80.79 262.66,80.79 C 337.74,80.79 357.99,140.0 357.99,172.71 C 357.99,177.73 357.62,182.89 356.86,188.15 L 213.25,188.15 C 212.23,188.15 211.42,189.0 211.46,190.02 C 211.88,199.84 216.44,245.02 265.29,245.02 C 286.93,245.02 307.61,235.65 313.9,211.11 L 354.59,211.11 C 348.02,247.59 317.47,278.19 268.32,278.19 C 206.14,278.19 168.85,238.38 168.85,179.86 M 314.47,158.39 L 314.48,158.40 L 314.48,158.40 C 315.57,158.40 316.43,157.44 316.26,156.36 C 312.89,135.16 298.06,113.57 264.18,113.57 C 244.18,113.57 217.69,125.11 213.20,156.39 C 213.04,157.45 213.9,158.41 214.98,158.41 L 314.47,158.39 M 867.2,83.16 L 867.2,83.16 C 867.2,83.16 867.2,83.16 867.2,83.16 L 867.2,83.16 M 826.87,83.16 L 867.2,83.16 L 867.2,275.99 L 826.88,275.99 L 826.88,251.46 C 826.88,248.37 822.96,247.05 821.09,249.51 C 820.91,249.74 820.74,249.98 820.56,250.22 L 820.56,250.22 C 820.56,250.22 820.56,250.24 820.56,250.24 L 820.56,250.24 C 820.45,250.40 820.33,250.56 820.21,250.71 C 812.29,261.27 799.53,278.24 763.97,278.24 C 703.14,278.24 672.78,231.91 672.78,179.54 C 672.78,118.12 713.15,80.82 763.95,80.82 C 800.68,80.82 812.39,96.55 820.59,107.57 L 821.08,108.23 C 822.94,110.72 826.89,109.41 826.89,106.30 L 826.89,83.16 L 826.87,83.16 M 770.75,115.48 C 740.72,115.48 714.61,137.46 714.61,179.53 C 714.61,216.53 735.92,243.96 770.75,243.96 C 800.57,243.96 826.89,222.28 826.89,180.28 L 826.89,180.28 C 826.89,143.29 805.53,115.48 770.75,115.48 M 1063.39,101.7 C 1077.81,115.76 1085.03,138.37 1085.03,169.5 L 1085.03,275.75 L 1043.97,275.75 L 1043.97,171.76 C 1043.97,127.78 1021.62,115.62 998.01,115.62 C 966.02,115.62 946.41,138.84 946.41,178.54 L 946.41,275.75 L 905.73,275.75 L 905.73,83.15 L 945.66,83.15 L 945.66,108.22 C 945.66,111.33 949.61,112.62 951.48,110.14 C 960.03,98.74 978.20,80.62 1007.46,80.62 C 1045.01,80.62 1063.21,101.5 1063.39,101.7 L 1063.39,101.7 M 657.42,275.94 L 657.41,275.94 L 532.38,275.94 L 532.38,242.39 L 570.52,242.39 C 573.68,242.39 576.25,239.82 576.25,236.66 L 576.25,123.18 C 576.25,120.02 573.68,117.45 570.52,117.45 L 532.98,117.45 L 532.98,83.14 L 614.32,83.14 L 614.32,236.67 C 614.32,239.83 616.89,242.4 620.05,242.4 C 620.05,242.4 657.42,242.4 657.42,242.4 L 657.42,242.4 L 657.42,275.94 M 499.27,119.27 C 499.27,119.40 499.17,119.5 499.04,119.5 L 499.04,119.5 C 499.04,119.5 462.73,119.5 462.73,119.5 C 434.05,119.5 434.08,144.49 434.09,163.12 C 434.09,163.58 434.09,164.04 434.09,164.49 L 434.09,275.73 C 434.09,275.86 433.99,275.96 433.86,275.96 L 392.85,275.96 C 392.72,275.96 392.62,275.86 392.62,275.73 L 392.62,83.27 C 392.62,83.14 392.72,83.04 392.85,83.04 L 429.34,83.04 C 429.47,83.04 429.57,83.14 429.57,83.27 L 429.57,107.3 C 429.57,111.35 434.81,112.95 437.06,109.58 C 437.28,109.26 437.49,108.94 437.71,108.61 C 445.89,96.36 456.42,80.59 490.22,80.59 L 499.27,80.59 L 499.27,119.27 L 499.27,119.27"/></svg><span class="sep"></span><svg class="mi" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.57 28.40L31.29 32.00L20.57 35.60L3.60 35.40L0 35.35V63.99H21.61L22.15 63.82L43.01 57.04H64V6.96H43.01L22.15 0.18L21.61 0.00H0V28.65L20.57 28.40ZM21.13 24.84L3.55 25.05V21.49H3.60L20.57 21.29L41.31 28.26L41.86 28.44L41.31 28.63L36.87 30.12L21.13 24.83V24.84ZM60.44 53.49H42.45L21.05 60.45H3.55V56.89H21.61L22.15 56.72L43.01 49.94H60.45V53.49H60.44ZM60.44 35.56V46.38H42.45L21.05 53.34H3.55V38.96L21.13 39.17L36.87 33.88L42.45 32.00H60.44V35.56ZM60.44 24.89H42.45L21.13 17.73L3.55 17.94V3.56H21.05L42.45 10.51H60.44V24.89Z"/></svg><span class="pn">Matcher</span></a>
   <ul>
    <li><a class="nl" href="../adquirentes/">Adquirentes</a></li>
-   <li><a class="nl" href="../fintechs/" aria-current="page">PSPs e marketplaces</a></li>
+   <li><a class="nl" href="../fintechs/" aria-current="page">PSPs e fintechs</a></li>
    <li><a class="nl" href="../pix/">Pix</a></li>
+   <li><a class="nl" href="#mcp">MCP<span class="vh">, conexão com agentes</span></a></li>
    <li><a class="nl" href="https://docs.lerian.studio/en/products/matcher/what-is-matcher">Documentação</a></li>
   </ul>
-  <a class="btn btn-volt" href="#prova">Prova com os seus arquivos</a>
+  <a class="btn btn-spark" href="#demo">Falar com engenharia</a>
  </div>
 </header>
+<div class="fio" id="fio" aria-hidden="true"><i class="enche"></i></div>
 
-<!-- 1. HERÓI -->
-<section class="hero" id="live"><div class="wrap hero-grid">
-
- <div class="hero-txt">
-  <h1>Conciliação de pagamentos por provedor, split e repasse, com a sua marca.</h1>
-  <p class="lead">PSPs, gateways, marketplaces e fintechs de pagamento recebem um arquivo por provedor e fecham o repasse por merchant.</p>
- </div>
-
- <div class="console-frame">
-  <div class="regua">
-   <span>ciclo 18/09</span>
-   <span class="barra" aria-hidden="true"><i class="a"></i><i class="b"></i><i class="c"></i><u></u></span>
-   <span>D+0</span>
-  </div>
-
-  <div class="console" id="console">
-   <div class="console-top">
-    <span class="lbl">PSP e marketplace</span>
-    <span class="right lbl">dados ilustrativos</span>
-   </div>
-
-   <div class="cols console-rows">
-    <div class="col" id="colL">
-     <h4 id="headL">Provedor · 18/09</h4>
-     <div class="row"><span class="k">PED 77120 · M4412</span><span class="v">R$ 980,00<br><span class="d">09:12</span></span></div>
-     <div class="row"><span class="k">PED 77121 · M1098</span><span class="v">R$ 145,30<br><span class="d">09:12</span></span></div>
-     <div class="row"><span class="k">PED 77122 · M4412</span><span class="v">R$ 2.410,75<br><span class="d">09:13</span></span></div>
-     <div class="row"><span class="k">PED 77123 · M3301</span><span class="v">R$ 66,40<br><span class="d">09:13</span></span></div>
-     <div class="row"><span class="k">PED 77124 · M1098</span><span class="v">R$ 7.120,00<br><span class="d">09:14</span></span></div>
-     <div class="row"><span class="k">PED 77125 · M5520</span><span class="v">R$ 388,12<br><span class="d">09:14</span></span></div>
-     <div class="row"><span class="k">PED 77126 · M4412</span><span class="v">R$ 1.245,90<br><span class="d">09:15</span></span></div>
-     <div class="row"><span class="k">PED 77127 · M3301</span><span class="v">R$ 74,55<br><span class="d">09:15</span></span></div>
-    </div>
-    <div class="col" id="colR">
-     <h4 id="headR">Ledger · 18/09</h4>
-     <div class="row"><span class="k">PED 77120 · M4412</span><span class="v">R$ 980,00<br><span class="d">09:12</span></span></div>
-     <div class="row"><span class="k">PED 77121 · M1098</span><span class="v">R$ 145,30<br><span class="d">09:12</span></span></div>
-     <div class="row"><span class="k">PED 77122 · M4412</span><span class="v">R$ 2.410,75<br><span class="d">09:13</span></span></div>
-     <div class="row"><span class="k">PED 77123 · M3301</span><span class="v">R$ 66,40<br><span class="d">09:13</span></span></div>
-     <div class="row"><span class="k">PED 77124 · M1098</span><span class="v">R$ 7.120,00<br><span class="d">09:14</span></span></div>
-     <div class="row"><span class="k">PED 77125 · M5520</span><span class="v">R$ 388,12<br><span class="d">09:14</span></span></div>
-     <div class="row"><span class="k">PED 77126 · M4412</span><span class="v">R$ 1.245,90<br><span class="d">09:15</span></span></div>
-     <div class="row"><span class="k">PED 77127 · M3301</span><span class="v">R$ 74,55<br><span class="d">09:15</span></span></div>
-    </div>
-   </div>
-
-   <div class="exc">
-    <h4>Exceção</h4>
-    <div id="excList">
-     <div class="exc-row"><span class="m">PED 77118 · split 3,50%, esperado 3,10%</span><span class="o">Repasse<br>SLA 4h</span></div>
-    </div>
-   </div>
-
-   <div class="console-foot">
-    <span>motor de regras ativo</span>
-    <button class="tab" id="pause" type="button">Pausar</button>
-   </div>
-  </div>
- </div>
-
- <div class="hero-cta-wrap">
+<!-- 1. HERÓI: o aplicativo, claro, em camadas -->
+<section class="hero" id="live">
+ <div class="wrap hero-txt">
+  <span class="lbl eyebrow">Lerian Matcher</span>
+  <h1>Conciliação de pagamentos para PSPs e fintechs, com a sua marca e por API.</h1>
+  <p class="lead">PSPs, gateways, marketplaces e fintechs conciliam provedor e repasse no Matcher, com a sua marca. Setup em semanas, não meses.</p>
   <div class="hero-cta">
-   <a class="btn btn-volt" href="#prova">Prova com os seus arquivos</a>
-   <a class="link-sec" href="#como">Ver como funciona</a>
-  </div>
-  <div class="odo">
-   <span class="n" id="odo">1.284</span>
-   <span class="lbl">pares conciliados</span>
+   <a class="btn btn-spark" id="cta1" href="#prova">Ver com os meus arquivos</a>
+   <a class="btn btn-ghost" href="#demo">Falar com engenharia</a>
   </div>
  </div>
 
-</div></section>
+ <div class="wrap scene-wrap">
+ <div class="scene" id="scene" aria-hidden="true">
+  <svg class="glow" viewBox="0 0 400 400" aria-hidden="true" focusable="false"><circle cx="200" cy="200" r="196" fill="var(--spark)" opacity=".03"/><circle cx="200" cy="200" r="156" fill="var(--spark)" opacity=".03"/><circle cx="200" cy="200" r="116" fill="var(--spark)" opacity=".03"/><circle cx="200" cy="200" r="76" fill="var(--spark)" opacity=".03"/><circle cx="200" cy="200" r="40" fill="var(--spark)" opacity=".03"/></svg>
+  <div class="app" id="app">
+   <div class="side"><svg class="si" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.57 28.40L31.29 32.00L20.57 35.60L3.60 35.40L0 35.35V63.99H21.61L22.15 63.82L43.01 57.04H64V6.96H43.01L22.15 0.18L21.61 0.00H0V28.65L20.57 28.40ZM21.13 24.84L3.55 25.05V21.49H3.60L20.57 21.29L41.31 28.26L41.86 28.44L41.31 28.63L36.87 30.12L21.13 24.83V24.84ZM60.44 53.49H42.45L21.05 60.45H3.55V56.89H21.61L22.15 56.72L43.01 49.94H60.45V53.49H60.44ZM60.44 35.56V46.38H42.45L21.05 53.34H3.55V38.96L21.13 39.17L36.87 33.88L42.45 32.00H60.44V35.56ZM60.44 24.89H42.45L21.13 17.73L3.55 17.94V3.56H21.05L42.45 10.51H60.44V24.89Z"/></svg><span class="sn on">Conciliações</span><span class="sn">Exceções</span><span class="sn">Regras</span><span class="sn">Relatórios</span><span class="sn">Integrações</span></div>
+   <div class="main">
+    <div class="top">
+     <span class="tt">Marketplace · pedido, loja e repasse · hoje</span>
+     <span class="per">Hoje</span>
+     <span class="run">Rodar regras</span>
+    </div>
+    <div class="kpi">
+     <div><b id="kc">12.418</b><i>Casados</i></div>
+     <div><b id="ka">37</b><i>Em análise</i></div>
+     <div><b>6</b><i>Não casados</i></div>
+     <div><b>98</b><i>Confiança média</i></div>
+     <span class="ilu">dados ilustrativos</span>
+     <button class="pz" id="pause" type="button">Pausar</button>
+    </div>
+    <div class="tbl" id="feed"><div class="tr hr"><span class="th c0">Pedido</span><span class="th c1">Loja</span><span class="th c2">Valor R$</span><span class="th c3">Repasse</span><span class="th c4">Taxa</span><span class="th c5">Confiança</span><span class="th c6">Status</span></div><div class="tr"><span class="td c0">77120</span><span class="td c1">4412</span><span class="td c2">980,00</span><span class="td c3">12/09</span><span class="td c4">3,10%</span><span class="td c5">99</span><span class="td c6"><i class="chip ok">Casou</i></span></div><div class="tr z"><span class="td c0">77121</span><span class="td c1">1098</span><span class="td c2">145,30</span><span class="td c3">12/09</span><span class="td c4">3,10%</span><span class="td c5">97</span><span class="td c6"><i class="chip ok">Casou</i></span></div><div class="tr"><span class="td c0">77122</span><span class="td c1">4412</span><span class="td c2">2.410,75</span><span class="td c3">12/09</span><span class="td c4">3,50%</span><span class="td c5">90</span><span class="td c6"><i class="chip an">Em análise</i></span></div></div>
+   </div>
+   <div class="drw">
+    <span class="dh">Exceção</span>
+    <span class="dt">Pedido 77126 · loja 4412</span>
+    <div class="df"><span class="dk">Repasse aplicado</span><span class="dv">3,50%</span><span class="dk">Tabela vigente</span><span class="dv">3,10%</span><span class="dk">Dono</span><span class="dv">Repasse</span><span class="dk">Prazo</span><span class="dv">4h</span></div>
+    <span class="da"><i class="db">Atribuir</i><i class="db pr">Aplicar regra</i></span>
+   </div>
+  </div>
+  <div class="flut conf"><span class="cl">Confiança do par</span><span class="cn">99</span><span class="bar"><i></i></span></div>
+  <div class="flut regra"><span class="sw"><i></i></span><span class="rt">Taxa por loja e produto, simulada antes de aplicar</span></div>
+ </div>
+ </div>
+</section>
 
-<!-- 2. TIRA DE TRANSPARÊNCIA -->
-<div class="tira"><div class="wrap">
- <span>Lerian, infraestrutura financeira desde 2023</span><span class="sep">·</span>
- <a href="https://lerian.studio/sobre/">sobre a empresa</a><span class="sep">·</span>
- <a href="https://docs.lerian.studio/en/products/matcher/what-is-matcher">documentação pública</a><span class="sep">·</span>
- <a href="https://lerian.studio/contato/">falar com engenharia</a><span class="sep">·</span>
- <a href="https://lerian.studio/privacidade/">política de privacidade e LGPD</a>
+<!-- tira de promessas do anúncio -->
+<div class="promessas"><div class="wrap rv">
+  <div class="stg"><svg class="ic ip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 7h6M4 17h6"/><path d="M14 7h6M14 17h6"/><path d="m9 12 6 0"/><path d="m12.5 9 3 3-3 3"/></svg><span class="n spark">Cada pedido encontra o repasse</span><span class="ad">Matching N-way em escala.</span></div>
+  <div class="stg"><svg class="ic ip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M4 18 18 4"/><path d="M6.5 9.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/><path d="M17.5 19.5a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z"/></svg><span class="n">A taxa cobrada é a do contrato</span><span class="ad">Auditoria de MDR automática.</span></div>
+  <div class="stg"><svg class="ic ip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="8"/><path d="M12 7.5V12l3 2"/></svg><span class="n">Toda divergência tem dono e prazo</span><span class="ad">Exceções com fila e SLA.</span></div>
+  <div class="stg"><svg class="ic ip" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M3 6h18M3 12h12M3 18h7"/><path d="m16 17 2.2 2.2L22 15.5"/></svg><span class="n">Semanas, não meses</span><span class="ad">Setup em semanas, não meses.</span></div>
 </div></div>
 
-<!-- 3. PARA QUEM (âncora de busca) -->
-<section class="sec paper" id="operacoes"><div class="wrap">
- <div class="sec-head">
-  <h2>Para PSPs e fintechs: conciliação de pagamentos por regra</h2>
-  <p>Conciliação para PSP, conciliação para fintech e conciliação marketplace rodam no mesmo motor. Conciliação de split e repasse por merchant, conciliação para instituição de pagamento e conciliação white label, em conciliação em tempo real ou por ciclo.</p>
+<!-- 01. HOJE -->
+<section class="sec hoje" id="operacoes"><div class="wrap rv">
+ <p class="eb"><i></i>Hoje</p>
+ <div class="bh"><h2>Conciliação de pagamentos do provedor ao repasse</h2><span class="sub">Três perguntas do seu time, toda semana.</span></div>
+ <ol class="perg" id="perg">
+   <li class="cab"><span></span><span class="duo"><span>Hoje</span><span>Com o Matcher</span></span></li>
+   <li><h3>Quanto não bateu hoje?</h3><div class="duo"><p class="a">A loja cobra o extrato.</p><p class="b">Fecha por loja, todo dia.</p></div></li>
+   <li><h3>Quem responde por isso?</h3><div class="duo"><p class="a">A diferença circula sem dono.</p><p class="b">A diferença abre com dono e prazo.</p></div></li>
+   <li><h3>O repasse da loja está certo?</h3><div class="duo"><p class="a">A divisão do valor é reconferida sempre.</p><p class="b">A tabela vigente é a regra.</p></div></li>
+ </ol>
+ <div class="cena2" id="cena2" aria-hidden="true"></div><template id="tcena"><div><span class="cl">Hoje</span><div class="janela"><div class="rolo"><div class="ln"><span>77120</span><em>provedor</em><span>980,00</span></div><div class="ln"><span>77121</span><em>extrato</em><span>145,30</span></div><div class="ln solta"><span>77122</span><em>sem dono</em><span>2.410,75</span></div><div class="ln"><span>77123</span><em>provedor</em><span>66,40</span></div><div class="ln"><span>77124</span><em>extrato</em><span>7.120,00</span></div><div class="ln"><span>77125</span><em>livro-razão</em><span>388,12</span></div><div class="ln solta"><span>77126</span><em>sem dono</em><span>1.245,90</span></div><div class="ln"><span>77127</span><em>extrato</em><span>74,55</span></div><div class="ln"><span>77120</span><em>provedor</em><span>980,00</span></div><div class="ln"><span>77121</span><em>extrato</em><span>145,30</span></div><div class="ln solta"><span>77122</span><em>sem dono</em><span>2.410,75</span></div><div class="ln"><span>77123</span><em>provedor</em><span>66,40</span></div><div class="ln"><span>77124</span><em>extrato</em><span>7.120,00</span></div><div class="ln"><span>77125</span><em>livro-razão</em><span>388,12</span></div><div class="ln solta"><span>77126</span><em>sem dono</em><span>1.245,90</span></div><div class="ln"><span>77127</span><em>extrato</em><span>74,55</span></div></div></div></div><div><span class="cl">Com o Matcher</span><div class="par2"><span class="duo2"><b>77120</b><s>provedor + livro-razão</s></span><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 13 5 5L20 6"/></svg></div><div class="par2"><span class="duo2"><b>77121</b><s>provedor + livro-razão</s></span><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 13 5 5L20 6"/></svg></div><div class="par2"><span class="duo2"><b>77122</b><s>provedor + livro-razão</s></span><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 13 5 5L20 6"/></svg></div><div class="par2"><span class="duo2"><b>77123</b><s>provedor + livro-razão</s></span><svg class="tick" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m4 13 5 5L20 6"/></svg></div><div class="par2 exc"><span class="duo2"><b>77126</b><s>repasse fora da tabela</s></span><span class="dono">Repasse · 4h</span></div></div></template>
+</div></section>
+
+<!-- 02. COMO FUNCIONA -->
+<section class="sec paper" id="como"><div class="wrap rv">
+ <div class="bh">
+  <p class="eb"><i></i>Como funciona</p>
+  <h2>Conciliação em tempo real ou por ciclo, em três passos</h2><span class="sub">Do provedor ao extrato da loja.</span>
  </div>
- <div class="cols3">
-  <div class="opcol">
-   <h3>Provedor x split x repasse por merchant</h3>
-   <p>Um arquivo por provedor, layout seu, repasse por regra.</p>
-   <ul class="opl">
-    <li>arquivo por provedor</li>
-    <li>split e repasse conciliados</li>
-    <li>tabela por merchant</li>
-   </ul>
+ <div class="passos"><span class="trilho" aria-hidden="true"></span>
+   <div class="stg"><span class="d">1</span><h3>Recebe</h3><p>Entram os arquivos do provedor, o extrato e o seu livro-razão.</p><svg class="mini" viewBox="0 0 96 60" aria-hidden="true" focusable="false"><rect x="6" y="8" width="34" height="44" rx="1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><path d="M14 20h18M14 28h18M14 36h11" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><path d="M52 30h34" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" stroke-dasharray="5 5" class="dash"/><path d="m80 25 6 5-6 5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <div class="stg"><span class="d">2</span><h3>Casa</h3><p>Pedido, repasse, valor e data, com confiança de 0 a 100.</p><svg class="mini" viewBox="0 0 96 60" aria-hidden="true" focusable="false"><rect x="6" y="10" width="36" height="16" rx="1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><rect x="6" y="34" width="36" height="16" rx="1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><path d="M48 18h10a6 6 0 0 1 6 6v12a6 6 0 0 1-6 6h-10" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" class="dash" stroke-dasharray="4 4"/><path d="m74 30 5 5 9-11" fill="none" stroke="var(--green)" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+   <div class="stg"><span class="d">3</span><h3>Resolve</h3><p>O que sobra vira exceção com dono e prazo.</p><svg class="mini" viewBox="0 0 96 60" aria-hidden="true" focusable="false"><path d="M8 12v36" stroke="var(--red)" stroke-width="2.4" stroke-linecap="round"/><path d="M18 20h30M18 30h22" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round" opacity=".55"/><rect x="18" y="38" width="42" height="14" rx="1" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><circle cx="27" cy="45" r="3" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><path d="M34 45h18" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+ </div>
+</div></section>
+
+<!-- 03. MCP -->
+<section class="sec paper" id="mcp"><div class="wrap rv">
+ <div class="lado">
+  <p class="eb"><i></i>MCP</p>
+  <h2>A IA propõe. Você aprova. Nada roda sozinho.</h2>
+  <p class="mcp-nota">MCP, o protocolo de contexto, liga o Matcher ao seu agente.</p>
+  <p class="snip"><code>claude mcp add --transport http matcher https://mcp.matcher.lerian.studio/mcp</code></p>
+  <p class="docm"><a href="https://docs.lerian.studio/en/products/matcher/mcp/matcher-mcp-overview">Documentação do MCP</a></p>
+ </div>
+ <div class="term card" id="term">
+  <div class="term-top"><svg class="mi" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.57 28.40L31.29 32.00L20.57 35.60L3.60 35.40L0 35.35V63.99H21.61L22.15 63.82L43.01 57.04H64V6.96H43.01L22.15 0.18L21.61 0.00H0V28.65L20.57 28.40ZM21.13 24.84L3.55 25.05V21.49H3.60L20.57 21.29L41.31 28.26L41.86 28.44L41.31 28.63L36.87 30.12L21.13 24.83V24.84ZM60.44 53.49H42.45L21.05 60.45H3.55V56.89H21.61L22.15 56.72L43.01 49.94H60.45V53.49H60.44ZM60.44 35.56V46.38H42.45L21.05 53.34H3.55V38.96L21.13 39.17L36.87 33.88L42.45 32.00H60.44V35.56ZM60.44 24.89H42.45L21.13 17.73L3.55 17.94V3.56H21.05L42.45 10.51H60.44V24.89Z"/></svg><span class="tl" aria-hidden="true"></span></div>
+  <div class="pqs">
+     <button class="pq" type="button" data-r="0" aria-pressed="false">Divergências acima de R$ 1.000 ainda abertas?</button>
+     <button class="pq" type="button" data-r="1" aria-pressed="false">Proponha uma regra para a taxa da Visa</button>
+     <button class="pq" type="button" data-r="2" aria-pressed="false">Rode a conciliação de ontem de novo</button>
   </div>
-  <div class="opcol">
-   <h3>Marca branca e multi-tenant</h3>
-   <p>White-label, com a sua marca: ofereça conciliação à sua base.</p>
-   <ul class="opl">
-    <li>banco por tenant</li>
-    <li>multi-tenant</li>
-    <li>API-first</li>
-   </ul>
-  </div>
-  <div class="opcol">
-   <h3>Pendência com dono e prazo</h3>
-   <p>Exceções com dono e prazo, severidade e SLA.</p>
-   <ul class="opl">
-    <li>Jira e ServiceNow</li>
-    <li>webhook assinado</li>
-    <li>disputa com evidência</li>
-   </ul>
+  <div class="saida" id="mout" aria-hidden="true"></div>
+  <div class="term-pe">
+   <button class="aprovar" id="mok" type="button" hidden>Aprovar</button>
+   <p class="selo" id="msel" role="status"></p>
   </div>
  </div>
 </div></section>
 
-<!-- 4 e 5. COMO FUNCIONA (diagrama estático) + rodapé técnico de fatos de produto -->
-<section class="sec" id="como"><div class="wrap">
- <div class="sec-head">
-  <h2>Do provedor ao repasse, em cinco etapas</h2>
-  
- </div>
-
- <div class="trilho" aria-hidden="true"><span></span><span></span><span></span><span></span><span></span></div>
- <div class="fluxo">
-  <div class="no">
-   <span class="lbl">Etapa 01</span>
-   <h3>CNAB, EDI e OFX nativos</h3>
-   <p>Arquivo do provedor ou do adquirente.</p>
-   <span class="fonte">CNAB 240/400 · OFX · camt.053 · EDI · CSV · JSON</span>
-  </div>
-  <div class="no">
-   <span class="lbl">Etapa 02</span>
-   <h3>Tarifa modelada por regra</h3>
-   <p>A tabela de split vira regra.</p>
-   <span class="fonte">flat · percentual · escalonada</span>
-  </div>
-  <div class="no match-no">
-   <span class="lbl">Etapa 03</span>
-   <h3>Casar</h3>
-   <p>Por pedido, valor, data e merchant.</p>
-   <span class="fonte">confiança 0 a 100</span>
-  </div>
-  <div class="no exc-no">
-   <span class="lbl">Etapa 04</span>
-   <h3>Tratar a exceção</h3>
-   <p>A exceção abre com dono e prazo.</p>
-   <span class="fonte">Jira · ServiceNow · webhook</span>
-  </div>
-  <div class="no">
-   <span class="lbl">Etapa 05</span>
-   <h3>Auditar</h3>
-   <p>Cada decisão entra na trilha.</p>
-   <span class="fonte">hash encadeado</span>
-  </div>
- </div>
-
- <!-- P3: ponto para 3 números autorizados (volume em produção, formatos no catálogo, tempo de setup) -->
- <div class="fatos">
-  <div><span class="n">Layout do seu operador</span><span class="t">Posicional, registrado por você.</span></div>
-  <div><span class="n">1:N e N:M</span><span class="t">Um pedido em vários repasses.</span></div>
-  <div><span class="n volt">0 a 100</span><span class="t">Confiança por par.</span></div>
-  <div><span class="n">hash encadeado</span><span class="t">Trilha imutável.</span></div>
- </div>
-</div></section>
-
-<!-- 6. A OFERTA -->
-<section class="sec paper" id="prova"><div class="wrap">
+<!-- 04. PROVA -->
+<section class="sec" id="prova"><div class="wrap rv">
  <div class="oferta-grid">
   <div>
-   <h2>Prova com os seus arquivos</h2>
-   <p class="intro">Um ciclo seu, conciliado pela engenharia em dias úteis.</p>
+   <div class="bh"><p class="eb"><i></i>Prova</p><h2>Prova com os seus arquivos</h2></div>
+   <p class="cta-prova"><a class="btn btn-spark" href="#demo">Ver com os meus arquivos</a>
+    <a class="btn btn-ghost" href="#demo">Falar com engenharia</a></p>
+  </div>
+  <div class="prova-lado lev">
+   <svg class="cena" viewBox="0 0 560 132" aria-hidden="true" focusable="false"><g fill="none" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round" stroke-linecap="round"><rect x="8" y="26" width="92" height="80" rx="1" opacity=".5"/><path d="M26 48h56M26 62h56M26 76h40M26 90h30" opacity=".5"/><rect x="230" y="26" width="104" height="80" rx="1"/><rect x="460" y="26" width="92" height="80" rx="1" opacity=".5"/><path d="M478 48h56M478 62h56M478 76h40" opacity=".5"/></g><path class="seta" d="M108 66h114" fill="none" stroke="var(--spark)" stroke-width="2" stroke-dasharray="10 8" stroke-linecap="round"/><path d="m216 61 7 5-7 5" fill="none" stroke="var(--spark)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path class="seta s2" d="M342 66h110" fill="none" stroke="var(--green)" stroke-width="2" stroke-dasharray="10 8" stroke-linecap="round"/><path d="m446 61 7 5-7 5" fill="none" stroke="var(--green)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><g transform="translate(266,50)"><svg class="cm" viewBox="0 0 64 64" width="32" height="32"><path fill="var(--spark)" d="M20.57 28.40L31.29 32.00L20.57 35.60L3.60 35.40L0 35.35V63.99H21.61L22.15 63.82L43.01 57.04H64V6.96H43.01L22.15 0.18L21.61 0.00H0V28.65L20.57 28.40ZM21.13 24.84L3.55 25.05V21.49H3.60L20.57 21.29L41.31 28.26L41.86 28.44L41.31 28.63L36.87 30.12L21.13 24.83V24.84ZM60.44 53.49H42.45L21.05 60.45H3.55V56.89H21.61L22.15 56.72L43.01 49.94H60.45V53.49H60.44ZM60.44 35.56V46.38H42.45L21.05 53.34H3.55V38.96L21.13 39.17L36.87 33.88L42.45 32.00H60.44V35.56ZM60.44 24.89H42.45L21.13 17.73L3.55 17.94V3.56H21.05L42.45 10.51H60.44V24.89Z"/></svg></g></svg>
    <ol class="pass">
-    <li><span class="num">01</span><span>Você envia o arquivo de liquidação do provedor e a extração da sua plataforma.</span></li>
-    <li><span class="num">02</span><span>A engenharia registra o layout, modela o split, simula sem gravar.</span></li>
-    <li><span class="num">03</span><span>Você recebe o que bateu, o que não bateu e por quê.</span></li>
+     <li><span class="num">01</span><span>Você envia um ciclo de arquivos, mascarado.</span></li>
+     <li><span class="num">02</span><span>A engenharia registra o formato do arquivo e roda.</span></li>
+     <li><span class="num">03</span><span>Você recebe o que casou e cada exceção.</span></li>
    </ol>
   </div>
+ </div>
+</div></section>
 
+<!-- 05. POR QUE O MATCHER -->
+<section class="sec" id="porque"><div class="wrap rv">
+ <div class="lado">
+  <div class="bh"><p class="eb"><i></i>Por que</p><h2>Por que o Matcher em plataforma</h2>
+   <span class="sub">O que você defende na auditoria.</span></div>
+  <ul class="afirma" id="afirma">
+    <li class="ativa"><button type="button" data-t="0" aria-pressed="true">Cada venda encontra o par</button></li>
+    <li><button type="button" data-t="1" aria-pressed="false">Taxa conferida contrato a contrato<span class="ad">Tarifa modelada por regra.</span></button></li>
+    <li><button type="button" data-t="2" aria-pressed="false">Divergência com dono e prazo</button></li>
+    <li><button type="button" data-t="3" aria-pressed="false">Trilha que o auditor aceita<span class="ad">Trilha de auditoria completa.</span></button></li>
+  </ul>
+  <p class="tecnica">Para o seu time técnico: CNAB, EDI e OFX nativos, layout do seu operador, API-first e multi-tenant e MCP. Na <a href="https://docs.lerian.studio/en/products/matcher/what-is-matcher">documentação do Matcher</a>.</p>
+ </div>
+ <div class="telas" id="telas">
+  <div class="tb"><svg class="mi" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.57 28.40L31.29 32.00L20.57 35.60L3.60 35.40L0 35.35V63.99H21.61L22.15 63.82L43.01 57.04H64V6.96H43.01L22.15 0.18L21.61 0.00H0V28.65L20.57 28.40ZM21.13 24.84L3.55 25.05V21.49H3.60L20.57 21.29L41.31 28.26L41.86 28.44L41.31 28.63L36.87 30.12L21.13 24.83V24.84ZM60.44 53.49H42.45L21.05 60.45H3.55V56.89H21.61L22.15 56.72L43.01 49.94H60.45V53.49H60.44ZM60.44 35.56V46.38H42.45L21.05 53.34H3.55V38.96L21.13 39.17L36.87 33.88L42.45 32.00H60.44V35.56ZM60.44 24.89H42.45L21.13 17.73L3.55 17.94V3.56H21.05L42.45 10.51H60.44V24.89Z"/></svg><span>Matcher</span></div>
+  <div class="cx" id="cx" aria-hidden="true"></div><template id="ttelas"><div class="tela ver"><span class="tt2">Taxa por loja e produto</span><div class="lin"><b>4412 · faixa 1</b><span class="et n">3,10%</span></div><div class="lin"><b>1098 · faixa 1</b><span class="et n">3,10%</span></div><div class="lin"><b>4412 · faixa 2</b><span class="et a">3,50%</span></div><div class="simu" id="simu">Simulação em 12.418 linhas de ontem<br><b>casa 12.411</b> · sobram 7</div></div><div class="tela"><span class="tt2">Fila de exceções</span><div class="lin"><b>pedido 77126</b><span class="et r">Repasse · 4h</span></div><div class="lin"><b>pedido 77122</b><span class="et r">Repasse · 6h</span></div><div class="lin"><b>pedido 77125</b><span class="et a">em análise</span></div></div><div class="tela"><span class="tt2">Trilha de auditoria</span><div class="lin"><b>14:02 · regra aplicada</b><span class="et n">Backoffice</span></div><div class="lin"><b>14:06 · exceção atribuída</b><span class="et n">Repasse</span></div><div class="lin"><b>17:40 · decisão registrada</b><span class="et n">auditoria</span></div></div><div class="tela"><span class="tt2">O que casou</span><div class="lin"><b>pedido 77120 · 980,00</b><span class="et v">99</span></div><div class="lin"><b>pedido 77121 · 145,30</b><span class="et v">97</span></div><div class="lin"><b>pedido 77123 · 66,40</b><span class="et v">98</span></div></div></template>
+  <div class="pe"><button class="aprovar" id="tok" type="button">Aprovar</button>
+   <p class="selo" id="tsel" role="status"></p></div>
+ </div>
+</div></section>
+
+<!-- 06. COMPARANDO -->
+<section class="sec" id="comparando"><div class="wrap rv">
+ <div class="bh"><p class="eb"><i></i>Comparando</p><h2>Trocando de conciliação?</h2></div>
+ <table class="cmp">
+  <thead><tr><th>Critério</th><th>O que perguntar</th></tr></thead>
+  <tbody>
+    <tr><td>Uma venda, várias liquidações</td><td>O motor casa uma venda com vários repasses?</td></tr>
+    <tr><td>A taxa antes da comparação</td><td>A taxa entra antes da comparação?</td></tr>
+    <tr><td>Arquivo do seu operador</td><td>Registro o arquivo do meu operador sozinho?</td></tr>
+    <tr><td>Divergência com dono</td><td>Cada divergência sai com dono e prazo?</td></tr>
+    <tr><td>Trilha de auditoria</td><td>A trilha reconstrói uma decisão antiga?</td></tr>
+  </tbody>
+ </table>
+</div></section>
+
+<!-- 07. FALE COM QUEM CONSTRÓI -->
+<section class="sec demo" id="demo"><div class="wrap rv">
+ <div class="demo-grid">
+  <div>
+   <div class="bh"><p class="eb"><i></i>Contato</p><h2>Fale com quem constrói o Matcher</h2>
+    <span class="sub">Resposta da engenharia em dias úteis.</span></div>
+   <ul class="faq">
+     <li><h3>Conciliação para PSP, conciliação para fintech e conciliação marketplace?</h3><p>Mesmo motor. Conciliação de split, a divisão do valor entre as partes, e conciliação para instituição de pagamento mudam a regra, com conciliação white label, com a sua marca.</p></li>
+     <li><h3>Payment reconciliation e transaction matching, é isso?</h3><p>É. Reconciliation software e settlement reconciliation nomeiam o mesmo trabalho.</p></li>
+     <li><h3>Procurando alternativa em conciliação para fintechs?</h3><p>Conciliação sem lock-in, sem amarra para sair: a sua infra, API aberta e a prova rodada com dado seu.</p></li>
+     <li><h3>O Matcher roda com a marca do meu produto?</h3><p>Roda, com a sua marca, e por API, com um ambiente separado por cliente.</p></li>
+   </ul>
+  </div>
   <form onsubmit="return false" class="lf" id="lform" novalidate>
    <div><label for="c_name">Nome</label><input id="c_name" name="c_name" type="text" autocomplete="name" required></div>
    <div><label for="c_email">E-mail corporativo</label><input id="c_email" name="c_email" type="email" autocomplete="email" required></div>
@@ -329,132 +235,266 @@ header{border-bottom:1px solid var(--rule);background:var(--ink)}
    </div>
    <div><label for="c_volume">Volume mensal de transações (opcional)</label><input id="c_volume" name="c_volume" type="text"></div>
    <div class="hp" aria-hidden="true"><label for="c_website">Site</label><input id="c_website" name="c_website" type="text" tabindex="-1" autocomplete="off"></div>
-   <button class="btn btn-volt lf-submit" type="submit">Pedir a prova</button>
+   <button class="btn btn-spark lf-submit" type="submit">Pedir a prova</button>
    <p class="fine">Arquivos sob confidencialidade. Dado mascarado é aceito. <a href="https://lerian.studio/privacidade/">Política de privacidade</a></p>
   </form>
-
  </div>
-</div></section>
-
-<!-- 7. COMPARANDO (destino da conquest) -->
-<section class="sec" id="comparando"><div class="wrap">
- <div class="sec-head">
-  <h2>Comparando ferramentas de conciliação? Sete critérios</h2>
-  <p>Trocando de conciliação? Alternativa em conciliação para fintechs, critério a critério. Conciliação sem lock-in: sua infra, seu dado, API aberta.</p>
- </div>
- <table class="cmp">
-  <thead><tr><th>Critério</th><th>Como a Lerian responde</th></tr></thead>
-  <tbody>
-   <tr><td>Tarifa modelada</td><td>Flat, percentual, escalonada ou por expressão.</td></tr>
-   <tr><td>Layout do seu operador</td><td>Posicional, registrado por você.</td></tr>
-   <tr><td>Relações de casamento</td><td>1:1, 1:N e N:M, com tolerância.</td></tr>
-   <tr><td>Decisão e confiança</td><td>0 a 100 por par, auto-confirmação acima de 90.</td></tr>
-   <tr><td>Exceção</td><td>Dono, severidade, prazo e disputa.</td></tr>
-   <tr><td>Simulação antes de aplicar</td><td>Regra e tarifa contra dado real, sem gravar.</td></tr>
-   <tr><td>Auditoria</td><td>Trilha imutável com hash encadeado.</td></tr>
-  </tbody>
- </table>
-</div></section>
-
-<!-- 8. TÉCNICA -->
-<section class="sec tec" id="tecnica"><div class="wrap">
- <div class="sec-head"><h2>Por baixo: o Matcher</h2>
-  <p>Payment reconciliation, transaction matching, settlement reconciliation, reconciliation software: se você chama assim.</p>
- </div>
- <div class="tecgrid">
-  <div><h3>API idempotente</h3><p>Ingestão, regra e exceção.</p></div>
-  <div><h3>Servidor MCP nativo</h3><p>Assistente de IA, nas permissões do token. <a class="link-sec" href="https://matcher.lerian.studio/mcp/">Servidor MCP</a></p></div>
-  <div><h3>Webhooks assinados</h3><p>Exceção e fechamento em HMAC.</p></div>
-  <div><h3>Sua infra ou Lerian Cloud</h3><p>Helm, banco por tenant, com ou sem o ledger Midaz.</p></div>
- </div>
- <p class="docs"><a class="link-sec" href="https://docs.lerian.studio/en/products/matcher/what-is-matcher">Documentação do Matcher</a></p>
 </div></section>
 
 <footer><div class="wrap">
+ <div class="fbrand"><svg class="wm" viewBox="0 0 1090.88 280" role="img" aria-label="Lerian"><path fill="currentColor" d="M 619.42,29.69 C 619.42,45.12 608.55,57.62 591.49,57.62 C 574.43,57.62 563.56,45.11 563.56,29.69 C 563.56,14.27 574.42,1.76 591.48,1.76 C 608.54,1.76 619.41,14.27 619.41,29.69 L 619.41,29.69 L 619.42,29.69 M 158.64,242.4 L 158.64,275.94 L 12.13,275.94 L 12.13,242.39 L 60.49,242.39 C 63.65,242.39 66.22,239.82 66.22,236.66 L 66.22,87.77 C 66.22,84.61 63.65,82.04 60.49,82.04 L 7.85,82.04 L 7.85,47.73 L 106.18,47.73 L 106.18,236.67 C 106.18,239.83 108.75,242.40 111.91,242.40 L 158.65,242.40 L 158.64,242.4 M 168.85,179.86 L 168.85,179.86 C 168.86,122.05 205.62,80.79 262.66,80.79 C 337.74,80.79 357.99,140.0 357.99,172.71 C 357.99,177.73 357.62,182.89 356.86,188.15 L 213.25,188.15 C 212.23,188.15 211.42,189.0 211.46,190.02 C 211.88,199.84 216.44,245.02 265.29,245.02 C 286.93,245.02 307.61,235.65 313.9,211.11 L 354.59,211.11 C 348.02,247.59 317.47,278.19 268.32,278.19 C 206.14,278.19 168.85,238.38 168.85,179.86 M 314.47,158.39 L 314.48,158.40 L 314.48,158.40 C 315.57,158.40 316.43,157.44 316.26,156.36 C 312.89,135.16 298.06,113.57 264.18,113.57 C 244.18,113.57 217.69,125.11 213.20,156.39 C 213.04,157.45 213.9,158.41 214.98,158.41 L 314.47,158.39 M 867.2,83.16 L 867.2,83.16 C 867.2,83.16 867.2,83.16 867.2,83.16 L 867.2,83.16 M 826.87,83.16 L 867.2,83.16 L 867.2,275.99 L 826.88,275.99 L 826.88,251.46 C 826.88,248.37 822.96,247.05 821.09,249.51 C 820.91,249.74 820.74,249.98 820.56,250.22 L 820.56,250.22 C 820.56,250.22 820.56,250.24 820.56,250.24 L 820.56,250.24 C 820.45,250.40 820.33,250.56 820.21,250.71 C 812.29,261.27 799.53,278.24 763.97,278.24 C 703.14,278.24 672.78,231.91 672.78,179.54 C 672.78,118.12 713.15,80.82 763.95,80.82 C 800.68,80.82 812.39,96.55 820.59,107.57 L 821.08,108.23 C 822.94,110.72 826.89,109.41 826.89,106.30 L 826.89,83.16 L 826.87,83.16 M 770.75,115.48 C 740.72,115.48 714.61,137.46 714.61,179.53 C 714.61,216.53 735.92,243.96 770.75,243.96 C 800.57,243.96 826.89,222.28 826.89,180.28 L 826.89,180.28 C 826.89,143.29 805.53,115.48 770.75,115.48 M 1063.39,101.7 C 1077.81,115.76 1085.03,138.37 1085.03,169.5 L 1085.03,275.75 L 1043.97,275.75 L 1043.97,171.76 C 1043.97,127.78 1021.62,115.62 998.01,115.62 C 966.02,115.62 946.41,138.84 946.41,178.54 L 946.41,275.75 L 905.73,275.75 L 905.73,83.15 L 945.66,83.15 L 945.66,108.22 C 945.66,111.33 949.61,112.62 951.48,110.14 C 960.03,98.74 978.20,80.62 1007.46,80.62 C 1045.01,80.62 1063.21,101.5 1063.39,101.7 L 1063.39,101.7 M 657.42,275.94 L 657.41,275.94 L 532.38,275.94 L 532.38,242.39 L 570.52,242.39 C 573.68,242.39 576.25,239.82 576.25,236.66 L 576.25,123.18 C 576.25,120.02 573.68,117.45 570.52,117.45 L 532.98,117.45 L 532.98,83.14 L 614.32,83.14 L 614.32,236.67 C 614.32,239.83 616.89,242.4 620.05,242.4 C 620.05,242.4 657.42,242.4 657.42,242.4 L 657.42,242.4 L 657.42,275.94 M 499.27,119.27 C 499.27,119.40 499.17,119.5 499.04,119.5 L 499.04,119.5 C 499.04,119.5 462.73,119.5 462.73,119.5 C 434.05,119.5 434.08,144.49 434.09,163.12 C 434.09,163.58 434.09,164.04 434.09,164.49 L 434.09,275.73 C 434.09,275.86 433.99,275.96 433.86,275.96 L 392.85,275.96 C 392.72,275.96 392.62,275.86 392.62,275.73 L 392.62,83.27 C 392.62,83.14 392.72,83.04 392.85,83.04 L 429.34,83.04 C 429.47,83.04 429.57,83.14 429.57,83.27 L 429.57,107.3 C 429.57,111.35 434.81,112.95 437.06,109.58 C 437.28,109.26 437.49,108.94 437.71,108.61 C 445.89,96.36 456.42,80.59 490.22,80.59 L 499.27,80.59 L 499.27,119.27 L 499.27,119.27"/></svg><span class="sep"></span><svg class="mi" viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path fill="currentColor" d="M20.57 28.40L31.29 32.00L20.57 35.60L3.60 35.40L0 35.35V63.99H21.61L22.15 63.82L43.01 57.04H64V6.96H43.01L22.15 0.18L21.61 0.00H0V28.65L20.57 28.40ZM21.13 24.84L3.55 25.05V21.49H3.60L20.57 21.29L41.31 28.26L41.86 28.44L41.31 28.63L36.87 30.12L21.13 24.83V24.84ZM60.44 53.49H42.45L21.05 60.45H3.55V56.89H21.61L22.15 56.72L43.01 49.94H60.45V53.49H60.44ZM60.44 35.56V46.38H42.45L21.05 53.34H3.55V38.96L21.13 39.17L36.87 33.88L42.45 32.00H60.44V35.56ZM60.44 24.89H42.45L21.13 17.73L3.55 17.94V3.56H21.05L42.45 10.51H60.44V24.89Z"/></svg><span class="pn">Matcher</span></div>
  <ul>
   <li><a href="https://lerian.studio/sobre/">Sobre</a></li>
   <li><a href="https://docs.lerian.studio/en/products/matcher/what-is-matcher">Documentação</a></li>
+  <li><a href="#mcp">MCP</a></li>
   <li><a href="https://lerian.studio/contato/">Contato</a></li>
   <li><a href="https://lerian.studio/privacidade/">Privacidade</a></li>
  </ul>
- <p>Matcher é o motor de conciliação da Lerian.</p>
- <p>Lerian Studio · Brasil</p>
+ <p class="fseg">Segmentos
+  <a href="../adquirentes/">conciliação de adquirentes</a>
+  <a href="../fintechs/">conciliação para PSP</a>
+  <a href="../pix/">conciliação Pix</a>
+ </p>
+ <p>Matcher, o motor de conciliação da Lerian. Lerian Studio, Brasil. <a href="mailto:contato@lerian.studio">contato@lerian.studio</a></p>
 </div></footer>
 
 <script>
-/* Console do herói: único elemento vivo da página. Aqui o conjunto é fixo em PSP e
-   marketplace. O primeiro quadro já está no HTML; isto é a camada de movimento,
-   pausável e parada sob prefers-reduced-motion. */
+var R=[["77120", "4412", "980,00", "12/09", "3,10%", "99", "casou"], ["77121", "1098", "145,30", "12/09", "3,10%", "97", "casou"], ["77122", "4412", "2.410,75", "12/09", "3,50%", "90", "analise"], ["77123", "3301", "66,40", "12/09", "3,10%", "98", "casou"], ["77124", "1098", "7.120,00", "13/09", "3,10%", "96", "casou"], ["77125", "5520", "388,12", "13/09", "3,10%", "93", "analise"], ["77126", "4412", "1.245,90", "13/09", "3,50%", "70", "excecao"], ["77127", "3301", "74,55", "13/09", "3,10%", "97", "casou"]],MR=[[["Abertas acima de R$ 1.000", "7"], ["Maior diferença", "R$ 2.790,00 · taxa"], ["Sugestão", "abrir exceção com dono e prazo"]], [["Regra proposta", "taxa por bandeira e faixa"], ["Simulação em 12.418 linhas", "casa 12.411"], ["Sobra", "7 exceções"]], [["Ciclo de ontem", "recarregado"], ["Reconciliação", "pronta para rodar"], ["Nada aplicado", "aguardando aprovação"]]],
+    REDUZ=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+var SELO='<span class="ck">✓</span> registrado na trilha <span aria-hidden="true">· 14:02</span>';
+function AR(fn){
+ var f=0;
+ function g(){f=0;fn()}
+ window.addEventListener("scroll",function(){if(!f) f=requestAnimationFrame(g)},{passive:true});
+ window.addEventListener("resize",g);
+ return g;
+}
 (function(){
- var D={
-  rows:[["PED 77128 · M4412","R$ 1.402,55"],["PED 77129 · M1098","R$ 87,90"],["PED 77130 · M5520","R$ 3.318,00"],["PED 77131 · M3301","R$ 654,20"],["PED 77132 · M4412","R$ 1.870,45"],["PED 77133 · M1098","R$ 229,99"],["PED 77134 · M5520","R$ 4.011,30"],["PED 77135 · M3301","R$ 512,66"]],
-  exc:[["split 3,50%, esperado 3,10%","Repasse","SLA 4h"],["repasse sem pedido correspondente","Repasse","SLA 8h"],["merchant fora da tabela vigente","Produto","SLA 24h"]]
- };
- var colL=document.getElementById("colL"),colR=document.getElementById("colR"),
-     excList=document.getElementById("excList"),odo=document.getElementById("odo"),
-     pause=document.getElementById("pause");
- if(!colL||!odo) return;
- var i=0,pairs=0,count=1284,paused=false;
- var reduz=window.matchMedia&&window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+ var INI=3;
+ var feed=document.getElementById("feed"),pause=document.getElementById("pause"),
+     kc=document.getElementById("kc"),ka=document.getElementById("ka");
+ if(!feed||!pause) return;
+ var CHIP={casou:["Casou","ok"],analise:["Em análise","an"],excecao:["Exceção","ex"]};
+ var i=INI,cas=12418,ana=37,pausado=false,k=INI,reduz=REDUZ;
 
- function esc(s){return String(s).replace(/[&<>]/g,function(c){return {"&":"&amp;","<":"&lt;",">":"&gt;"}[c]})}
- function mkRow(k,v,t){
-  var d=document.createElement("div");d.className="row";
-  d.innerHTML='<span class="k">'+esc(k)+'</span><span class="v">'+esc(v)+'<br><span class="d">'+esc(t)+'</span></span>';
+ function linha(r,n){
+  var d=document.createElement("div");
+  d.className="tr"+(n%2?" z":"")+" nova";
+  var h="",j;
+  for(j=0;j<6;j++) h+='<span class="td c'+j+'">'+r[j]+"</span>";
+  var c=CHIP[r[6]];
+  h+='<span class="td c6"><i class="chip '+c[1]+'">'+c[0]+"</i></span>";
+  d.innerHTML=h;
   return d;
  }
- function hora(){var m=12+Math.floor(pairs/4);return "09:"+("0"+(m%60)).slice(-2)}
- function fmt(n){return n.toLocaleString("pt-BR")}
+ function nasce(r,n,atraso){
+  var d=linha(r,n);
+  feed.appendChild(d);
+  setTimeout(function(){d.className=d.className.replace(" nova","")},atraso);
+ }
+ 
+ for(;i<R.length;i++)(function(r,n,t){
+  setTimeout(function(){nasce(r,n,20)},t);
+ })(R[i],i,320+(i-INI)*90);
 
+ function fmt(n){return n.toLocaleString?n.toLocaleString("pt-BR"):String(n)}
  function passo(){
-  if(paused) return;
-  var linha=D.rows[i%D.rows.length];i++;
-  var t=hora(),a=mkRow(linha[0],linha[1],t),b=mkRow(linha[0],linha[1],t);
-  colL.appendChild(a);colR.appendChild(b);
-  while(colL.children.length>9) colL.removeChild(colL.children[1]);
-  while(colR.children.length>9) colR.removeChild(colR.children[1]);
-  setTimeout(function(){
-   a.classList.add("matched");b.classList.add("matched");
-   setTimeout(function(){
-    a.classList.add("gone");b.classList.add("gone");
-    pairs++;
-    if(pairs%8===0){
-     excecao();
-     /* o odômetro reage ao mesmo evento, com micro-atraso */
-     setTimeout(function(){count+=2;odo.textContent=fmt(count);odo.classList.add("tick");
-      setTimeout(function(){odo.classList.remove("tick")},180)},120);
-    }else{
-     count+=2;odo.textContent=fmt(count);
-    }
-    setTimeout(function(){
-     if(a.parentNode)a.parentNode.removeChild(a);
-     if(b.parentNode)b.parentNode.removeChild(b);
-    },260);
-   },420);
-  },360);
+  if(pausado) return;
+  var an=feed.querySelector(".chip.an");
+  if(an){
+   an.className="chip ok";an.textContent="Casou";
+   cas++;ana--;
+   if(kc) kc.textContent=fmt(cas);
+   if(ka) ka.textContent=String(ana);
+  }
+  var r=R[k%R.length].slice();k++;
+  r[6]=k%4===0?"excecao":"analise";
+  if(r[6]==="analise"){ana++;if(ka) ka.textContent=String(ana)}
+  nasce(r,k,20);
+  while(feed.children.length>R.length+1) feed.removeChild(feed.children[1]);
  }
-
- function excecao(){
-  var e=D.exc[Math.floor(pairs/8)%D.exc.length];
-  var linha=document.createElement("div");linha.className="exc-row";
-  linha.style.opacity="0";linha.style.transform="translateY(8px)";
-  linha.innerHTML='<span class="m">'+esc(D.rows[(i+3)%D.rows.length][0])+' · '+esc(e[0])+'</span><span class="o">'+esc(e[1])+'<br>'+esc(e[2])+'</span>';
-  excList.insertBefore(linha,excList.firstChild);
-  requestAnimationFrame(function(){linha.style.opacity="1";linha.style.transform="none"});
-  while(excList.children.length>3) excList.removeChild(excList.lastChild);
- }
-
  pause.addEventListener("click",function(){
-  paused=!paused;pause.textContent=paused?"Retomar":"Pausar";
+  pausado=!pausado;pause.textContent=pausado?"Retomar":"Pausar";
  });
-
- if(reduz){paused=true;pause.textContent="Retomar"}
- setInterval(passo,1200);
+ if(reduz){pausado=true;pause.textContent="Retomar"}
+ setInterval(passo,2400);
 })();
 
-/* Formulário -> API de conversões do RD -> conversão do Google Ads no 200 do RD.
-   Portado do PR 54. O disparo é no clique do .lf-submit e no Enter, nunca no
-   evento submit: o loader do RD escuta submit e criaria uma segunda conversão. */
+(function(){
+ if(REDUZ||!("IntersectionObserver" in window)) return;
+ document.documentElement.className+=" js";
+ var alvos=[].slice.call(document.querySelectorAll(".rv"));
+ var io=new IntersectionObserver(function(es){
+  es.forEach(function(e){if(e.isIntersecting){e.target.className+=" on";io.unobserve(e.target)}});
+ },{rootMargin:"0px 0px -8% 0px"});
+ alvos.forEach(function(a){io.observe(a)});
+})();
+
+(function(){
+ var hero=document.getElementById("live"),cena=document.getElementById("scene");
+ if(!hero||!cena) return;
+ if(REDUZ||window.innerWidth<769) return;
+ var cam=[[cena.querySelector(".app"),.3],[cena.querySelector(".conf"),1.2],
+          [cena.querySelector(".regra"),1.5]];
+ var luz=hero.querySelector(".cursor"),mx=0,my=0,sy=0,lx=0,ly=0,f=0;
+ function lim(v,t){return v<-t?-t:v>t?t:v}
+ function pinta(){
+  f=0;
+  for(var i=0;i<cam.length;i++){
+   var el=cam[i][0],d=cam[i][1];
+   if(el) el.style.transform="translate3d("+lim(mx*d,14)+"px,"+lim((my+sy)*d,14)+"px,0)";
+  }
+  if(luz) luz.style.transform="translate3d("+lx+"px,"+ly+"px,0)";
+ }
+ function pede(){if(!f) f=requestAnimationFrame(pinta)}
+ hero.addEventListener("mousemove",function(e){
+  var r=hero.getBoundingClientRect();
+  lx=e.clientX-r.left;ly=e.clientY-r.top;
+  hero.classList.add("viva");
+  var c=cena.getBoundingClientRect();
+  mx=((e.clientX-c.left)/c.width-.5)*18;
+  my=((e.clientY-c.top)/c.height-.5)*18;
+  pede();
+ });
+ hero.addEventListener("mouseleave",function(){mx=0;my=0;hero.classList.remove("viva");pede()});
+ window.addEventListener("scroll",function(){
+  sy=Math.max(-10,Math.min(10,(window.pageYOffset||0)/34));pede();
+ },{passive:true});
+})();
+
+(function(){
+ var passos=document.querySelector(".passos");
+ if(!passos) return;
+ var trilho=passos.querySelector(".trilho"),
+     itens=[].slice.call(passos.children).filter(function(e){return e!==trilho});
+ if(REDUZ){itens.forEach(function(e){e.classList.add("ativo")});return}
+ function mede(){
+  var r=passos.getBoundingClientRect();
+  var p=(window.innerHeight*.42-r.top)/r.height;
+  if(trilho) trilho.style.setProperty("--p",Math.max(0,Math.min(1,p)));
+  itens.forEach(function(e){
+   var b=e.getBoundingClientRect();
+   e.classList.toggle("ativo",b.top<window.innerHeight*.66&&b.bottom>window.innerHeight*.14);
+  });
+ }
+ AR(mede)();
+})();
+
+(function(){
+ [["cena2","tcena"],["cx","ttelas"]].forEach(function(x){
+  var d=document.getElementById(x[0]),t=document.getElementById(x[1]);
+  if(d&&t&&t.content) d.appendChild(t.content.cloneNode(true));
+ });
+})();
+
+(function(){
+ var fio=document.getElementById("fio"),c1=document.getElementById("cta1"),
+     sb=document.querySelector(".lf-submit");
+ if(!fio||!c1||!sb) return;
+ var enche=fio.querySelector(".enche"),nos=[],topo=0,alt=0;
+ [["operacoes",0],["como",1],["mcp",1],["prova",0],["porque",0],["comparando",0],["demo",0]]
+ .forEach(function(x){
+  var s=document.getElementById(x[0]);
+  if(!s) return;
+  var i=document.createElement("i");
+  i.className="no"+(x[1]?" claro":"");
+  fio.appendChild(i);nos.push([i,s,x[1]?" claro":""]);
+ });
+ function pos(el){return el.getBoundingClientRect().top+(window.pageYOffset||0)}
+ function mede(){
+  topo=pos(c1)+c1.offsetHeight/2;
+  alt=pos(sb)+sb.offsetHeight/2-topo;
+  if(alt<240) return;
+  fio.style.top=topo+"px";fio.style.height=alt+"px";
+  for(var i=0;i<nos.length;i++){
+   var e=nos[i][1].querySelector(".eb");
+   var y=(e?pos(e)+e.offsetHeight/2:pos(nos[i][1]))-topo;
+   nos[i][0].style.top=(y-6)+"px";nos[i][3]=y;
+  }
+  fio.className="fio pronto";pinta();
+ }
+ function pinta(){
+  var h=REDUZ?alt:Math.max(0,Math.min(alt,(window.pageYOffset||0)+window.innerHeight*.58-topo));
+  enche.style.height=h+"px";
+  for(var i=0;i<nos.length;i++){
+   var on=h>=nos[i][3];
+   nos[i][0].className="no"+nos[i][2]+(on?" aceso":"");
+   if(on) nos[i][1].className+="";
+  }
+ }
+ AR(pinta);window.addEventListener("resize",mede);
+ mede();setTimeout(mede,700);window.addEventListener("load",mede);
+})();
+
+(function(){
+ var ol=document.getElementById("perg");
+ if(!ol) return;
+ var lis=[].slice.call(ol.children).filter(function(l){return l.className!=="cab"});
+ if(!lis.length) return;
+ if(REDUZ){lis.forEach(function(l){l.className="viva"});return}
+ function mede(){
+  var alvo=window.innerHeight*.44,melhor=null,d=1e9;
+  lis.forEach(function(l){
+   var e=l.querySelector("h3");if(!e) return;
+   var r=e.getBoundingClientRect(),x=Math.abs(r.top+r.height/2-alvo);
+   if(x<d){d=x;melhor=l}
+  });
+  lis.forEach(function(l){l.className=l===melhor?"viva":""});
+ }
+ AR(mede)();
+})();
+
+(function(){
+ var t=document.getElementById("term");
+ if(!t) return;
+ var out=document.getElementById("mout"),ok=document.getElementById("mok"),
+     sel=document.getElementById("msel"),tm=0;
+ function digita(l,k){
+  if(k>=l.length){out.className="saida";ok.hidden=false;return}
+  var d=document.createElement("span");
+  d.className="li2";d.innerHTML=l[k][0]+" <b>"+l[k][1]+"</b>";
+  out.appendChild(d);
+  tm=setTimeout(function(){digita(l,k+1)},REDUZ?0:360);
+ }
+ [].forEach.call(t.querySelectorAll(".pq"),function(b){
+  b.addEventListener("click",function(){
+   clearTimeout(tm);
+   [].forEach.call(t.querySelectorAll(".pq"),function(o){
+    o.setAttribute("aria-pressed",o===b?"true":"false")});
+   out.innerHTML="";out.className="saida cur";sel.textContent="";
+   ok.hidden=true;ok.disabled=false;ok.textContent="Aprovar";
+   digita(MR[+b.getAttribute("data-r")],0);
+  });
+ });
+ ok.addEventListener("click",function(){
+  ok.disabled=true;ok.textContent="Aprovado";
+  sel.innerHTML='<span class="ck">✓</span> registrado na trilha <span aria-hidden="true">· 14:02</span>';
+ });
+})();
+
+(function(){
+ var ul=document.getElementById("afirma"),tl=document.getElementById("telas");
+ if(!ul||!tl) return;
+ var bs=[].slice.call(ul.querySelectorAll("button")),
+     ts=[].slice.call(tl.querySelectorAll(".tela")),
+     ok=document.getElementById("tok"),sel=document.getElementById("tsel"),
+     simu=document.getElementById("simu");
+ function vai(i){
+  bs.forEach(function(b,k){
+   b.setAttribute("aria-pressed",k===i?"true":"false");
+   b.parentNode.className=k===i?"ativa":"";
+  });
+  ts.forEach(function(t,k){t.className="tela"+(k===i?" ver":"")});
+  ok.hidden=i!==0;
+ }
+ bs.forEach(function(b,i){b.addEventListener("click",function(){vai(i)})});
+ ok.addEventListener("click",function(){
+  ok.disabled=true;ok.textContent="Aprovada";
+  if(simu) simu.innerHTML="Regra ativa desde 14:02<br><b>simulada antes de valer</b>";
+  sel.innerHTML='<span class="ck">✓</span> registrado na trilha <span aria-hidden="true">· 14:02</span>';
+ });
+})();
+
 (function(){
  var RD_URL='about:blank';
  var CONV_ID='formulario-lp-matcher';
